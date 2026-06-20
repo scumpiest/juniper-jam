@@ -1,0 +1,32 @@
+[gd_scene format=4 uid="uid://dx2jtjfiuaset"]
+
+[ext_resource type="Texture2D" uid="uid://dmdq16kv24t0f" path="res://assets/tiles.png" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://b3h7xeh1degr5" path="res://scenes/ground_area.gd" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://b1tclv1q0ff3p" path="res://scenes/placement_manager.gd" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://5y6bxjisotpe" path="res://scenes/Wheat/wheat_harvestable.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/player.tscn" id="5_tbgi4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
+texture = ExtResource("1_sugp2")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jyhfs"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_jyhfs")
+
+[node name="Main" type="Node2D" unique_id=1293231205]
+
+[node name="GroundArea" type="TileMapLayer" parent="." unique_id=2065868343]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAMAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAACAAQAAAAAAAAAAAAAAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAIAAAABAAAAAAAAAAEAAAABAAAAAAABAAAAAAABAAAAAAACAAEAAAABAAAAAAADAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAMAAAABAAAAAAADAAQAAAABAAAAAAACAAMAAAABAAAAAAADAAIAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_jyhfs")
+script = ExtResource("2_jyhfs")
+
+[node name="PlacementManager" type="Node2D" parent="." unique_id=1740750886 node_paths=PackedStringArray("ground_area", "player")]
+script = ExtResource("3_tbgi4")
+ground_area = NodePath("../GroundArea")
+plant_scene = ExtResource("4_jyhfs")
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=2141744375 instance=ExtResource("5_tbgi4")]

@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://5y6bxjisotpe"]
 
 [ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_wdtv3"]
+[ext_resource type="Script" uid="uid://cvscq8lin5g8q" path="res://scenes/Wheat/wheat_seed.gd" id="2_harvest"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0gb"]
-size = Vector2(16, 16)
+size = Vector2(59, 62)
 
-[node name="WheatSeed" type="Area2D" unique_id=1573222525]
-collision_layer = 16
-collision_mask = 0
+[node name="WheatSeed" type="Area2D" unique_id=1573222525 groups=["crops"]]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("2_harvest")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=514444288]
 position = Vector2(0, -6)
@@ -15,5 +17,150 @@ texture = ExtResource("1_wdtv3")
 region_enabled = true
 region_rect = Rect2(64, 0, 16, 16)
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2006958331]
+position = Vector2(-13, -6)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=66783754]
+position = Vector2(13, -6)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=157944109]
+position = Vector2(26, -6)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1020800218]
+position = Vector2(-26, -6)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=793940997]
+position = Vector2(0, 7)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=1343404302]
+position = Vector2(-13, 7)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=2103988392]
+position = Vector2(13, 7)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=236198443]
+position = Vector2(26, 7)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=578134686]
+position = Vector2(-26, 7)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D11" type="Sprite2D" parent="." unique_id=118705116]
+position = Vector2(0, 21)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D12" type="Sprite2D" parent="." unique_id=1190966510]
+position = Vector2(-13, 21)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D13" type="Sprite2D" parent="." unique_id=532900357]
+position = Vector2(13, 21)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D14" type="Sprite2D" parent="." unique_id=254038426]
+position = Vector2(26, 21)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D15" type="Sprite2D" parent="." unique_id=1647618967]
+position = Vector2(-26, 21)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D16" type="Sprite2D" parent="." unique_id=500481630]
+position = Vector2(0, -20)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D17" type="Sprite2D" parent="." unique_id=1217456034]
+position = Vector2(-13, -20)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D18" type="Sprite2D" parent="." unique_id=481798165]
+position = Vector2(13, -20)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D19" type="Sprite2D" parent="." unique_id=1151792121]
+position = Vector2(26, -20)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D20" type="Sprite2D" parent="." unique_id=971921997]
+position = Vector2(-26, -20)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D21" type="Sprite2D" parent="." unique_id=2094327370]
+position = Vector2(0, -34)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D22" type="Sprite2D" parent="." unique_id=930365835]
+position = Vector2(-13, -34)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D23" type="Sprite2D" parent="." unique_id=1380747556]
+position = Vector2(13, -34)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D24" type="Sprite2D" parent="." unique_id=478935558]
+position = Vector2(26, -34)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Sprite2D25" type="Sprite2D" parent="." unique_id=1379479139]
+position = Vector2(-26, -34)
+texture = ExtResource("1_wdtv3")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=872622678]
+position = Vector2(0.5, -7)
 shape = SubResource("RectangleShape2D_pg0gb")
