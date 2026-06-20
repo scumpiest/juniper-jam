@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PlantRes" format=3 uid="uid://v8cej4xqxubh"]
+
+[ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_hu1fx"]
+[ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://scripts/plant_resource.gd" id="2_1sna3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icmds"]
+atlas = ExtResource("1_hu1fx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo2rt"]
+atlas = ExtResource("1_hu1fx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2215"]
+atlas = ExtResource("1_hu1fx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aghe"]
+atlas = ExtResource("1_hu1fx")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_1sna3")
+plant_name = "Wheat"
+stage_1 = SubResource("AtlasTexture_uo2rt")
+stage_2 = SubResource("AtlasTexture_y2215")
+stage_3 = SubResource("AtlasTexture_2aghe")
+harvestable = SubResource("AtlasTexture_icmds")
+metadata/_custom_type_script = "uid://pd7dellu40h4"

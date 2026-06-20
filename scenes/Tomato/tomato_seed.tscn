@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbo3hx74hhxto"]
+
+[ext_resource type="Script" uid="uid://brd84ba8mqv8w" path="res://scenes/Tomato/tomato_seed.gd" id="1_ptmiu"]
+[ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_qjhsb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xv227"]
+radius = 5.0
+
+[node name="tomato_seed" type="Area2D" unique_id=476766531]
+script = ExtResource("1_ptmiu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=971342831]
+texture = ExtResource("1_qjhsb")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137484227]
+shape = SubResource("CircleShape2D_xv227")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
