@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://wnp6xliec8nm" path="res://sprites/tileset_temp/Grass.png" id="1_fjghx"]
 [ext_resource type="Texture2D" uid="uid://bopayr3psrtyj" path="res://sprites/tileset_temp/Tilled_Dirt_v2.png" id="2_oyfl7"]
-[ext_resource type="PackedScene" uid="uid://y3g2jjhgfjvd" path="res://scenes/Wheat/wheat_seed.tscn" id="3_oyfl7"]
+[ext_resource type="PackedScene" uid="uid://y3g2jjhgfjvd" path="res://scenes/plant/plant.tscn" id="3_oyfl7"]
 [ext_resource type="PackedScene" uid="uid://bbo3hx74hhxto" path="res://scenes/Tomato/tomato_seed.tscn" id="4_uo2rt"]
 
 [sub_resource type="Environment" id="Environment_xv227"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://y3g2jjhgfjvd"]
+
+[ext_resource type="Script" path="res://scenes/plant/plant.gd" id="1_plant"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0gb"]
+size = Vector2(13, 6.5)
+
+[node name="Plant" type="Area2D" groups=["crops"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_plant")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.25)
+shape = SubResource("RectangleShape2D_pg0gb")

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
+@export var speed: float = 200.0
 
 @onready var _harvest_area: Area2D = $HarvestArea
 

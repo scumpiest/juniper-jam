@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CrossbreedRecipe" load_steps=5 format=3 uid="uid://crecipewhtom01"]
+
+[ext_resource type="Script" path="res://resources/crossbreed_recipe.gd" id="1_script"]
+[ext_resource type="Resource" uid="uid://cplantwheat001" path="res://resources/plants/wheat.tres" id="2_wheat"]
+[ext_resource type="Resource" uid="uid://cplanttomato01" path="res://resources/plants/tomato.tres" id="3_tomato"]
+[ext_resource type="Resource" uid="uid://cplantpumpkin1" path="res://resources/plants/pumpkin.tres" id="4_pumpkin"]
+
+[resource]
+script = ExtResource("1_script")
+parent_a = ExtResource("2_wheat")
+parent_b = ExtResource("3_tomato")
+result = ExtResource("4_pumpkin")
+chance = 1.0
