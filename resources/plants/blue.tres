@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://bgass444n5nmm"]
+
+[ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="1_cp20h"]
+[ext_resource type="Texture2D" uid="uid://bq6ro7xq1cron" path="res://sprites/plants_temp/sc_grow_plant_001_32p/sc_grow_plant_001_1.png" id="1_o02tp"]
+[ext_resource type="Texture2D" uid="uid://byvlurxcknvfi" path="res://sprites/plants_temp/sc_grow_plant_001_32p/sc_grow_plant_001_0.png" id="2_o8g4a"]
+[ext_resource type="Texture2D" uid="uid://srpkaeria25m" path="res://sprites/plants_temp/sc_grow_plant_001_32p/sc_grow_plant_001_2.png" id="3_xnq6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o02tp"]
+atlas = ExtResource("1_o02tp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs5mi"]
+atlas = ExtResource("2_o8g4a")
+region = Rect2(8, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8g4a"]
+atlas = ExtResource("3_xnq6o")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_cp20h")
+id = &"blue"
+plant_name = "Blue"
+initial_stage = SubResource("AtlasTexture_bs5mi")
+growing_stage = SubResource("AtlasTexture_o02tp")
+mature_stage = SubResource("AtlasTexture_o8g4a")
+metadata/_custom_type_script = "uid://pd7dellu40h4"
