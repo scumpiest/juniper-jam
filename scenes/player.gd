@@ -21,8 +21,14 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("harvest"):
 		_try_harvest()
+	if event.is_action_pressed("water"):
+		_try_water()
 
 
+func _try_water() -> void:
+	for area in _harvest_area.get_overlapping_areas():
+		if area.is_in_group("crops") and not area._is_watered:
+			area._is_watered = true
 func _try_harvest() -> void:
 	for area in _harvest_area.get_overlapping_areas():
 		if area.is_in_group("crops") and area.has_method("harvest"):

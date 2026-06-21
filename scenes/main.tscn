@@ -96,3 +96,18 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=2141744375 instance=ExtResource("5_tbgi4")]
 position = Vector2(477, 198)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140806622]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1284041041]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press \"E\" to plant
+Press \"Space\" to harvest
+Press \"F\" to water
+Plants cannot grow unless watered for each stage"

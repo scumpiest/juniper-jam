@@ -9,6 +9,7 @@ var _grow_timer: float = 0.0
 var _tile: Vector2i
 var _first_seed: PlantResource
 var _is_crossbred: bool = false
+var _is_watered : bool = false
 
 @onready var _sprite: Sprite2D = $Sprite2D
 
@@ -46,12 +47,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if data == null or _current_stage >= FINAL_STAGE:
 		return
-
-	_grow_timer += delta
-	if _grow_timer >= data.grow_speed:
-		_grow_timer = 0.0
-		_current_stage += 1
-		_update_sprite()
+	
+	if _is_watered :
+		_grow_timer += delta
+		if _grow_timer >= data.grow_speed:
+			_grow_timer = 0.0
+			_current_stage += 1
+			_update_sprite()
 
 
 func harvest() -> void:
@@ -70,6 +72,7 @@ func _update_sprite() -> void:
 	if data == null:
 		return
 	_sprite.texture = data.get_stage_texture(_current_stage)
+	_is_watered = false
 
 
 func _reset_growth() -> void:
