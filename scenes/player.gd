@@ -19,19 +19,19 @@ func _process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("spin"):
+	if event.is_action_pressed("harvest"):
 		_try_harvest()
 
 
 func _try_harvest() -> void:
-	for crop in _overlapping_crops:
-		if crop.has_method("harvest"):
-			crop.harvest()
-			return
+	for area in _harvest_area.get_overlapping_areas():
+		if area.is_in_group("crops") and area.has_method("harvest"):
+			area.harvest()
 
 
 func _on_crop_entered(area: Area2D) -> void:
 	if area.is_in_group("crops"):
+		#print("Crop entered: ", area.name, " - ", _overlapping_crops.size())
 		_overlapping_crops.append(area)
 
 
