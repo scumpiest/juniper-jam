@@ -3,9 +3,8 @@ extends Node
 # Add new plants here
 const WHEAT: PlantResource = preload("res://resources/plants/wheat.tres")
 const TOMATO: PlantResource = preload("res://resources/plants/tomato.tres")
-const PUMPKIN: PlantResource = preload("res://resources/plants/pumpkin.tres")
 const RECIPE_WHEAT_TOMATO: CrossbreedRecipe = preload(
-	"res://resources/crossbreed_recipes/wheat_tomato_pumpkin.tres"
+	"res://resources/crossbreed_recipes/wheat_tomato.tres"
 )
 
 var _plants_by_id: Dictionary = {}
@@ -14,7 +13,7 @@ var _recipes: Array[CrossbreedRecipe] = []
 
 func _ready() -> void:
 	# Add new plants here
-	for plant: PlantResource in [WHEAT, TOMATO, PUMPKIN]:
+	for plant: PlantResource in [WHEAT, TOMATO]:
 		_plants_by_id[plant.id] = plant
 	_recipes = [RECIPE_WHEAT_TOMATO]
 
