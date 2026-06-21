@@ -2,6 +2,7 @@ extends Area2D
 
 const FINAL_STAGE := 2
 
+@export var dropped_item_scene: PackedScene
 @export var data: PlantResource
 
 var _current_stage: int = 0
@@ -20,7 +21,8 @@ func setup(plant_data: PlantResource, tile: Vector2i) -> void:
 	_tile = tile
 	_is_crossbred = false
 	_reset_growth()
-	_update_sprite()
+	if is_node_ready():
+		_update_sprite()
 
 
 func has_first_seed_only() -> bool:
@@ -56,20 +58,55 @@ func _process(delta: float) -> void:
 			_update_sprite()
 
 
+func water() -> void:
+	if not _is_watered:
+		_is_watered = true
+
+
 func harvest() -> void:
-	if data == null:
+	if data == null or _current_stage < FINAL_STAGE:
 		return
 
 	var ground := get_parent()
+	var drop_position := global_position
 	if ground != null and ground.has_method("free_tile"):
 		ground.free_tile(self)
 
-	GlobalData.add_harvest(data)
+	var drop_parent := get_tree().current_scene
+	_spawn_drops(drop_position, drop_parent)
 	queue_free()
 
 
+func _spawn_drops(world_position: Vector2, parent: Node) -> void:
+	if parent == null or data == null:
+		return
+
+	if data.product != null:
+		for i in data.product_amount:
+			var product_offset := Vector2(-6 + i * 4, 0)
+			_spawn_product_drop(parent, world_position + product_offset, data.product)
+	if data.seed_item != null:
+		for i in data.seed_amount:
+			var seed_offset := Vector2(6, -4 + i * 4)
+			_spawn_seed_drop(parent, world_position + seed_offset, data.seed_item)
+
+
+func _spawn_product_drop(parent: Node, world_position: Vector2, product_data: ProductResource) -> void:
+	var drop := dropped_item_scene.instantiate()
+	parent.add_child(drop)
+	drop.global_position = world_position
+	drop.setup_product(product_data)
+
+
+func _spawn_seed_drop(parent: Node, world_position: Vector2, seed_data: SeedResource) -> void:
+	var drop := dropped_item_scene.instantiate()
+	parent.add_child(drop)
+	drop.global_position = world_position
+	drop.setup_seed(seed_data)
+
+
 func _update_sprite() -> void:
-	if data == null:
+	if not is_node_ready() or data == null:
 		return
 	_sprite.texture = data.get_stage_texture(_current_stage)
 	_is_watered = false

@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_atlas"]
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="2_script"]
+[ext_resource type="Resource" uid="uid://cprodwheat001" path="res://resources/products/wheat.tres" id="3_product"]
+[ext_resource type="Resource" uid="uid://cseedwheat001" path="res://resources/seeds/wheat.tres" id="4_seed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_growing"]
 atlas = ExtResource("1_atlas")
@@ -22,3 +24,5 @@ plant_name = "Wheat"
 initial_stage = SubResource("AtlasTexture_initial")
 growing_stage = SubResource("AtlasTexture_growing")
 mature_stage = SubResource("AtlasTexture_mature")
+product = ExtResource("3_product")
+seed_item = ExtResource("4_seed")

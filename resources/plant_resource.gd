@@ -11,7 +11,10 @@ class_name PlantResource
 @export var growing_stage: AtlasTexture
 @export var mature_stage: AtlasTexture
 
-# TODO: Add a way to set the grow speed(certain actions like watering or fertilizing is required to continue growing)
+@export var product: ProductResource
+@export var seed_item: SeedResource
+@export var product_amount: int = 1
+@export var seed_amount: int = 2
 @export var grow_speed: float = 0.6
 
 

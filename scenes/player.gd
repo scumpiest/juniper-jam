@@ -27,8 +27,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _try_water() -> void:
 	for area in _harvest_area.get_overlapping_areas():
-		if area.is_in_group("crops") and not area._is_watered:
-			area._is_watered = true
+		if area.is_in_group("crops") and area.has_method("water"):
+			area.water()
+
+
 func _try_harvest() -> void:
 	for area in _harvest_area.get_overlapping_areas():
 		if area.is_in_group("crops") and area.has_method("harvest"):

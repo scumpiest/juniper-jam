@@ -5,7 +5,8 @@ const TILE_SIZE = 32
 var plant_selected: PlantResource
 var slot_1: PlantResource
 var slot_2: PlantResource
-var harvest_counts: Dictionary = { }
+var product_counts: Dictionary = {}
+var seed_counts: Dictionary = {}
 
 
 func _ready() -> void:
@@ -21,7 +22,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		plant_selected = slot_2
 
 
-func add_harvest(plant: PlantResource) -> void:
-	if plant == null:
+func add_product(product: ProductResource, amount: int = 1) -> void:
+	if product == null:
 		return
-	harvest_counts[plant.id] = harvest_counts.get(plant.id, 0) + 1
+	product_counts[product.id] = product_counts.get(product.id, 0) + amount
+
+
+func add_seed(seed_item: SeedResource, amount: int = 1) -> void:
+	if seed_item == null:
+		return
+	seed_counts[seed_item.id] = seed_counts.get(seed_item.id, 0) + amount
