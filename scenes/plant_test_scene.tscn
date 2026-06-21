@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://wnp6xliec8nm" path="res://sprites/tileset_temp/Grass.png" id="1_fjghx"]
 [ext_resource type="Texture2D" uid="uid://bopayr3psrtyj" path="res://sprites/tileset_temp/Tilled_Dirt_v2.png" id="2_oyfl7"]
-[ext_resource type="PackedScene" uid="uid://y3g2jjhgfjvd" path="res://scenes/plant/plant.tscn" id="3_oyfl7"]
 
 [sub_resource type="Environment" id="Environment_xv227"]
+glow_enabled = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8iog"]
 texture = ExtResource("1_fjghx")
@@ -334,7 +334,7 @@ terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_lqe7f")
 
-[node name="PlantTestScene" type="Node2D" unique_id=474479556]
+[node name="TestScene" type="Node2D" unique_id=474479556]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=944727681]
 environment = SubResource("Environment_xv227")
@@ -350,6 +350,3 @@ tile_set = SubResource("TileSet_3yu3n")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1849206133]
 position = Vector2(275, 119)
 zoom = Vector2(2, 2)
-
-[node name="WheatSeed" parent="." unique_id=1980504695 instance=ExtResource("3_oyfl7")]
-position = Vector2(145, 49)

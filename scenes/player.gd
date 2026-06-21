@@ -33,13 +33,14 @@ func _try_water() -> void:
 
 func _try_harvest() -> void:
 	for area in _harvest_area.get_overlapping_areas():
-		if area.is_in_group("crops") and area.has_method("harvest"):
+		if area.is_in_group("crops") and area.has_method("harvest") and area._current_stage >= area.FINAL_STAGE:
 			area.harvest()
 
 
 func _on_crop_entered(area: Area2D) -> void:
 	if area.is_in_group("crops"):
 		#print("Crop entered: ", area.name, " - ", _overlapping_crops.size())
+		area.sway_animation()
 		_overlapping_crops.append(area)
 
 

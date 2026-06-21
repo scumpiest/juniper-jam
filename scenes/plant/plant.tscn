@@ -7,7 +7,7 @@
 size = Vector2(13, 6.5)
 
 [node name="Plant" type="Area2D" unique_id=1984079974 groups=["crops"]]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_plant")
 dropped_item_scene = ExtResource("2_gm68k")

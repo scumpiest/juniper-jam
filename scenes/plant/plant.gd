@@ -12,6 +12,8 @@ var _first_seed: PlantResource
 var _is_crossbred: bool = false
 var _is_watered : bool = false
 
+var tween : Tween
+
 @onready var _sprite: Sprite2D = $Sprite2D
 
 
@@ -44,7 +46,8 @@ func try_crossbreed_with(second: PlantResource) -> bool:
 func _ready() -> void:
 	if data != null:
 		_update_sprite()
-
+	
+	
 
 func _process(delta: float) -> void:
 	if data == null or _current_stage >= FINAL_STAGE:
@@ -123,3 +126,24 @@ func _apply_crossbreed(result: PlantResource) -> void:
 	_is_crossbred = true
 	_reset_growth()
 	_update_sprite()
+	
+#handle sway animation
+
+func sway_animation():
+	reset_tween()
+	tween.tween_property(_sprite, "rotation_degrees", 15 ,0.1).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(_sprite, "scale", Vector2(1.1, 0.9),0.1).set_trans(Tween.TRANS_SINE)
+	
+	tween.tween_property(_sprite, "rotation_degrees", -8.0, 0.1)
+	tween.tween_property(_sprite, "scale", Vector2(0.9, 1.1), 0.1)
+	
+	tween.tween_property(_sprite, "rotation_degrees", 0.0, 0.15).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(_sprite, "scale", Vector2(1, 1), 0.15).set_trans(Tween.TRANS_BOUNCE)
+	
+	
+
+func reset_tween():
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	
