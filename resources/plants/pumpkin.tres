@@ -13,7 +13,7 @@ region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mature"]
 atlas = ExtResource("1_atlas")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_script")

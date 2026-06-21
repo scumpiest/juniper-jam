@@ -33,6 +33,14 @@ func is_tile_empty(tile_coords: Vector2i) -> bool:
 	return is_tile_in_bounds(tile_coords) and not occupied_tiles.has(tile_coords)
 
 
+func get_plant_at(tile: Vector2i) -> Node:
+	return occupied_tiles.get(tile)
+
+
+func can_plant_first_seed(tile: Vector2i) -> bool:
+	return is_tile_in_bounds(tile) and not occupied_tiles.has(tile)
+
+
 func free_tile(plant: Node2D) -> void:
 	for tile: Vector2i in occupied_tiles:
 		if occupied_tiles[tile] == plant:
