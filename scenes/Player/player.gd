@@ -30,11 +30,11 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if _can_move:
-		velocity = direction * speed
-	move_and_slide()
-
+	#var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	#if _can_move:
+	#	velocity = direction * speed
+	#move_and_slide()
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if _can_move:
@@ -46,10 +46,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		inventory_ui.visible = !inventory_ui.visible
 		get_tree().paused = !get_tree().paused
 		_can_move = !_can_move
-	if _can_move and event.is_action_pressed("spin"):
-		_start_spin()
-	if _can_move and event.is_action_released("spin"):
-		_stop_spin()
+	#if _can_move and event.is_action_pressed("spin"):
+	#	_start_spin()
+	#if _can_move and event.is_action_released("spin"):
+	#	_stop_spin()
 
 
 func _start_spin() -> void:

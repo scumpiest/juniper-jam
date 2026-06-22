@@ -3,7 +3,7 @@ class_name MovingState
 
 @export var player : CharacterBody2D 
 
-@export var speed : float = 200.0
+
 
 func enter():
 	print(self.name)
@@ -11,7 +11,7 @@ func enter():
 func physics_update(delta : float):
 	if player and  player._can_move:
 		var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-		player.velocity = direction * speed
+		player.velocity = direction * player.speed
 		player.move_and_slide()
 		
 		if direction == Vector2.ZERO:
@@ -25,3 +25,5 @@ func _input(event: InputEvent) -> void:
 			transitioned.emit(self, "WateringState")
 		if event.is_action_pressed("plant_seeds"):
 			transitioned.emit(self, "PlantingState")
+		if event.is_action_pressed("spin"):
+			transitioned.emit(self, "SpinningState")

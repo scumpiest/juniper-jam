@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ciove08ddvm1s" path="res://scenes/States/HarvestState.gd" id="7_a06cl"]
 [ext_resource type="Script" uid="uid://cp5xip800scyr" path="res://scenes/States/WateringState.gd" id="8_dl1wr"]
 [ext_resource type="Script" uid="uid://chcj7idnd6bgj" path="res://scenes/States/PlantingState.gd" id="9_wwtew"]
+[ext_resource type="Script" uid="uid://x1gmejvrbamt" path="res://scenes/States/SpinningState.gd" id="10_uxo23"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqkch"]
 texture = ExtResource("2_qhqgy")
@@ -136,3 +137,8 @@ metadata/_custom_type_script = "uid://cp5xip800scyr"
 [node name="PlantingState" type="Node" parent="StateMachine" unique_id=1511707049]
 script = ExtResource("9_wwtew")
 metadata/_custom_type_script = "uid://chcj7idnd6bgj"
+
+[node name="SpinningState" type="Node" parent="StateMachine" unique_id=82780980 node_paths=PackedStringArray("player")]
+script = ExtResource("10_uxo23")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://x1gmejvrbamt"
