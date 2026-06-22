@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://b5v30qii1i8w3"]
+
+[ext_resource type="PackedScene" uid="uid://3b1mocgiiua1" path="res://scenes/UI/upgrade_node.tscn" id="1_jeeb3"]
+
+[node name="Skilltree" type="Panel" unique_id=694997367]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=104521792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=106302068]
+layout_mode = 2
+
+[node name="TreeCanvas" type="Control" parent="MarginContainer/CenterContainer" unique_id=1982736451]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+
+[node name="Root" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=702462050 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 336.0
+offset_top = 268.0
+offset_right = 400.0
+offset_bottom = 332.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Up1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 336.0
+offset_top = 168.0
+offset_right = 400.0
+offset_bottom = 232.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Up2L" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 266.0
+offset_top = 68.0
+offset_right = 330.0
+offset_bottom = 132.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Up2R" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 406.0
+offset_top = 68.0
+offset_right = 470.0
+offset_bottom = 132.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Left1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 236.0
+offset_top = 268.0
+offset_right = 300.0
+offset_bottom = 332.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Left2" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 136.0
+offset_top = 268.0
+offset_right = 200.0
+offset_bottom = 332.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Right1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 436.0
+offset_top = 268.0
+offset_right = 500.0
+offset_bottom = 332.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Right2" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1695082176 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 536.0
+offset_top = 268.0
+offset_right = 600.0
+offset_bottom = 332.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Down1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 336.0
+offset_top = 368.0
+offset_right = 400.0
+offset_bottom = 432.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Down2L" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 266.0
+offset_top = 468.0
+offset_right = 330.0
+offset_bottom = 532.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Down2R" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 406.0
+offset_top = 468.0
+offset_right = 470.0
+offset_bottom = 532.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=181083924]
+position = Vector2(536, 307)
+zoom = Vector2(2, 2)

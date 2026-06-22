@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://cfpegnecflb3y"]
 
 [ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_atlas"]
+[ext_resource type="Resource" uid="uid://cprodtomato01" path="res://resources/products/tomato.tres" id="2_pgbac"]
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="2_script"]
+[ext_resource type="Resource" uid="uid://cseedtomato01" path="res://resources/seeds/tomato.tres" id="4_4ldsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_growing"]
 atlas = ExtResource("1_atlas")
@@ -22,3 +24,5 @@ plant_name = "Tomato"
 initial_stage = SubResource("AtlasTexture_initial")
 growing_stage = SubResource("AtlasTexture_growing")
 mature_stage = SubResource("AtlasTexture_mature")
+product = ExtResource("2_pgbac")
+seed_item = ExtResource("4_4ldsa")
