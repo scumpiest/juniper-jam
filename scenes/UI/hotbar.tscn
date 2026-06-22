@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d4nkaow8q86gb"]
+
+[ext_resource type="PackedScene" uid="uid://1odqdfu3o1wd" path="res://scenes/slot.tscn" id="1_yj1xu"]
+
+[node name="Hotbar" type="PanelContainer"]
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 1.0
+anchor_right = 0.504
+anchor_bottom = 1.0
+offset_left = -187.60803
+offset_top = -100.0
+offset_right = 234.39197
+offset_bottom = -36.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="Slot" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+slot_index = 0
+
+[node name="Slot2" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+slot_index = 1
+
+[node name="Slot3" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+slot_index = 2
+
+[node name="Slot4" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+slot_index = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="SlotWatering" parent="HBoxContainer2/HBoxContainer2" instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+
+[node name="SlotCutting" parent="HBoxContainer2/HBoxContainer2" instance=ExtResource("1_yj1xu")]
+layout_mode = 2

@@ -1,8 +1,14 @@
 [gd_resource type="Resource" script_class="ProductResource" format=3 uid="uid://cprodtomato01"]
 
+[ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_f3co8"]
 [ext_resource type="Script" uid="uid://bh6ipqgjkxv6f" path="res://resources/product_resource.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk5w0"]
+atlas = ExtResource("1_f3co8")
+region = Rect2(80, 16, 16, 16)
 
 [resource]
 script = ExtResource("2_script")
 id = &"tomato"
 product_name = "Tomato"
+icon = SubResource("AtlasTexture_uk5w0")

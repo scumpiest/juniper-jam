@@ -66,6 +66,10 @@ func water() -> void:
 		_is_watered = true
 
 
+func is_ready_to_harvest() -> bool:
+	return _current_stage >= FINAL_STAGE
+
+
 func harvest() -> void:
 	if data == null or _current_stage < FINAL_STAGE:
 		return

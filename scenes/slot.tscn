@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://cq4bj462hjaae"]
+[gd_scene format=3 uid="uid://1odqdfu3o1wd"]
 
-[ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="1_4v6ba"]
+[ext_resource type="Script" uid="uid://ki7takyk7v5h" path="res://scenes/slot.gd" id="1_slot"]
 
-[node name="Slot" type="PanelContainer" unique_id=702462050]
+[node name="Slot" type="PanelContainer" unique_id=1171020822]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,9 +11,17 @@ offset_bottom = -520.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_slot")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1932417968]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=635952175]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_4v6ba")
 expand_mode = 1
+
+[node name="Amount" type="Label" parent="." unique_id=745959118]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 2

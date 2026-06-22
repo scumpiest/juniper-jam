@@ -63,6 +63,8 @@ size = Vector2(32, 32)
 process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
+spin_duration = 10.0
+rotation_reset_speed = 360.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=930348045]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)

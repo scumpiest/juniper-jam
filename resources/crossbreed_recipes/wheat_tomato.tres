@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CrossbreedRecipe" format=3 uid="uid://dddp5oxe8ec7"]
 
-[ext_resource type="Script" uid="uid://b1u4rwykbkewx" path="res://resources/crossbreed_recipe.gd" id="1_script"]
-[ext_resource type="Resource" uid="uid://cfpegp53flm3y" path="res://resources/plants/wheat.tres" id="2_wheat"]
-[ext_resource type="Resource" uid="uid://ck08gfqg6afqh" path="res://resources/plants/blue_flower.tres" id="3_q2f8j"]
-[ext_resource type="Resource" uid="uid://cfpegnecflb3y" path="res://resources/plants/tomato.tres" id="3_tomato"]
+[ext_resource type="Resource" uid="uid://cfpegp53flm3y" path="res://resources/plants/wheat.tres" id="1_6xigf"]
+[ext_resource type="Resource" uid="uid://cfpegnecflb3y" path="res://resources/plants/tomato.tres" id="2_jp41u"]
+[ext_resource type="Resource" uid="uid://ck08gfqg6afqh" path="res://resources/plants/blue_flower.tres" id="3_4opw3"]
+[ext_resource type="Script" uid="uid://b1u4rwykbkewx" path="res://resources/crossbreed_recipe.gd" id="4_othkl"]
 
 [resource]
-script = ExtResource("1_script")
-parent_a = ExtResource("2_wheat")
-parent_b = ExtResource("3_tomato")
-result = ExtResource("3_q2f8j")
+script = ExtResource("4_othkl")
+parent_a = ExtResource("1_6xigf")
+parent_b = ExtResource("2_jp41u")
+result = ExtResource("3_4opw3")
