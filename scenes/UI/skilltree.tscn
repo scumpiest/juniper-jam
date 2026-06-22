@@ -6,6 +6,7 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 504.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -21,156 +22,166 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=106302068]
-layout_mode = 2
-
-[node name="TreeCanvas" type="Control" parent="MarginContainer/CenterContainer" unique_id=1982736451]
+[node name="TreeCanvas" type="Control" parent="MarginContainer" unique_id=1982736451]
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 2
 
-[node name="Root" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=702462050 instance=ExtResource("1_jeeb3")]
+[node name="Hold" parent="MarginContainer/TreeCanvas" unique_id=702462050 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 336.0
-offset_top = 268.0
-offset_right = 400.0
-offset_bottom = 332.0
+offset_left = 540.0
+offset_top = 28.0
+offset_right = 604.0
+offset_bottom = 92.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Up1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
+[node name="Seed1" parent="MarginContainer/TreeCanvas" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 336.0
-offset_top = 168.0
-offset_right = 400.0
-offset_bottom = 232.0
+offset_left = 396.0
+offset_top = 124.0
+offset_right = 460.0
+offset_bottom = 188.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Up2L" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
+[node name="WaterHold1" parent="MarginContainer/TreeCanvas" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 266.0
-offset_top = 68.0
-offset_right = 330.0
-offset_bottom = 132.0
+offset_left = 540.0
+offset_top = 124.0
+offset_right = 604.0
+offset_bottom = 188.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Up2R" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
+[node name="Product1" parent="MarginContainer/TreeCanvas" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 406.0
-offset_top = 68.0
-offset_right = 470.0
-offset_bottom = 132.0
+offset_left = 684.0
+offset_top = 124.0
+offset_right = 748.0
+offset_bottom = 188.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Left1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
+[node name="Crafting" parent="MarginContainer/TreeCanvas" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 236.0
-offset_top = 268.0
-offset_right = 300.0
-offset_bottom = 332.0
+offset_left = 540.0
+offset_top = 220.0
+offset_right = 604.0
+offset_bottom = 284.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Left2" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
+[node name="Radius" parent="MarginContainer/TreeCanvas" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 136.0
-offset_top = 268.0
-offset_right = 200.0
-offset_bottom = 332.0
+offset_left = 540.0
+offset_top = 316.0
+offset_right = 604.0
+offset_bottom = 380.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Right1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
+[node name="Seed2" parent="MarginContainer/TreeCanvas" unique_id=1297630236 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 436.0
-offset_top = 268.0
-offset_right = 500.0
-offset_bottom = 332.0
+offset_left = 364.0
+offset_top = 220.0
+offset_right = 428.0
+offset_bottom = 284.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Right2" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1695082176 instance=ExtResource("1_jeeb3")]
+[node name="Product2" parent="MarginContainer/TreeCanvas" unique_id=695918069 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 536.0
-offset_top = 268.0
-offset_right = 600.0
-offset_bottom = 332.0
+offset_left = 716.0
+offset_top = 220.0
+offset_right = 780.0
+offset_bottom = 284.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Down1" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
+[node name="Speed" parent="MarginContainer/TreeCanvas" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 336.0
-offset_top = 368.0
-offset_right = 400.0
-offset_bottom = 432.0
+offset_left = 428.0
+offset_top = 316.0
+offset_right = 492.0
+offset_bottom = 380.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Down2L" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
+[node name="Duration" parent="MarginContainer/TreeCanvas" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 266.0
-offset_top = 468.0
-offset_right = 330.0
-offset_bottom = 532.0
+offset_left = 652.0
+offset_top = 316.0
+offset_right = 716.0
+offset_bottom = 380.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Down2R" parent="MarginContainer/CenterContainer/TreeCanvas" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
+[node name="Breeding" parent="MarginContainer/TreeCanvas" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 406.0
-offset_top = 468.0
-offset_right = 470.0
-offset_bottom = 532.0
+offset_left = 540.0
+offset_top = 412.0
+offset_right = 604.0
+offset_bottom = 476.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Down2R" parent="MarginContainer/TreeCanvas" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 626.0
+offset_top = 456.0
+offset_right = 690.0
+offset_bottom = 520.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=181083924]
-position = Vector2(536, 307)
+position = Vector2(576, 176)
 zoom = Vector2(2, 2)
