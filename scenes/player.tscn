@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lwh4081sy36q" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://efthg43euj63" path="res://assets/rogues.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dx1rhfhqivr03" path="res://scenes/Inventory/inventory_ui.tscn" id="3_qhqgy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqkch"]
 texture = ExtResource("2_qhqgy")
@@ -55,6 +56,7 @@ sources/0 = SubResource("TileSetAtlasSource_dqkch")
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=2141744375]
+process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
 
@@ -73,3 +75,30 @@ collision_mask = 2
 position = Vector2(16, 16)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="InventoryUI" type="CanvasLayer" parent="." unique_id=2138902978]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="InventoryUI" unique_id=2114955349]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.22352941, 0.3529412, 1)
+
+[node name="Label" type="Label" parent="InventoryUI/ColorRect" unique_id=926538272]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_top = 50.0
+offset_right = 37.5
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Inventory"
+
+[node name="InventoryUI" parent="InventoryUI/ColorRect" unique_id=1571437587 instance=ExtResource("3_qhqgy")]
+layout_mode = 1

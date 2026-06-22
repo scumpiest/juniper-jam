@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ProductResource" format=3 uid="uid://cprodwheat001"]
 
-[ext_resource type="Texture2D" uid="uid://dkm7qgsjpbnmi" path="res://sprites/plants_temp/Basic_Grass_Biom_things.png" id="1_rl4jm"]
+[ext_resource type="Texture2D" uid="uid://chn8c75cebq8i" path="res://sprites/plants_temp/Basic_Plants.png" id="1_rl4jm"]
 [ext_resource type="Script" uid="uid://bh6ipqgjkxv6f" path="res://resources/product_resource.gd" id="2_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jx4wa"]
 atlas = ExtResource("1_rl4jm")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(80, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_script")

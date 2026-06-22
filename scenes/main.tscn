@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y3g2jjhgfjvd" path="res://scenes/plant/plant.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/player.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/hotbar.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -114,3 +115,15 @@ Press \"F\" to water
 Plants cannot grow unless watered for each stage"
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=1529742515 instance=ExtResource("6_tefeu")]
+
+[node name="DroppedItem" parent="." unique_id=1370121672 instance=ExtResource("7_o6xl0")]
+position = Vector2(219, 136)
+
+[node name="DroppedItem2" parent="." unique_id=331468594 instance=ExtResource("7_o6xl0")]
+position = Vector2(303, 242)
+
+[node name="DroppedItem3" parent="." unique_id=1099150896 instance=ExtResource("7_o6xl0")]
+position = Vector2(83, 253)
+
+[node name="DroppedItem4" parent="." unique_id=1226943668 instance=ExtResource("7_o6xl0")]
+position = Vector2(355, 164)

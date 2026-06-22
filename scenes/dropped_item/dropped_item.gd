@@ -1,10 +1,13 @@
+@tool
 extends Area2D
 class_name DroppedItem
 
-var product: ProductResource
-var seed_item: SeedResource
+@export var product: ProductResource
+@export var seed_item: SeedResource
 
 @onready var _sprite: Sprite2D = $Sprite2D
+
+var scene_path : String = "res://scenes/dropped_item/dropped_item.tscn"
 
 
 func setup_product(product_data: ProductResource) -> void:

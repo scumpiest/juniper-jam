@@ -3,27 +3,36 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 
 @onready var _harvest_area: Area2D = $HarvestArea
+@onready var inventory_ui: CanvasLayer = $InventoryUI
+
+var _can_move : bool = true
 
 var _overlapping_crops: Array[Area2D] = []
 
 
 func _ready() -> void:
+	GlobalData.set_player_refrence(self)
 	_harvest_area.area_entered.connect(_on_crop_entered)
 	_harvest_area.area_exited.connect(_on_crop_exited)
 
 
 func _process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * speed
+	if _can_move:
+		velocity = direction * speed
 	move_and_slide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("harvest"):
-		_try_harvest()
-	if event.is_action_pressed("water"):
-		_try_water()
-
+	if _can_move:
+		if event.is_action_pressed("harvest"):
+			_try_harvest()
+		if event.is_action_pressed("water"):
+			_try_water()
+	if event.is_action_pressed("inventory"):
+		inventory_ui.visible = !inventory_ui.visible
+		get_tree().paused = !get_tree().paused
+		_can_move = !_can_move
 
 func _try_water() -> void:
 	for area in _harvest_area.get_overlapping_areas():

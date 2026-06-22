@@ -8,6 +8,10 @@ var slot_2: PlantResource
 var product_counts: Dictionary = {}
 var seed_counts: Dictionary = {}
 
+var player_node : Node = null
+
+signal inventory_updated
+
 
 func _ready() -> void:
 	slot_1 = PlantDatabase.WHEAT
@@ -21,12 +25,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("slot_2"):
 		plant_selected = slot_2
 
+func set_player_refrence(player):
+	player_node = player
 
 func add_product(product: ProductResource, amount: int = 1) -> void:
 	if product == null:
 		return
 	product_counts[product.id] = product_counts.get(product.id, 0) + amount
-
+	print(product_counts.get(product.id))
+	inventory_updated.emit()
 
 func add_seed(seed_item: SeedResource, amount: int = 1) -> void:
 	if seed_item == null:
