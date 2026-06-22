@@ -98,7 +98,9 @@ func _spawn_drops(world_position: Vector2, parent: Node) -> void:
 			_spawn_seed_drop(parent, world_position + seed_offset, data.seed_item)
 
 
-func _spawn_product_drop(parent: Node, world_position: Vector2, product_data: ProductResource) -> void:
+func _spawn_product_drop(
+	parent: Node, world_position: Vector2, product_data: ProductResource
+) -> void:
 	var drop := dropped_item_scene.instantiate()
 	parent.add_child(drop)
 	drop.global_position = world_position
