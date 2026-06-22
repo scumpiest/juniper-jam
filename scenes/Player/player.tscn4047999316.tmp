@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://b6imc1i5sl1"]
+
+[ext_resource type="Script" uid="uid://lwh4081sy36q" path="res://scenes/Player/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://efthg43euj63" path="res://assets/rogues.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dx1rhfhqivr03" path="res://scenes/Inventory/inventory_ui.tscn" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dcfd4qe1bdffi" path="res://scenes/States/state_machine.gd" id="4_c4h5g"]
+[ext_resource type="Script" uid="uid://ddpe8c85my62p" path="res://scenes/States/IdleState.gd" id="5_uiqp4"]
+[ext_resource type="Script" uid="uid://pv33efjejljx" path="res://scenes/States/MovingState.gd" id="6_hvfru"]
+[ext_resource type="Script" uid="uid://ciove08ddvm1s" path="res://scenes/States/HarvestState.gd" id="7_a06cl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqkch"]
+texture = ExtResource("2_qhqgy")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bhunq"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_dqkch")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D" unique_id=2141744375]
+process_mode = 3
+collision_mask = 2
+script = ExtResource("1_g2els")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=930348045]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)
+tile_set = SubResource("TileSet_bhunq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="HarvestArea" type="Area2D" parent="." unique_id=1634527890]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestArea" unique_id=1634527891]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="InventoryUI" type="CanvasLayer" parent="." unique_id=2138902978]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="InventoryUI" unique_id=2114955349]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.22352941, 0.3529412, 1)
+
+[node name="Label" type="Label" parent="InventoryUI/ColorRect" unique_id=926538272]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_top = 50.0
+offset_right = 37.5
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Inventory"
+
+[node name="InventoryUI" parent="InventoryUI/ColorRect" unique_id=1571437587 instance=ExtResource("3_qhqgy")]
+layout_mode = 1
+
+[node name="StateMachine" type="Node" parent="." unique_id=1759923455 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_c4h5g")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1431796037 node_paths=PackedStringArray("player")]
+script = ExtResource("5_uiqp4")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ddpe8c85my62p"
+
+[node name="MovingState" type="Node" parent="StateMachine" unique_id=316572892 node_paths=PackedStringArray("player")]
+script = ExtResource("6_hvfru")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://pv33efjejljx"
+
+[node name="HarvestState" type="Node" parent="StateMachine" unique_id=1651201698 node_paths=PackedStringArray("_harvest_area")]
+script = ExtResource("7_a06cl")
+_harvest_area = NodePath("../../HarvestArea")
+metadata/_custom_type_script = "uid://ciove08ddvm1s"

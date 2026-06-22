@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://b3h7xeh1degr5" path="res://scenes/ground_area.gd" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://b1tclv1q0ff3p" path="res://scenes/tile_manager.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://y3g2jjhgfjvd" path="res://scenes/plant/plant.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/player.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/hotbar.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/Player/player.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/Hotbar/hotbar.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
