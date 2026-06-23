@@ -35,4 +35,5 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("plant_seeds"):
 			transitioned.emit(self, "PlantingState")
 		if event.is_action_pressed("spin"):
+			print("spinning pressed", player.get_can_move())
 			transitioned.emit(self, "SpinningState")
