@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @export var speed: float = 200.0
+@export var water_amount : int = 10
+@export var max_water_amount : int = 10
+@export var min_water_amount : int = 0
 
 @onready var _harvest_area: Area2D = $HarvestArea
 @onready var inventory_ui: CanvasLayer = $InventoryUI
@@ -8,6 +11,8 @@ extends CharacterBody2D
 var _can_move: bool = true
 
 var _overlapping_crops: Array[Area2D] = []
+
+signal water_adjusted
 
 
 func _ready() -> void:
@@ -34,8 +39,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func try_water() -> void:
 	for area in _harvest_area.get_overlapping_areas():
-		if area.is_in_group("crops") and area.has_method("water"):
+		if area.is_in_group("crops") and area.has_method("water") and water_amount != 0:
 			area.water()
+			adjust_water(1)
+			print(water_amount)
 
 
 func try_harvest() -> void:
@@ -62,3 +69,7 @@ func get_can_move() -> bool:
 
 func set_can_move(value: bool) -> void:
 	_can_move = value
+
+func adjust_water(amount):
+	water_amount -= amount
+	water_adjusted.emit()

@@ -7,6 +7,7 @@ class_name DroppedItem
 @export var seed_item: SeedResource
 
 @onready var _sprite: Sprite2D = $Sprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 
 func setup_product(product_data: ProductResource) -> void:
@@ -24,6 +25,10 @@ func setup_seed(seed_data: SeedResource) -> void:
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	_update_sprite()
+	collision_shape.set_deferred("disabled", true)
+	await get_tree().create_timer(0.2).timeout
+	collision_shape.set_deferred("disabled", false)
+
 
 
 func _on_body_entered(body: Node2D) -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6imc1i5sl1"]
 
 [ext_resource type="Script" uid="uid://lwh4081sy36q" path="res://scenes/Player/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dsq0osu24bu06" path="res://scenes/UI/water_bar.tscn" id="2_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://efthg43euj63" path="res://assets/rogues.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dx1rhfhqivr03" path="res://scenes/Inventory/inventory_ui.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://dcfd4qe1bdffi" path="res://scenes/States/state_machine.gd" id="4_c4h5g"]
@@ -59,9 +60,6 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_dqkch")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(32, 32)
-
 [sub_resource type="Animation" id="Animation_spin_reset"]
 length = 0.001
 tracks/0/type = "value"
@@ -99,10 +97,18 @@ _data = {
 &"spin": SubResource("Animation_spin")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(32, 32)
+
 [node name="Player" type="CharacterBody2D" unique_id=2141744375]
 process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=259641274]
+
+[node name="WaterBar" parent="HUD" unique_id=126814170 node_paths=PackedStringArray("player") instance=ExtResource("2_n7rn1")]
+player = NodePath("../..")
 
 [node name="Visual" type="Node2D" parent="." unique_id=930348044]
 position = Vector2(16, 16)
@@ -113,9 +119,7 @@ tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=930348046]
-libraries = {
-&"": SubResource("AnimationLibrary_player")
-}
+libraries/ = SubResource("AnimationLibrary_player")
 autoplay = &"RESET"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
