@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var _harvest_area: Area2D = $HarvestArea
 @onready var inventory_ui: CanvasLayer = $InventoryUI
+@onready var magnetic_area: CollisionShape2D = $ItemCollectionArea/CollisionShape2D
 
 var _can_move: bool = true
 
@@ -15,10 +16,14 @@ var _overlapping_crops: Array[Area2D] = []
 signal water_adjusted
 
 
+
 func _ready() -> void:
 	GlobalData.set_player_refrence(self)
 	_harvest_area.area_entered.connect(_on_crop_entered)
 	_harvest_area.area_exited.connect(_on_crop_exited)
+	
+	#set value for magnetic area range
+	magnetic_area.shape.radius = 100
 
 
 func _physics_process(_delta: float) -> void:
@@ -73,3 +78,7 @@ func set_can_move(value: bool) -> void:
 func adjust_water(amount):
 	water_amount -= amount
 	water_adjusted.emit()
+
+func _on_item_collection_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("DroppedItem"):
+		area.go_to_player()

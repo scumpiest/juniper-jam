@@ -26,15 +26,20 @@ func enter() -> void:
 
 	_is_spinning = true
 	_spin_time_left = spin_duration
-
-	if animation_player and animation_player.has_animation(&"spin"):
-		var anim_length := animation_player.get_animation(&"spin").length
-		animation_player.speed_scale = anim_length / spin_duration if spin_duration > 0.0 else 1.0
-		animation_player.play(&"spin")
+	_play_spin_animation()
 
 
 func update(delta: float) -> void:
 	if not _is_spinning:
+		return
+
+	if GlobalData.is_feature_unlocked(Upgrade.Type.UNLOCK_SPIN_HOLD):
+		if Input.is_action_pressed("spin"):
+			if animation_player and not animation_player.is_playing():
+				_play_spin_animation()
+			return
+		_end_spin()
+		_transition_to_movement_state()
 		return
 
 	_spin_time_left -= delta
@@ -56,6 +61,13 @@ func physics_update(delta: float) -> void:
 		player.velocity = player.velocity.move_toward(Vector2.ZERO, movement_deceleration * delta)
 
 	player.move_and_slide()
+
+
+func _play_spin_animation() -> void:
+	if animation_player and animation_player.has_animation(&"spin"):
+		var anim_length := animation_player.get_animation(&"spin").length
+		animation_player.speed_scale = anim_length / spin_duration if spin_duration > 0.0 else 1.0
+		animation_player.play(&"spin")
 
 
 func _end_spin() -> void:

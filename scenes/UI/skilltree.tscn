@@ -2,14 +2,41 @@
 
 [ext_resource type="PackedScene" uid="uid://3b1mocgiiua1" path="res://scenes/UI/upgrade_node.tscn" id="1_jeeb3"]
 [ext_resource type="Script" uid="uid://c4k8m2n7p1qwr" path="res://scenes/UI/tree_canvas.gd" id="2_tree_canvas"]
+[ext_resource type="Script" uid="uid://b7n3k8m2p4qws" path="res://scenes/UI/skilltree.gd" id="3_skilltree"]
+[ext_resource type="Resource" uid="uid://cprodwheat001" path="res://resources/products/wheat.tres" id="4_3e7kn"]
+[ext_resource type="Script" uid="uid://0arycpveld2t" path="res://resources/upgrade_requirement.gd" id="4_requirement"]
+[ext_resource type="Script" uid="uid://8myouhndsiay" path="res://resources/upgrade.gd" id="5_upgrade"]
+[ext_resource type="Resource" uid="uid://cprodtomato01" path="res://resources/products/tomato.tres" id="7_udf84"]
+
+[sub_resource type="Resource" id="Resource_kx33d"]
+script = ExtResource("4_requirement")
+product = ExtResource("4_3e7kn")
+product_amount = 5
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Upgrade_hold"]
+script = ExtResource("5_upgrade")
+type = 12
+value = 1.0
+
+[sub_resource type="Resource" id="Requirement_seed1"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Hold"])
+product = ExtResource("7_udf84")
+product_amount = 5
+
+[sub_resource type="Resource" id="Upgrade_seed1"]
+script = ExtResource("5_upgrade")
+type = 10
+value = 1.0
 
 [node name="Skilltree" type="Panel" unique_id=694997367]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 504.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_skilltree")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=104521792]
 layout_mode = 1
@@ -55,6 +82,8 @@ offset_right = 592.0
 offset_bottom = 96.0
 grow_horizontal = 1
 grow_vertical = 1
+requirement = SubResource("Resource_kx33d")
+upgrade = SubResource("Upgrade_hold")
 
 [node name="Seed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
@@ -68,6 +97,8 @@ offset_right = 448.0
 offset_bottom = 192.0
 grow_horizontal = 1
 grow_vertical = 1
+requirement = SubResource("Requirement_seed1")
+upgrade = SubResource("Upgrade_seed1")
 
 [node name="WaterHold1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
 modulate = Color(0.7, 0.7, 0.7, 1)
@@ -367,3 +398,16 @@ offset_right = 1024.0
 offset_bottom = 944.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="CloseButton" type="Button" parent="." unique_id=-1447773646]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 48.0
+grow_horizontal = 0
+text = "X"

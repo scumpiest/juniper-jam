@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/Player/player.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/UI/hotbar.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="9_choun"]
+[ext_resource type="Script" uid="uid://d8k2m5n9p3qxt" path="res://scenes/main.gd" id="10_main"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -83,6 +85,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 
 [node name="Main" type="Node2D" unique_id=1293231205]
+script = ExtResource("10_main")
 
 [node name="GroundArea" type="TileMapLayer" parent="." unique_id=1710577862]
 position = Vector2(0, 64)
@@ -121,6 +124,26 @@ offset_top = -104.0
 offset_right = 161.39197
 offset_bottom = -40.0
 
+[node name="SkilltreeButton" type="TextureButton" parent="CanvasLayer" unique_id=1873352984]
+offset_left = 992.0
+offset_top = 64.0
+offset_right = 1120.0
+offset_bottom = 192.0
+texture_normal = ExtResource("9_choun")
+
+[node name="Label2" type="Label" parent="CanvasLayer/SkilltreeButton" unique_id=1262678170]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Skilltree"
+
 [node name="DroppedItem" parent="." unique_id=1370121672 instance=ExtResource("7_o6xl0")]
 position = Vector2(219, 136)
 
@@ -132,3 +155,5 @@ position = Vector2(83, 253)
 
 [node name="DroppedItem4" parent="." unique_id=1226943668 instance=ExtResource("7_o6xl0")]
 position = Vector2(355, 164)
+
+[connection signal="pressed" from="CanvasLayer/SkilltreeButton" to="." method="_on_skilltree_button_pressed"]

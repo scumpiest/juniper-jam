@@ -25,5 +25,8 @@ func _input(event: InputEvent) -> void:
 			transitioned.emit(self, "WateringState")
 		if event.is_action_pressed("plant_seeds"):
 			transitioned.emit(self, "PlantingState")
-		if event.is_action_pressed("spin"):
+		if (
+				event.is_action_pressed("spin")
+				and GlobalData.is_feature_unlocked(Upgrade.Type.UNLOCK_SPIN_HOLD)
+		):
 			transitioned.emit(self, "SpinningState")

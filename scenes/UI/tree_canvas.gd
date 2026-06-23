@@ -4,6 +4,7 @@ extends Control
 @export var max_zoom: float = 2.5
 @export var zoom_step: float = 1.1
 @export var initial_zoom: float = 2.0
+@export var offset_y: float = 750.0
 
 var _dragging := false
 var _drag_start := Vector2.ZERO
@@ -21,7 +22,7 @@ func _center_in_view() -> void:
 	if viewport == null:
 		return
 	var content_size := size * scale
-	position = (viewport.size - content_size) / 2.0
+	position = (viewport.size - content_size) / 2.0 + Vector2(0, offset_y)
 
 
 func _gui_input(event: InputEvent) -> void:
