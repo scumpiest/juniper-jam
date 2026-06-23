@@ -6,7 +6,11 @@ class_name DroppedItem
 @export var product: ProductResource
 @export var seed_item: SeedResource
 
+var tween : Tween
+
 @onready var _sprite: Sprite2D = $Sprite2D
+
+signal target_reached
 
 
 func setup_product(product_data: ProductResource) -> void:
@@ -46,3 +50,24 @@ func _update_sprite() -> void:
 		_sprite.texture = product.icon
 	elif seed_item != null:
 		_sprite.texture = seed_item.icon
+		
+
+func go_to_player(duration = 2.0, delay = 0.0):
+	
+	if tween: tween.kill()
+	
+	tween = create_tween()
+	
+	tween.tween_interval(delay)
+	
+	tween.tween_method(_lerp_to_target, 0.0, 1.0, duration)
+	
+func _lerp_to_target(progression : float):
+	
+	var target_position = get_tree().get_first_node_in_group("Player").global_position
+
+	global_position = lerp(global_position, target_position, progression)
+	
+	if global_position.distance_to(target_position) <=  5.0:
+		target_reached.emit()
+		tween.kill()

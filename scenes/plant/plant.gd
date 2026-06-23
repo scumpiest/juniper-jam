@@ -103,14 +103,14 @@ func _spawn_product_drop(
 ) -> void:
 	var drop := dropped_item_scene.instantiate()
 	parent.add_child(drop)
-	drop.global_position = world_position
+	drop.global_position = world_position + Vector2(randf_range(0, 20), randf_range(0,20)) #remove_vector 2 part if u want to
 	drop.setup_product(product_data)
 
 
 func _spawn_seed_drop(parent: Node, world_position: Vector2, seed_data: SeedResource) -> void:
 	var drop := dropped_item_scene.instantiate()
 	parent.add_child(drop)
-	drop.global_position = world_position
+	drop.global_position = world_position  + Vector2(randf_range(0, 20), randf_range(0,20)) #remove_vector 2 part if u want to
 	drop.setup_seed(seed_data)
 
 

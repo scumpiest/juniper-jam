@@ -62,7 +62,10 @@ sources/0 = SubResource("TileSetAtlasSource_dqkch")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(32, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=2141744375]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xv227"]
+radius = 31.016125
+
+[node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
@@ -144,3 +147,13 @@ player = NodePath("../..")
 spin_duration = 20.0
 spin_cooldown_time = 0.0
 metadata/_custom_type_script = "uid://x1gmejvrbamt"
+
+[node name="ItemCollectionArea" type="Area2D" parent="." unique_id=330695041]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollectionArea" unique_id=70050515]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_xv227")
+
+[connection signal="area_entered" from="ItemCollectionArea" to="." method="_on_item_collection_area_area_entered"]

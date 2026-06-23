@@ -10,8 +10,8 @@ region = Rect2(80, 0, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
 radius = 8.0
 
-[node name="DroppedItem" type="Area2D" unique_id=1370121672]
-collision_layer = 0
+[node name="DroppedItem" type="Area2D" unique_id=1370121672 groups=["DroppedItem"]]
+collision_layer = 4
 script = ExtResource("1_drop")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=495059773]
