@@ -18,6 +18,7 @@ const HOTBAR_ITEM_SLOTS := 4
 
 var _upgrade_modifiers: Dictionary = { }
 var _feature_unlocks: Dictionary = { }
+var _unlocked_skill_nodes: Dictionary = { }
 
 
 func _ready() -> void:
@@ -71,11 +72,22 @@ func is_feature_unlocked(type: Upgrade.Type) -> bool:
 	return _feature_unlocks.get(type, false)
 
 
+func is_skill_node_unlocked(node_name: StringName) -> bool:
+	return _unlocked_skill_nodes.get(node_name, false)
+
+
+func unlock_skill_node(node_name: StringName) -> bool:
+	if is_skill_node_unlocked(node_name):
+		return false
+	_unlocked_skill_nodes[node_name] = true
+	return true
+
+
 func apply_upgrade(upgrade: Upgrade) -> void:
 	if upgrade == null:
 		return
 	match upgrade.type:
-		Upgrade.Type.UNLOCK_CRAFTING, Upgrade.Type.UNLOCK_BREEDING:
+		Upgrade.Type.UNLOCK_CRAFTING, Upgrade.Type.UNLOCK_BREEDING, Upgrade.Type.UNLOCK_SPIN_HOLD:
 			_feature_unlocks[upgrade.type] = true
 		_:
 			_upgrade_modifiers[upgrade.type] = get_upgrade_modifier(upgrade.type) + upgrade.value

@@ -14,11 +14,11 @@ enum Type {
 	PRODUCT_YIELD,
 	SEED_YIELD,
 	FINAL_SPIN,
+	UNLOCK_SPIN_HOLD,
 }
 
 @export var type: Type = Type.MOVE_SPEED
 @export var value: float = 0.0
-@export var plant: PlantResource
 
 
 func apply() -> void:

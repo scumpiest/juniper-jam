@@ -4,6 +4,9 @@ extends PanelContainer
 signal unlocked
 signal unlock_failed
 
+const UNLOCKED_MODULATE := Color(0.45, 1.0, 0.45, 1.0)
+const LOCKED_MODULATE := Color(1.0, 0.35, 0.35, 1.0)
+
 @export var requirement: UpgradeRequirement
 @export var upgrade: Upgrade
 @export var is_unlocked: bool = false
@@ -13,6 +16,8 @@ signal unlock_failed
 
 func _ready() -> void:
 	_animation_player.animation_finished.connect(_on_animation_finished)
+	if GlobalData.is_skill_node_unlocked(name):
+		is_unlocked = true
 	_apply_locked_visual()
 
 
@@ -24,9 +29,15 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func try_unlock() -> bool:
-	if is_unlocked:
+	if is_unlocked or GlobalData.is_skill_node_unlocked(name):
+		is_unlocked = true
+		_apply_locked_visual()
 		return true
 	if _can_unlock():
+		if not GlobalData.unlock_skill_node(name):
+			is_unlocked = true
+			_apply_locked_visual()
+			return true
 		if requirement != null:
 			requirement.consume()
 		is_unlocked = true
@@ -51,14 +62,11 @@ func refresh_visual() -> void:
 
 
 func _apply_locked_visual() -> void:
-	if is_unlocked:
-		modulate = Color.WHITE
-	else:
-		modulate = Color(0.7, 0.7, 0.7, 1.0)
+	modulate = UNLOCKED_MODULATE if is_unlocked else LOCKED_MODULATE
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"unlock_success":
-		modulate = Color.WHITE
+		modulate = UNLOCKED_MODULATE
 	elif anim_name == &"unlock_denied" and not is_unlocked:
-		modulate = Color(0.7, 0.7, 0.7, 1.0)
+		modulate = LOCKED_MODULATE
