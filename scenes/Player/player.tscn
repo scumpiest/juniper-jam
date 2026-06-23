@@ -62,14 +62,61 @@ sources/0 = SubResource("TileSetAtlasSource_dqkch")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(32, 32)
 
+[sub_resource type="Animation" id="Animation_spin_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_spin"]
+resource_name = "spin"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 360.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_player"]
+_data = {
+&"RESET": SubResource("Animation_spin_reset"),
+&"spin": SubResource("Animation_spin")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=2141744375]
 process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=930348045]
+[node name="Visual" type="Node2D" parent="." unique_id=930348044]
+position = Vector2(16, 16)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Visual" unique_id=930348045]
+position = Vector2(-16, -16)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_bhunq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=930348046]
+libraries = {
+&"": SubResource("AnimationLibrary_player")
+}
+autoplay = &"RESET"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
 position = Vector2(16, 16)
@@ -138,9 +185,8 @@ metadata/_custom_type_script = "uid://cp5xip800scyr"
 script = ExtResource("9_wwtew")
 metadata/_custom_type_script = "uid://chcj7idnd6bgj"
 
-[node name="SpinningState" type="Node" parent="StateMachine" unique_id=82780980 node_paths=PackedStringArray("player")]
+[node name="SpinningState" type="Node" parent="StateMachine" unique_id=82780980 node_paths=PackedStringArray("player", "animation_player")]
 script = ExtResource("10_uxo23")
 player = NodePath("../..")
-spin_duration = 20.0
-spin_cooldown_time = 0.0
+animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://x1gmejvrbamt"
