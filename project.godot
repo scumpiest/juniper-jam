@@ -25,6 +25,11 @@ GlobalData="*uid://cgv8ha88jr31u"
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[global_group]
+
+DroppedItem=""
+Player=""
+
 [input]
 
 left_click={
