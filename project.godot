@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlantDatabase="*res://globals/plant_database.gd"
 GlobalData="*uid://cgv8ha88jr31u"
+SceneManager="*res://globals/scene_manager.gd"
 
 [display]
 

@@ -65,7 +65,6 @@ size = Vector2(32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xv227"]
 radius = 31.016125
 
-[node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 [sub_resource type="Animation" id="Animation_spin_reset"]
 length = 0.001
 tracks/0/type = "value"
@@ -103,7 +102,7 @@ _data = {
 &"spin": SubResource("Animation_spin")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=2141744375]
+[node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")

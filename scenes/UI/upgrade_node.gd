@@ -1,9 +1,11 @@
+class_name UpgradeNode
 extends PanelContainer
 
 signal unlocked
 signal unlock_failed
 
-@export var prerequisites_met: bool = false
+@export var requirement: UpgradeRequirement
+@export var upgrade: Upgrade
 @export var is_unlocked: bool = false
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -25,7 +27,11 @@ func try_unlock() -> bool:
 	if is_unlocked:
 		return true
 	if _can_unlock():
+		if requirement != null:
+			requirement.consume()
 		is_unlocked = true
+		if upgrade != null:
+			upgrade.apply()
 		_animation_player.play(&"unlock_success")
 		unlocked.emit()
 		return true
@@ -35,12 +41,19 @@ func try_unlock() -> bool:
 
 
 func _can_unlock() -> bool:
-	var is_prerequisites_met = randi() % 2 == 0
-	return is_prerequisites_met
+	if requirement == null:
+		return true
+	return requirement.is_met(self)
+
+
+func refresh_visual() -> void:
+	_apply_locked_visual()
 
 
 func _apply_locked_visual() -> void:
-	if not is_unlocked:
+	if is_unlocked:
+		modulate = Color.WHITE
+	else:
 		modulate = Color(0.7, 0.7, 0.7, 1.0)
 
 
