@@ -103,10 +103,6 @@ _data = {
 &"spin": SubResource("Animation_spin")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(32, 32)
-
-[node name="Player" type="CharacterBody2D" unique_id=2141744375]
 [node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 process_mode = 3
 collision_mask = 2
@@ -126,7 +122,9 @@ tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=930348046]
-libraries/ = SubResource("AnimationLibrary_player")
+libraries = {
+&"": SubResource("AnimationLibrary_player")
+}
 autoplay = &"RESET"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
