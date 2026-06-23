@@ -141,4 +141,6 @@ metadata/_custom_type_script = "uid://chcj7idnd6bgj"
 [node name="SpinningState" type="Node" parent="StateMachine" unique_id=82780980 node_paths=PackedStringArray("player")]
 script = ExtResource("10_uxo23")
 player = NodePath("../..")
+spin_duration = 20.0
+spin_cooldown_time = 0.0
 metadata/_custom_type_script = "uid://x1gmejvrbamt"

@@ -13,6 +13,6 @@ func enter():
 	#	await animation_player.animation_finished
 	
 func update(delta : float):
-	player._try_water()
+	player.try_water()
 	transitioned.emit(self, "IdleState")
 	

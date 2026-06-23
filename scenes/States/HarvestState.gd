@@ -14,6 +14,6 @@ func enter():
 	#	await animation_player.animation_finished
 
 func update(delta : float):
-	player._try_harvest()
+	player.try_harvest()
 	transitioned.emit(self, "IdleState")
 	
