@@ -5,12 +5,43 @@ extends PanelContainer
 @onready var _icon: TextureRect = $TextureRect
 @onready var _amount: Label = $Amount
 
+var _style_normal: StyleBoxFlat
+var _style_selected: StyleBoxFlat
+
 
 func _ready() -> void:
+	_build_styles()
 	if slot_index < 0:
 		return
 	GlobalData.inventory_updated.connect(_update_display)
+	GlobalData.slot_selection_changed.connect(_on_slot_selection_changed)
 	_update_display()
+	_on_slot_selection_changed(GlobalData.selected_slot_index)
+
+
+func _build_styles() -> void:
+	_style_normal = StyleBoxFlat.new()
+	_style_normal.bg_color = Color(0.12, 0.12, 0.18, 0.85)
+	_style_normal.set_corner_radius_all(4)
+	_style_normal.set_border_width_all(1)
+	_style_normal.border_color = Color(0.3, 0.3, 0.4, 0.6)
+
+	_style_selected = StyleBoxFlat.new()
+	_style_selected.bg_color = Color(0.12, 0.12, 0.18, 0.85)
+	_style_selected.set_corner_radius_all(4)
+	_style_selected.set_border_width_all(2)
+	_style_selected.border_color = Color(1.0, 0.85, 0.2, 1.0)
+
+	add_theme_stylebox_override("panel", _style_normal)
+
+
+func _on_slot_selection_changed(index: int) -> void:
+	if slot_index < 0:
+		return
+	if slot_index == index:
+		add_theme_stylebox_override("panel", _style_selected)
+	else:
+		add_theme_stylebox_override("panel", _style_normal)
 
 
 func _update_display() -> void:
@@ -23,7 +54,11 @@ func _update_display() -> void:
 		_amount.text = ""
 		return
 
-	if item is ProductResource:
+	if item is ToolResource:
+		var tool := item as ToolResource
+		_icon.texture = tool.icon
+		_amount.text = tool.display_name if tool.icon == null else ""
+	elif item is ProductResource:
 		var product := item as ProductResource
 		_icon.texture = product.icon
 		_set_amount(GlobalData.product_counts.get(product.id, 0))

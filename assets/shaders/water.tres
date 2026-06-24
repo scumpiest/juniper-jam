@@ -1,21 +1,12 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://duvbt6l54ppog"]
 
-[sub_resource type="Shader" id="Shader_kx33d"]
-code = "shader_type canvas_item;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
+[ext_resource type="Shader" uid="uid://b08wn34gn1so7" path="res://assets/shaders/water.gdshader" id="1_water"]
 
 [resource]
-shader = SubResource("Shader_kx33d")
+shader = ExtResource("1_water")
+shader_parameter/WATER_COL = Color(0.96862745, 0.38039216, 0.8784314, 1)
+shader_parameter/WATER2_COL = Color(0.96862745, 0.38039216, 0.8784314, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 1.0
+shader_parameter/flow_speed = 0.5
+shader_parameter/tile = Vector2(4, 14)

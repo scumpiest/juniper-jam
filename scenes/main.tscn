@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/UI/hotbar.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="9_choun"]
-[ext_resource type="Script" uid="uid://d8k2m5n9p3qxt" path="res://scenes/main.gd" id="10_main"]
+[ext_resource type="PackedScene" uid="uid://7qwwhsg2klpr" path="res://scenes/environment/river_area.tscn" id="10_choun"]
+[ext_resource type="Script" uid="uid://d5613q05vu62" path="res://scenes/main.gd" id="10_main"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -138,6 +139,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 32.0
+offset_top = -23.0
 offset_right = -32.0
 offset_bottom = 23.0
 grow_horizontal = 2
@@ -155,5 +157,8 @@ position = Vector2(83, 253)
 
 [node name="DroppedItem4" parent="." unique_id=1226943668 instance=ExtResource("7_o6xl0")]
 position = Vector2(355, 164)
+
+[node name="RiverArea" parent="." unique_id=1240244078 instance=ExtResource("10_choun")]
+position = Vector2(1024, 320)
 
 [connection signal="pressed" from="CanvasLayer/SkilltreeButton" to="." method="_on_skilltree_button_pressed"]

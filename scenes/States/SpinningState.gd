@@ -4,7 +4,7 @@ class_name SpinningState
 
 @export var player: CharacterBody2D
 @export var animation_player: AnimationPlayer
-@export var spin_duration: float = 1.2
+@export var spin_duration: float = 5
 @export var spin_speed_multiplier: float = 1.5
 @export var spin_cooldown_time: float = 2.0
 @export var movement_acceleration: float = 400.0
