@@ -30,8 +30,9 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	_update_sprite()
 	collision_shape.set_deferred("disabled", true)
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.5).timeout
 	collision_shape.set_deferred("disabled", false)
+	
 
 
 
