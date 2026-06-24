@@ -30,6 +30,24 @@ script = ExtResource("5_upgrade")
 type = 10
 value = 1.0
 
+[sub_resource type="Resource" id="Resource_o8g4a"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Hold"])
+product = ExtResource("4_3e7kn")
+product_amount = 10
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_ksmug"]
+script = ExtResource("5_upgrade")
+type = 9
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_bgfia"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Seed1", &"WaterHold1", &"Product1"])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
 [node name="Skilltree" type="Panel" unique_id=694997367]
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,6 +144,8 @@ offset_right = 736.0
 offset_bottom = 192.0
 grow_horizontal = 1
 grow_vertical = 1
+requirement = SubResource("Resource_o8g4a")
+upgrade = SubResource("Resource_ksmug")
 
 [node name="Crafting1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
 modulate = Color(1, 0.35, 0.35, 1)
@@ -139,6 +159,7 @@ offset_right = 592.0
 offset_bottom = 288.0
 grow_horizontal = 1
 grow_vertical = 1
+requirement = SubResource("Resource_bgfia")
 
 [node name="Seed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1297630236 instance=ExtResource("1_jeeb3")]
 modulate = Color(1, 0.35, 0.35, 1)

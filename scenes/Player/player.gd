@@ -35,13 +35,6 @@ func _physics_process(_delta: float) -> void:
 		await foot_step_sound.finished
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("inventory"):
-		inventory_ui.visible = !inventory_ui.visible
-		get_tree().paused = !get_tree().paused
-		_can_move = !_can_move
-
-
 func try_plant_seed() -> void:
 	plant_requested.emit()
 
