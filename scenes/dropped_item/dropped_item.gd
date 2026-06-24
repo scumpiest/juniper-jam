@@ -9,6 +9,7 @@ class_name DroppedItem
 var tween : Tween
 
 @onready var _sprite: Sprite2D = $Sprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var item_pickup: AudioStreamPlayer = $ItemPickup
 
 signal target_reached
@@ -29,6 +30,11 @@ func setup_seed(seed_data: SeedResource) -> void:
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	_update_sprite()
+	collision_shape.set_deferred("disabled", true)
+	await get_tree().create_timer(0.5).timeout
+	collision_shape.set_deferred("disabled", false)
+	
+
 
 
 func _on_body_entered(body: Node2D) -> void:

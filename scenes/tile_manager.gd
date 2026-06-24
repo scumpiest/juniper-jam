@@ -5,9 +5,9 @@ extends Node2D
 @export var player: CharacterBody2D
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("plant_seeds"):
-		place_plant()
+func _ready() -> void:
+	if player:
+		player.plant_requested.connect(place_plant)
 
 
 func place_plant() -> void:
@@ -19,7 +19,6 @@ func place_plant() -> void:
 
 
 func spread_seeds(center_tile: Vector2i) -> void:
-	# Check all tiles in a 3x3 grid around the center tile
 	for x in range(-1, 2):
 		for y in range(-1, 2):
 			var target_tile := center_tile + Vector2i(x, y + 1)

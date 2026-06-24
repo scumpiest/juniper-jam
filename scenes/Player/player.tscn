@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6imc1i5sl1"]
 
 [ext_resource type="Script" uid="uid://lwh4081sy36q" path="res://scenes/Player/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dsq0osu24bu06" path="res://scenes/Player/water_bar.tscn" id="2_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://efthg43euj63" path="res://assets/rogues.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dx1rhfhqivr03" path="res://scenes/Inventory/inventory_ui.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://dcfd4qe1bdffi" path="res://scenes/States/state_machine.gd" id="4_c4h5g"]
@@ -114,6 +115,11 @@ process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
 
+[node name="HUD" type="CanvasLayer" parent="." unique_id=259641274]
+
+[node name="WaterBar" parent="HUD" unique_id=126814170 node_paths=PackedStringArray("player") instance=ExtResource("2_n7rn1")]
+player = NodePath("../..")
+
 [node name="Visual" type="Node2D" parent="." unique_id=930348044]
 position = Vector2(16, 16)
 
@@ -197,6 +203,7 @@ metadata/_custom_type_script = "uid://chcj7idnd6bgj"
 script = ExtResource("10_uxo23")
 player = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
+spin_duration = 5.0
 metadata/_custom_type_script = "uid://x1gmejvrbamt"
 
 [node name="ItemCollectionArea" type="Area2D" parent="." unique_id=330695041]
@@ -209,6 +216,5 @@ shape = SubResource("CircleShape2D_xv227")
 
 [node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
 stream = SubResource("AudioStreamRandomizer_uxo23")
-bus = &"SFX"
 
 [connection signal="area_entered" from="ItemCollectionArea" to="." method="_on_item_collection_area_area_entered"]

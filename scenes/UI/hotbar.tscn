@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1odqdfu3o1wd" path="res://scenes/slot.tscn" id="1_yj1xu"]
 
-[node name="Hotbar" type="PanelContainer"]
+[node name="Hotbar" type="PanelContainer" unique_id=104937259]
 anchors_preset = -1
 anchor_left = 0.504
 anchor_top = 1.0
@@ -13,34 +13,42 @@ offset_top = -100.0
 offset_right = 234.39197
 offset_bottom = -36.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=2147226725]
 layout_mode = 2
 theme_override_constants/separation = 22
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2" unique_id=958968828]
 layout_mode = 2
 
-[node name="Slot" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+[node name="Slot" parent="HBoxContainer2/HBoxContainer" unique_id=1798380935 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
 slot_index = 0
 
-[node name="Slot2" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+[node name="Slot2" parent="HBoxContainer2/HBoxContainer" unique_id=1489249266 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
 slot_index = 1
 
-[node name="Slot3" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+[node name="Slot3" parent="HBoxContainer2/HBoxContainer" unique_id=47412903 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
 slot_index = 2
 
-[node name="Slot4" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("1_yj1xu")]
+[node name="Slot4" parent="HBoxContainer2/HBoxContainer" unique_id=1591608337 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
 slot_index = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2"]
+[node name="Slot5" parent="HBoxContainer2/HBoxContainer" unique_id=1171020822 instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+slot_index = 3
+
+[node name="Slot6" parent="HBoxContainer2/HBoxContainer" unique_id=1164011280 instance=ExtResource("1_yj1xu")]
+layout_mode = 2
+slot_index = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2" unique_id=253175219]
 layout_mode = 2
 
-[node name="SlotWatering" parent="HBoxContainer2/HBoxContainer2" instance=ExtResource("1_yj1xu")]
+[node name="SlotWatering" parent="HBoxContainer2/HBoxContainer2" unique_id=450750603 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
 
-[node name="SlotCutting" parent="HBoxContainer2/HBoxContainer2" instance=ExtResource("1_yj1xu")]
+[node name="SlotCutting" parent="HBoxContainer2/HBoxContainer2" unique_id=735836231 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
