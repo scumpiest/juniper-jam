@@ -6,12 +6,17 @@
 [ext_resource type="Resource" uid="uid://cprodwheat001" path="res://resources/products/wheat.tres" id="4_3e7kn"]
 [ext_resource type="Script" uid="uid://0arycpveld2t" path="res://resources/upgrade_requirement.gd" id="4_requirement"]
 [ext_resource type="Script" uid="uid://8myouhndsiay" path="res://resources/upgrade.gd" id="5_upgrade"]
+[ext_resource type="Script" uid="uid://dui8myk081vo5" path="res://resources/product_requirement.gd" id="6_product_req"]
 [ext_resource type="Resource" uid="uid://cprodtomato01" path="res://resources/products/tomato.tres" id="7_udf84"]
+
+[sub_resource type="Resource" id="ProductReq_hold"]
+script = ExtResource("6_product_req")
+product = ExtResource("4_3e7kn")
+amount = 5
 
 [sub_resource type="Resource" id="Resource_kx33d"]
 script = ExtResource("4_requirement")
-product = ExtResource("4_3e7kn")
-product_amount = 5
+products = Array[ExtResource("6_product_req")]([SubResource("ProductReq_hold")])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
 [sub_resource type="Resource" id="Upgrade_hold"]
@@ -19,22 +24,30 @@ script = ExtResource("5_upgrade")
 type = 12
 value = 1.0
 
+[sub_resource type="Resource" id="ProductReq_seed1"]
+script = ExtResource("6_product_req")
+product = ExtResource("7_udf84")
+amount = 5
+
 [sub_resource type="Resource" id="Requirement_seed1"]
 script = ExtResource("4_requirement")
 required_nodes = Array[StringName]([&"Hold"])
-product = ExtResource("7_udf84")
-product_amount = 5
+products = Array[ExtResource("6_product_req")]([SubResource("ProductReq_seed1")])
 
 [sub_resource type="Resource" id="Upgrade_seed1"]
 script = ExtResource("5_upgrade")
 type = 10
 value = 1.0
 
+[sub_resource type="Resource" id="ProductReq_product1"]
+script = ExtResource("6_product_req")
+product = ExtResource("4_3e7kn")
+amount = 10
+
 [sub_resource type="Resource" id="Resource_o8g4a"]
 script = ExtResource("4_requirement")
 required_nodes = Array[StringName]([&"Hold"])
-product = ExtResource("4_3e7kn")
-product_amount = 10
+products = Array[ExtResource("6_product_req")]([SubResource("ProductReq_product1")])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
 [sub_resource type="Resource" id="Resource_ksmug"]
@@ -46,6 +59,7 @@ metadata/_custom_type_script = "uid://8myouhndsiay"
 [sub_resource type="Resource" id="Resource_bgfia"]
 script = ExtResource("4_requirement")
 required_nodes = Array[StringName]([&"Seed1", &"WaterHold1", &"Product1"])
+products = Array[ExtResource("6_product_req")]([null, null])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
 [node name="Skilltree" type="Panel" unique_id=694997367]

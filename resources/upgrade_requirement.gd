@@ -2,23 +2,26 @@ class_name UpgradeRequirement
 extends Resource
 
 @export var required_nodes: Array[StringName] = []
-@export var product: ProductResource
-@export var product_amount: int = 0
+@export var products: Array[ProductRequirement] = []
 
 
 func is_met(node: UpgradeNode) -> bool:
 	if not _are_nodes_unlocked(node):
 		return false
-	if product != null and product_amount > 0:
-		if GlobalData.product_counts.get(product.id, 0) < product_amount:
+	for entry: ProductRequirement in products:
+		if entry == null or entry.product == null or entry.amount <= 0:
+			continue
+		if GlobalData.product_counts.get(entry.product.id, 0) < entry.amount:
 			return false
 	return true
 
 
 func consume() -> void:
-	if product != null and product_amount > 0:
-		var current: int = GlobalData.product_counts.get(product.id, 0) - product_amount
-		GlobalData.product_counts[product.id] = current
+	for entry: ProductRequirement in products:
+		if entry == null or entry.product == null or entry.amount <= 0:
+			continue
+		var current: int = GlobalData.product_counts.get(entry.product.id, 0) - entry.amount
+		GlobalData.product_counts[entry.product.id] = current
 	GlobalData.inventory_updated.emit()
 
 
