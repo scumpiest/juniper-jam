@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cp5xip800scyr" path="res://scenes/States/WateringState.gd" id="8_dl1wr"]
 [ext_resource type="Script" uid="uid://chcj7idnd6bgj" path="res://scenes/States/PlantingState.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://x1gmejvrbamt" path="res://scenes/States/SpinningState.gd" id="10_uxo23"]
+[ext_resource type="AudioStream" uid="uid://cchnsn7yhob72" path="res://assets/SFX/Footsteps.wav" id="12_jxtnq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqkch"]
 texture = ExtResource("2_qhqgy")
@@ -59,12 +60,6 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_dqkch")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(32, 32)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xv227"]
-radius = 31.016125
-
 [sub_resource type="Animation" id="Animation_spin_reset"]
 length = 0.001
 tracks/0/type = "value"
@@ -102,6 +97,18 @@ _data = {
 &"spin": SubResource("Animation_spin")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xv227"]
+radius = 31.016125
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uxo23"]
+playback_mode = 1
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("12_jxtnq")
+
 [node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 process_mode = 3
 collision_mask = 2
@@ -116,9 +123,7 @@ tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=930348046]
-libraries = {
-&"": SubResource("AnimationLibrary_player")
-}
+libraries/ = SubResource("AnimationLibrary_player")
 autoplay = &"RESET"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
@@ -201,5 +206,9 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollectionArea" unique_id=70050515]
 position = Vector2(16, 16)
 shape = SubResource("CircleShape2D_xv227")
+
+[node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
+stream = SubResource("AudioStreamRandomizer_uxo23")
+bus = &"SFX"
 
 [connection signal="area_entered" from="ItemCollectionArea" to="." method="_on_item_collection_area_area_entered"]

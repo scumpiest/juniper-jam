@@ -15,6 +15,7 @@ var _is_watered : bool = false
 var tween : Tween
 
 @onready var _sprite: Sprite2D = $Sprite2D
+@onready var crop_rustle: AudioStreamPlayer = $CropRustle
 
 
 func setup(plant_data: PlantResource, tile: Vector2i) -> void:
@@ -141,6 +142,7 @@ func sway_animation():
 	tween.tween_property(_sprite, "rotation_degrees", 15 ,0.1).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(_sprite, "scale", Vector2(1.1, 0.9),0.1).set_trans(Tween.TRANS_SINE)
 	
+	tween.tween_callback(crop_rustle.play)
 	tween.tween_property(_sprite, "rotation_degrees", -8.0, 0.1)
 	tween.tween_property(_sprite, "scale", Vector2(0.9, 1.1), 0.1)
 	

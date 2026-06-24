@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dhgmd67c3dqq" path="res://scenes/plant/plant.gd" id="1_plant"]
 [ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="2_gm68k"]
+[ext_resource type="AudioStream" uid="uid://dvghx7qv7y7vn" path="res://assets/SFX/CropRustle.wav" id="3_85esa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0gb"]
 size = Vector2(13, 6.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3yu3n"]
+random_pitch = 1.0594631
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("3_85esa")
 
 [node name="Plant" type="Area2D" unique_id=1984079974 groups=["crops"]]
 collision_layer = 3
@@ -18,3 +25,7 @@ position = Vector2(0, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1743876858]
 position = Vector2(0.5, -2.25)
 shape = SubResource("RectangleShape2D_pg0gb")
+
+[node name="CropRustle" type="AudioStreamPlayer" parent="." unique_id=2107848954]
+stream = SubResource("AudioStreamRandomizer_3yu3n")
+bus = &"SFX"
