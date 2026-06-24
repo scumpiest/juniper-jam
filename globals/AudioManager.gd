@@ -8,5 +8,5 @@ func _ready() -> void:
 	BACKGROUND_AUDIO_NODE.stream = load("res://assets/Gameplay_1.mp3")
 	BACKGROUND_AUDIO_NODE.autoplay = true
 	BACKGROUND_AUDIO_NODE.bus = "Music"
-	AudioServer.set_bus_volume_db(1, 0)
+	AudioServer.set_bus_volume_db(1, -10)
 	add_child(BACKGROUND_AUDIO_NODE)
