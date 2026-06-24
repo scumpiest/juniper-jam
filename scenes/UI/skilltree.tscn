@@ -71,7 +71,7 @@ offset_right = 56.0
 offset_bottom = 120.0
 
 [node name="Hold" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=702462050 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -86,7 +86,7 @@ requirement = SubResource("Resource_kx33d")
 upgrade = SubResource("Upgrade_hold")
 
 [node name="Seed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -101,7 +101,7 @@ requirement = SubResource("Requirement_seed1")
 upgrade = SubResource("Upgrade_seed1")
 
 [node name="WaterHold1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -114,7 +114,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Product1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -127,7 +127,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Crafting1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -140,7 +140,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Seed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1297630236 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -153,7 +153,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Product2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=695918069 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -166,7 +166,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SpinSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -179,7 +179,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Radius1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -192,7 +192,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SpinDuration1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -205,7 +205,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="WaterHold2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -218,7 +218,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SpinRecharge1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -231,7 +231,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="MovSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1949281106 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -244,7 +244,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Magnet1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1722084100 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -257,7 +257,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Breeding1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=422137281 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -270,7 +270,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SpinSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=730734119 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -283,7 +283,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="MovSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1509533974 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -296,7 +296,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Radius2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=447374802 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -309,7 +309,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Magnet2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=2097643275 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -322,7 +322,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SpinDuration2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1731881315 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -335,7 +335,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SpinRecharge2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1444881647 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -348,7 +348,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Product3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=377300484 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -361,7 +361,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="WaterHold3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1574901165 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -374,7 +374,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Seed3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1993908457 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -387,7 +387,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Final" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1304529009 instance=ExtResource("1_jeeb3")]
-modulate = Color(0.7, 0.7, 0.7, 1)
+modulate = Color(1, 0.35, 0.35, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0

@@ -10,6 +10,7 @@ var tween : Tween
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var item_pickup: AudioStreamPlayer = $ItemPickup
 
 signal target_reached
 
@@ -38,6 +39,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		item_pickup.play()
+		await item_pickup.finished
 		_collect()
 
 

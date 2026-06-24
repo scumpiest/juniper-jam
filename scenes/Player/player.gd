@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var _harvest_area: Area2D = $HarvestArea
 @onready var inventory_ui: CanvasLayer = $InventoryUI
 @onready var magnetic_area: CollisionShape2D = $ItemCollectionArea/CollisionShape2D
+@onready var foot_step_sound: AudioStreamPlayer = $FootStepSound
 
 var _can_move: bool = true
 
@@ -27,7 +28,9 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	pass
+	if velocity and not foot_step_sound.playing:
+		foot_step_sound.play()
+		await foot_step_sound.finished
 
 
 func _unhandled_input(event: InputEvent) -> void:
