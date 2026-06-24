@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://lwh4081sy36q" path="res://scenes/Player/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dsq0osu24bu06" path="res://scenes/Player/water_bar.tscn" id="2_n7rn1"]
-[ext_resource type="Texture2D" uid="uid://efthg43euj63" path="res://assets/rogues.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dx1rhfhqivr03" path="res://scenes/Inventory/inventory_ui.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://dcfd4qe1bdffi" path="res://scenes/States/state_machine.gd" id="4_c4h5g"]
 [ext_resource type="Script" uid="uid://ddpe8c85my62p" path="res://scenes/States/IdleState.gd" id="5_uiqp4"]
@@ -12,91 +11,196 @@
 [ext_resource type="Script" uid="uid://chcj7idnd6bgj" path="res://scenes/States/PlantingState.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://x1gmejvrbamt" path="res://scenes/States/SpinningState.gd" id="10_uxo23"]
 [ext_resource type="AudioStream" uid="uid://cchnsn7yhob72" path="res://assets/SFX/Footsteps.wav" id="12_jxtnq"]
+[ext_resource type="Texture2D" uid="uid://h4bmkru2jcb4" path="res://assets/leaf.png" id="12_t6q27"]
+[ext_resource type="Texture2D" uid="uid://dmm8hmuxgv00m" path="res://assets/player.png" id="13_jxtnq"]
+[ext_resource type="Texture2D" uid="uid://c8o4gfpys6tse" path="res://assets/water.png" id="14_water"]
+[ext_resource type="Texture2D" uid="uid://cgo5oyrot8u2i" path="res://assets/seeds.png" id="15_seeds"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqkch"]
-texture = ExtResource("2_qhqgy")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tfl1"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(33, 1, 32, 32)
 
-[sub_resource type="TileSet" id="TileSet_bhunq"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_dqkch")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxtnq"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(65, 1, 32, 32)
 
-[sub_resource type="Animation" id="Animation_spin_reset"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ckd"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(33, 1, 32, 32)
 
-[sub_resource type="Animation" id="Animation_spin"]
-resource_name = "spin"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 360.0]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_cctgl"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(65, 1, 32, 32)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_player"]
-_data = {
-&"RESET": SubResource("Animation_spin_reset"),
-&"spin": SubResource("Animation_spin")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_an8q1"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(161, 1, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxkm2"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(193, 1, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ciy"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(97, 1, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg2hl"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(129, 1, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o05ft"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(225, 1, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbg44"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(257, 1, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6q27"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(97, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyey8"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(65, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bwnf"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(33, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tayva"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(1, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8khf"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(129, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aciub"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(161, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk2ix"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(193, 33, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_riqys"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tfl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxtnq")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ckd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cctgl")
+}],
+"loop": 1,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an8q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxkm2")
+}],
+"loop": 1,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18ciy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg2hl")
+}],
+"loop": 1,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o05ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbg44")
+}],
+"loop": 1,
+"name": &"move_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6q27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyey8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bwnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tayva")
+}],
+"loop": 0,
+"name": &"spin_end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8khf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aciub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk2ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aciub")
+}],
+"loop": 1,
+"name": &"spin_loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tayva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bwnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyey8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6q27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8khf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aciub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk2ix")
+}],
+"loop": 0,
+"name": &"spin_start",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(32, 32)
@@ -115,22 +219,14 @@ process_mode = 3
 collision_mask = 2
 script = ExtResource("1_g2els")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=137338734]
+sprite_frames = SubResource("SpriteFrames_riqys")
+animation = &"idle"
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=259641274]
 
 [node name="WaterBar" parent="HUD" unique_id=126814170 node_paths=PackedStringArray("player") instance=ExtResource("2_n7rn1")]
 player = NodePath("../..")
-
-[node name="Visual" type="Node2D" parent="." unique_id=930348044]
-position = Vector2(16, 16)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Visual" unique_id=930348045]
-position = Vector2(-16, -16)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0)
-tile_set = SubResource("TileSet_bhunq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=930348046]
-libraries/ = SubResource("AnimationLibrary_player")
-autoplay = &"RESET"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
 position = Vector2(16, 16)
@@ -199,11 +295,24 @@ metadata/_custom_type_script = "uid://cp5xip800scyr"
 script = ExtResource("9_wwtew")
 metadata/_custom_type_script = "uid://chcj7idnd6bgj"
 
-[node name="SpinningState" type="Node" parent="StateMachine" unique_id=82780980 node_paths=PackedStringArray("player", "animation_player")]
+[node name="SpinningState" type="Node" parent="StateMachine" unique_id=82780980 node_paths=PackedStringArray("player", "action_particles")]
 script = ExtResource("10_uxo23")
 player = NodePath("../..")
-animation_player = NodePath("../../AnimationPlayer")
-spin_duration = 5.0
+action_particles = NodePath("../../SpinHarvestParticles")
+metadata/_custom_type_script = "uid://x1gmejvrbamt"
+
+[node name="WateringSpinState" type="Node" parent="StateMachine" unique_id=394820014 node_paths=PackedStringArray("player", "action_particles")]
+script = ExtResource("10_uxo23")
+player = NodePath("../..")
+action_type = 1
+action_particles = NodePath("../../SpinWaterParticles")
+metadata/_custom_type_script = "uid://x1gmejvrbamt"
+
+[node name="PlantingSpinState" type="Node" parent="StateMachine" unique_id=394820015 node_paths=PackedStringArray("player", "action_particles")]
+script = ExtResource("10_uxo23")
+player = NodePath("../..")
+action_type = 2
+action_particles = NodePath("../../SpinPlantParticles")
 metadata/_custom_type_script = "uid://x1gmejvrbamt"
 
 [node name="ItemCollectionArea" type="Area2D" parent="." unique_id=330695041]
@@ -213,6 +322,57 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollectionArea" unique_id=70050515]
 position = Vector2(16, 16)
 shape = SubResource("CircleShape2D_xv227")
+
+[node name="SpinHarvestParticles" type="CPUParticles2D" parent="." unique_id=394820011]
+position = Vector2(16, 16)
+emitting = false
+amount = 25
+texture = ExtResource("12_t6q27")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 60.0
+initial_velocity_max = 160.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.388235, 0.792157, 0.356863, 1)
+
+[node name="SpinWaterParticles" type="CPUParticles2D" parent="." unique_id=394820012]
+position = Vector2(16, 16)
+emitting = false
+amount = 25
+texture = ExtResource("14_water")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 60.0
+initial_velocity_max = 160.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.27451, 0.619608, 0.890196, 1)
+
+[node name="SpinPlantParticles" type="CPUParticles2D" parent="." unique_id=394820013]
+position = Vector2(16, 16)
+emitting = false
+amount = 25
+texture = ExtResource("15_seeds")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 60.0
+initial_velocity_max = 160.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.741176, 0.560784, 0.290196, 1)
 
 [node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
 stream = SubResource("AudioStreamRandomizer_uxo23")

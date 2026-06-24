@@ -2,17 +2,22 @@ extends State
 
 class_name SpinningState
 
+enum ActionType { HARVEST, WATER, PLANT }
+
 @export var player: CharacterBody2D
-@export var animation_player: AnimationPlayer
-@export var spin_duration: float = 5
+@export var action_type: ActionType = ActionType.HARVEST
+@export var action_particles: CPUParticles2D
+@export var spin_duration: float = 5.0
 @export var spin_speed_multiplier: float = 1.5
 @export var spin_cooldown_time: float = 2.0
 @export var movement_acceleration: float = 400.0
 @export var movement_deceleration: float = 600.0
+@export var harvest_interval: float = 0.3
 
 var _is_spinning: bool = false
 var _spin_time_left: float = 0.0
 var _cooldown_until_msec: int = 0
+var _harvest_timer: float = 0.0
 
 
 func enter() -> void:
@@ -26,7 +31,13 @@ func enter() -> void:
 
 	_is_spinning = true
 	_spin_time_left = spin_duration
-	_play_spin_animation()
+	_harvest_timer = 0.0
+	_play_spin_start()
+
+
+func exit() -> void:
+	if _is_spinning:
+		_end_spin()
 
 
 func update(delta: float) -> void:
@@ -34,17 +45,13 @@ func update(delta: float) -> void:
 		return
 
 	if GlobalData.is_feature_unlocked(Upgrade.Type.UNLOCK_SPIN_HOLD):
-		if Input.is_action_pressed("spin"):
-			if animation_player and not animation_player.is_playing():
-				_play_spin_animation()
-			return
-		_end_spin()
-		_transition_to_movement_state()
+		if not Input.is_action_pressed("spin"):
+			_end_spin()
+			_transition_to_movement_state()
 		return
 
 	_spin_time_left -= delta
 	if _spin_time_left <= 0.0:
-		_is_spinning = false
 		_end_spin()
 		_transition_to_movement_state()
 
@@ -62,22 +69,47 @@ func physics_update(delta: float) -> void:
 
 	player.move_and_slide()
 
+	_harvest_timer -= delta
+	if _harvest_timer <= 0.0:
+		_harvest_timer = harvest_interval
+		if _perform_action() and action_particles:
+			action_particles.restart()
 
-func _play_spin_animation() -> void:
-	if animation_player and animation_player.has_animation(&"spin"):
-		var anim_length := animation_player.get_animation(&"spin").length
-		animation_player.speed_scale = anim_length / spin_duration if spin_duration > 0.0 else 1.0
-		animation_player.play(&"spin")
+
+func _perform_action() -> bool:
+	match action_type:
+		ActionType.HARVEST:
+			return player.try_harvest() > 0
+		ActionType.WATER:
+			player.try_water()
+			return true
+		ActionType.PLANT:
+			player.try_plant_seed()
+			return true
+	return false
+
+
+func _play_spin_start() -> void:
+	var sprite: AnimatedSprite2D = player.animated_sprite
+	if not sprite.animation_finished.is_connected(_on_spin_start_finished):
+		sprite.animation_finished.connect(_on_spin_start_finished, CONNECT_ONE_SHOT)
+	sprite.play(&"spin_start")
+
+
+func _on_spin_start_finished() -> void:
+	if _is_spinning and player and player.animated_sprite.animation == &"spin_start":
+		player.animated_sprite.play(&"spin_loop")
 
 
 func _end_spin() -> void:
 	_is_spinning = false
 	_spin_time_left = 0.0
-	if animation_player:
-		animation_player.speed_scale = 1.0
-		if animation_player.has_animation(&"RESET"):
-			animation_player.play(&"RESET")
 	_cooldown_until_msec = Time.get_ticks_msec() + int(spin_cooldown_time * 1000.0)
+	if player:
+		var sprite: AnimatedSprite2D = player.animated_sprite
+		if sprite.animation_finished.is_connected(_on_spin_start_finished):
+			sprite.animation_finished.disconnect(_on_spin_start_finished)
+		sprite.play(&"spin_end")
 
 
 func _is_on_cooldown() -> bool:

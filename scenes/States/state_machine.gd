@@ -12,8 +12,8 @@ func _ready() -> void:
 			child.transitioned.connect(_on_child_transition)
 	
 	if initial_state:
-		initial_state.enter()
 		current_state = initial_state
+		initial_state.enter.call_deferred()
 
 func _process(delta: float) -> void:
 	if current_state:

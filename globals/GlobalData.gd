@@ -40,13 +40,16 @@ func _ready() -> void:
 	harvest_tool.display_name = "Harvest"
 	hotbar_slots[1] = harvest_tool
 
+	# TODO: DELETE THIS AFTER TESTING
+	var wheat_seed := PlantDatabase.WHEAT.seed_item
+	var tomato_seed := PlantDatabase.TOMATO.seed_item
+	hotbar_slots[2] = wheat_seed
+	hotbar_slots[3] = tomato_seed
+	seed_counts[wheat_seed.id] = 5
+	seed_counts[tomato_seed.id] = 5
+
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("slot_3"):
-		plant_selected = slot_1
-	elif event.is_action_pressed("slot_4"):
-		plant_selected = slot_2
-
 	for i in HOTBAR_ITEM_SLOTS:
 		if event.is_action_pressed("slot_%d" % (i + 1)):
 			select_slot(i)
@@ -60,6 +63,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func select_slot(index: int) -> void:
 	selected_slot_index = clampi(index, 0, HOTBAR_ITEM_SLOTS - 1)
+	var item: Resource = hotbar_slots[selected_slot_index]
+	if item is SeedResource:
+		plant_selected = (item as SeedResource).get_plant()
 	slot_selection_changed.emit(selected_slot_index)
 
 

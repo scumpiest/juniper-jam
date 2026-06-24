@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var min_water_amount: float = 0.0
 @export var water_step: float = 1.0
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _harvest_area: Area2D = $HarvestArea
 @onready var inventory_ui: CanvasLayer = $InventoryUI
 @onready var magnetic_area: CollisionShape2D = $ItemCollectionArea/CollisionShape2D
@@ -54,7 +55,8 @@ func try_water() -> void:
 	adjust_water(water_step)
 
 
-func try_harvest() -> void:
+func try_harvest() -> int:
+	var count := 0
 	for area in _harvest_area.get_overlapping_areas():
 		if (
 				area.is_in_group("crops")
@@ -62,6 +64,8 @@ func try_harvest() -> void:
 				and area.is_ready_to_harvest()
 		):
 			area.harvest()
+			count += 1
+	return count
 
 
 func _on_crop_entered(area: Area2D) -> void:
