@@ -38,9 +38,9 @@ func _handle_action() -> void:
 			ToolResource.ToolType.HARVEST:
 				transitioned.emit(self, "SpinningState")
 			ToolResource.ToolType.WATER:
-				player.try_water()
+				transitioned.emit(self, "WateringSpinState")
 	elif item is SeedResource:
-		player.try_plant_seed()
+		transitioned.emit(self, "PlantingSpinState")
 
 
 func _play_direction_anim(dir: Vector2) -> void:
