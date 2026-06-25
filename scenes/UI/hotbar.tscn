@@ -44,11 +44,10 @@ slot_index = 4
 layout_mode = 2
 slot_index = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2" unique_id=253175219]
+[node name="Slot7" parent="HBoxContainer2/HBoxContainer" unique_id=2074011770 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
+slot_index = 5
 
-[node name="SlotWatering" parent="HBoxContainer2/HBoxContainer2" unique_id=450750603 instance=ExtResource("1_yj1xu")]
+[node name="Slot8" parent="HBoxContainer2/HBoxContainer" unique_id=1881194944 instance=ExtResource("1_yj1xu")]
 layout_mode = 2
-
-[node name="SlotCutting" parent="HBoxContainer2/HBoxContainer2" unique_id=735836231 instance=ExtResource("1_yj1xu")]
-layout_mode = 2
+slot_index = 5
