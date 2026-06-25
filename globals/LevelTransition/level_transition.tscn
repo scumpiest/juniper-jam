@@ -157,6 +157,7 @@ _data = {
 
 [node name="LevelTransition" type="CanvasLayer" unique_id=762336843]
 process_mode = 3
+layer = 100
 script = ExtResource("1_hp486")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1299820327]
