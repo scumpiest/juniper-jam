@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://5lfgin575ye8"]
+
+[ext_resource type="PackedScene" uid="uid://b4r4lhonv50mb" path="res://scenes/Generic Background/generic_background.tscn" id="1_8i5ae"]
+[ext_resource type="Script" uid="uid://dhfuv0d10dq8o" path="res://scenes/Menus/main_menu.gd" id="1_rvjno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i2gn"]
+bg_color = Color(0.6, 0, 1, 1)
+expand_margin_left = 500.0
+expand_margin_right = 500.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xv227"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71dww"]
+bg_color = Color(0.518472, 0.003151024, 0.8683795, 1)
+expand_margin_left = 500.0
+expand_margin_right = 500.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv227"]
+bg_color = Color(0.6, 0, 1, 1)
+
+[sub_resource type="Theme" id="Theme_xv227"]
+Button/colors/font_color = Color(0.69803923, 0, 1, 1)
+Button/font_sizes/font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_1i2gn")
+Button/styles/normal = SubResource("StyleBoxEmpty_xv227")
+Button/styles/pressed = SubResource("StyleBoxFlat_71dww")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_xv227")
+
+[node name="MainMenu" type="CanvasLayer" unique_id=2034472635]
+script = ExtResource("1_rvjno")
+
+[node name="GenericBackground" parent="." unique_id=2080312795 instance=ExtResource("1_8i5ae")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GenericBackground" unique_id=1749497317]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -417.0
+offset_right = 224.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="PlayButton" type="Button" parent="GenericBackground/VBoxContainer" unique_id=633488715]
+layout_mode = 2
+theme = SubResource("Theme_xv227")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="GenericBackground/VBoxContainer" unique_id=218814864]
+layout_mode = 2
+theme = SubResource("Theme_xv227")
+theme_override_font_sizes/font_size = 50
+text = "Options
+"
+
+[node name="ExitButton" type="Button" parent="GenericBackground/VBoxContainer" unique_id=841611126]
+layout_mode = 2
+theme = SubResource("Theme_xv227")
+theme_override_font_sizes/font_size = 50
+text = "Exit
+"
+
+[connection signal="pressed" from="GenericBackground/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
