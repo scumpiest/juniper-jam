@@ -77,6 +77,6 @@ func _lerp_to_target(progression : float):
 
 	global_position = lerp(global_position, target_position, progression)
 	
-	if global_position.distance_to(target_position) <=  5.0:
+	if global_position.distance_to(target_position) <=  2.0:
 		target_reached.emit()
 		tween.kill()
