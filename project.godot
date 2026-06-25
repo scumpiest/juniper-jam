@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://cda7raaclaerc"
 [autoload]
 
 PlantDatabase="*res://globals/plant_database.gd"
+ProductDatabase="*res://globals/product_database.gd"
 GlobalData="*uid://cgv8ha88jr31u"
 SceneManager="*res://globals/scene_manager.gd"
 AudioManager="*uid://d0073x32uw7sl"

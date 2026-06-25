@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://y3g2jjhgfjvd" path="res://scenes/plant/plant.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/Player/player.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/UI/hotbar.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bresourcebar0001" path="res://scenes/UI/resource_bar.tscn" id="6_resource_bar"]
 [ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://7qwwhsg2klpr" path="res://scenes/environment/river_area.tscn" id="10_choun"]
@@ -117,6 +118,8 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140806622]
+
+[node name="ResourceBar" parent="CanvasLayer" instance=ExtResource("6_resource_bar")]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1284041041]
 anchors_preset = 12
