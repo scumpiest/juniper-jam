@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://3b1mocgiiua1"]
 
-[ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="1_icon"]
 [ext_resource type="Script" uid="uid://bo1cflaud46xn" path="res://scenes/UI/upgrade_node.gd" id="2_script"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0stq7"]
 
 [sub_resource type="Animation" id="Animation_reset"]
 length = 0.001
@@ -105,7 +106,8 @@ _data = {
 &"unlock_success": SubResource("Animation_success")
 }
 
-[node name="UpgradeNode" type="PanelContainer"]
+[node name="UpgradeNode" type="PanelContainer" unique_id=628734820]
+modulate = Color(1, 0.35, 0.35, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -114,16 +116,14 @@ offset_bottom = -520.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0stq7")
 script = ExtResource("2_script")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=502454426]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_icon")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_upgrade")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=293552451]
+libraries/ = SubResource("AnimationLibrary_upgrade")
 autoplay = &"RESET"

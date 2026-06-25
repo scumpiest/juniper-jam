@@ -11,14 +11,8 @@
 [ext_resource type="Script" uid="uid://chcj7idnd6bgj" path="res://scenes/States/PlantingState.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://x1gmejvrbamt" path="res://scenes/States/SpinningState.gd" id="10_uxo23"]
 [ext_resource type="AudioStream" uid="uid://bttp0wtvup2bp" path="res://assets/SFX/Footsteps.wav" id="12_jxtnq"]
-[ext_resource type="Texture2D" uid="uid://h4bmkru2jcb4" path="res://assets/leaf.png" id="12_t6q27"]
+[ext_resource type="Texture2D" uid="uid://ckv46cp7i0spe" path="res://assets/seeds and drops.png" id="12_wyey8"]
 [ext_resource type="Texture2D" uid="uid://dmm8hmuxgv00m" path="res://assets/player.png" id="13_jxtnq"]
-[ext_resource type="Texture2D" uid="uid://c8o4gfpys6tse" path="res://assets/water.png" id="14_water"]
-[ext_resource type="Texture2D" uid="uid://cgo5oyrot8u2i" path="res://assets/seeds.png" id="15_seeds"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7tfl1"]
-atlas = ExtResource("13_jxtnq")
-region = Rect2(33, 1, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxtnq"]
 atlas = ExtResource("13_jxtnq")
@@ -87,9 +81,6 @@ region = Rect2(193, 33, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_riqys"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7tfl1")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jxtnq")
 }],
@@ -207,6 +198,18 @@ size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xv227"]
 radius = 31.016125
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn0uf"]
+atlas = ExtResource("12_wyey8")
+region = Rect2(0, 6, 10, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni0x"]
+atlas = ExtResource("12_wyey8")
+region = Rect2(0, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp55c"]
+atlas = ExtResource("12_wyey8")
+region = Rect2(5, 0, 4, 4)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uxo23"]
 playback_mode = 1
@@ -331,7 +334,7 @@ shape = SubResource("CircleShape2D_xv227")
 position = Vector2(16, 16)
 emitting = false
 amount = 25
-texture = ExtResource("12_t6q27")
+texture = SubResource("AtlasTexture_jn0uf")
 lifetime = 0.6
 one_shot = true
 explosiveness = 0.9
@@ -348,7 +351,7 @@ color = Color(0.388235, 0.792157, 0.356863, 1)
 position = Vector2(16, 16)
 emitting = false
 amount = 25
-texture = ExtResource("14_water")
+texture = SubResource("AtlasTexture_4ni0x")
 lifetime = 0.6
 one_shot = true
 explosiveness = 0.9
@@ -365,7 +368,7 @@ color = Color(0.27451, 0.619608, 0.890196, 1)
 position = Vector2(16, 16)
 emitting = false
 amount = 25
-texture = ExtResource("15_seeds")
+texture = SubResource("AtlasTexture_kp55c")
 lifetime = 0.6
 one_shot = true
 explosiveness = 0.9
