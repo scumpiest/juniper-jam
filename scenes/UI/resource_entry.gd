@@ -6,7 +6,7 @@ var product: ProductResource
 @onready var _icon: TextureRect = $Icon
 @onready var _amount: Label = $Amount
 
-const DIMMED_COLOR := Color(0.45, 0.45, 0.55, 0.55)
+const DIMMED_COLOR := Color(0, 0, 0, 1)
 
 
 func setup(product_data: ProductResource) -> void:
