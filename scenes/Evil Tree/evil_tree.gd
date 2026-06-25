@@ -2,12 +2,14 @@ extends CharacterBody2D
 
 @export var health : int = 3
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _process(delta: float) -> void:
 	die()
 
 func adjust_health(amount):
+	animation_player.play("hit")
 	health -= amount
 	
 

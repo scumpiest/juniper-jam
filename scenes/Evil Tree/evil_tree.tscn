@@ -4,6 +4,43 @@
 [ext_resource type="Texture2D" uid="uid://bpmnfb6s525if" path="res://assets/evil_tree.png" id="1_vbstn"]
 [ext_resource type="Script" uid="uid://b21ri83llcpus" path="res://scenes/Evil Tree/states/state_machine.gd" id="2_kj1ny"]
 
+[sub_resource type="Animation" id="Animation_0ppiw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ssmlt"]
+resource_name = "hit"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(3.0964003, 3.0964003, 3.0964003, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kyv1l"]
+_data = {
+&"RESET": SubResource("Animation_0ppiw"),
+&"hit": SubResource("Animation_ssmlt")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv227"]
 size = Vector2(86, 27)
 
@@ -17,6 +54,7 @@ scale = Vector2(0.3532339, 0.35323384)
 texture = ExtResource("1_vbstn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=502420613]
+libraries/ = SubResource("AnimationLibrary_kyv1l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2088360504]
 position = Vector2(0, 6)

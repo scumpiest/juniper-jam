@@ -65,6 +65,21 @@ offset_bottom = 29.0
 text = "Music Volume
 "
 
+[node name="MainMenuButton" type="Button" parent="." unique_id=1999229096]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 474.0
+offset_top = -148.0
+offset_right = -474.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fhyra")
+text = "Main Menu"
+
 [connection signal="value_changed" from="VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

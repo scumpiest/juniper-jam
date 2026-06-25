@@ -12,3 +12,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_music_slider_value_changed(value: float) -> void:
 	var music_bus_index = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(music_bus_index, value)
+
+
+func _on_main_menu_button_pressed() -> void:
+	LevelTransition.change_scene_to("res://scenes/Menus/main_menu.tscn")
