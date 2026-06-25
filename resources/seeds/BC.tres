@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SeedResource" format=3 uid="uid://d2almhdjclw04"]
+
+[ext_resource type="Script" uid="uid://cseedresrc001" path="res://resources/seed_resource.gd" id="1_bgclc"]
+
+[resource]
+script = ExtResource("1_bgclc")
+id = &"b"
+seed_name = "B"
+plant_id = &"b"
+metadata/_custom_type_script = "uid://cseedresrc001"
