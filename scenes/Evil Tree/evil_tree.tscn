@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dtnrefpxxo4s3"]
+
+[ext_resource type="Script" uid="uid://c7dg00iax7rwr" path="res://scenes/Evil Tree/evil_tree.gd" id="1_0ppiw"]
+[ext_resource type="Texture2D" uid="uid://bpmnfb6s525if" path="res://assets/evil_tree.png" id="1_vbstn"]
+[ext_resource type="Script" uid="uid://b21ri83llcpus" path="res://scenes/Evil Tree/states/state_machine.gd" id="2_kj1ny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv227"]
+size = Vector2(86, 27)
+
+[node name="EvilTree" type="CharacterBody2D" unique_id=1926946499 groups=["Boss"]]
+collision_layer = 8
+script = ExtResource("1_0ppiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=554321955]
+position = Vector2(0, -44.999996)
+scale = Vector2(0.3532339, 0.35323384)
+texture = ExtResource("1_vbstn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=502420613]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2088360504]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_xv227")
+
+[node name="StateMachine" type="Node" parent="." unique_id=984731427]
+script = ExtResource("2_kj1ny")

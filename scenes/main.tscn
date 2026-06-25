@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://7qwwhsg2klpr" path="res://scenes/environment/river_area.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://d5613q05vu62" path="res://scenes/main.gd" id="10_main"]
+[ext_resource type="PackedScene" uid="uid://dtnrefpxxo4s3" path="res://scenes/Evil Tree/evil_tree.tscn" id="12_eb6dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -171,5 +172,8 @@ position = Vector2(355, 164)
 
 [node name="RiverArea" parent="." unique_id=1240244078 instance=ExtResource("10_choun")]
 position = Vector2(1024, 320)
+
+[node name="EvilTree" parent="." unique_id=1926946499 instance=ExtResource("12_eb6dy")]
+position = Vector2(781, 143)
 
 [connection signal="pressed" from="CanvasLayer/SkilltreeButton" to="." method="_on_skilltree_button_pressed"]

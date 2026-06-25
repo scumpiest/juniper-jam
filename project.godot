@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Juniper Jam 2026"
-run/main_scene="uid://dx2jtjfiuaset"
+run/main_scene="uid://5lfgin575ye8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -36,6 +36,7 @@ window/vsync/vsync_mode=0
 
 DroppedItem=""
 Player=""
+Boss=""
 
 [input]
 
@@ -129,6 +130,7 @@ skill_tree={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Crops"
 2d_physics/layer_3="Environment"
+2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Unbuildable"
 
 [physics]

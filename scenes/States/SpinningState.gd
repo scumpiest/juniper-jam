@@ -54,6 +54,8 @@ func update(delta: float) -> void:
 	if _spin_time_left <= 0.0:
 		_end_spin()
 		_transition_to_movement_state()
+		
+
 
 
 func physics_update(delta: float) -> void:

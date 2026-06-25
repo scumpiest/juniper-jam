@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cp5xip800scyr" path="res://scenes/States/WateringState.gd" id="8_dl1wr"]
 [ext_resource type="Script" uid="uid://chcj7idnd6bgj" path="res://scenes/States/PlantingState.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://x1gmejvrbamt" path="res://scenes/States/SpinningState.gd" id="10_uxo23"]
-[ext_resource type="AudioStream" uid="uid://cchnsn7yhob72" path="res://assets/SFX/Footsteps.wav" id="12_jxtnq"]
+[ext_resource type="AudioStream" uid="uid://bttp0wtvup2bp" path="res://assets/SFX/Footsteps.wav" id="12_jxtnq"]
 [ext_resource type="Texture2D" uid="uid://h4bmkru2jcb4" path="res://assets/leaf.png" id="12_t6q27"]
 [ext_resource type="Texture2D" uid="uid://dmm8hmuxgv00m" path="res://assets/player.png" id="13_jxtnq"]
 [ext_resource type="Texture2D" uid="uid://c8o4gfpys6tse" path="res://assets/water.png" id="14_water"]
@@ -214,8 +214,12 @@ random_pitch = 1.0594631
 streams_count = 1
 stream_0/stream = ExtResource("12_jxtnq")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yu3n"]
+radius = 18.439089
+
 [node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 process_mode = 3
+collision_layer = 9
 collision_mask = 2
 script = ExtResource("1_g2els")
 
@@ -377,4 +381,15 @@ color = Color(0.741176, 0.560784, 0.290196, 1)
 [node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
 stream = SubResource("AudioStreamRandomizer_uxo23")
 
+[node name="HurtBox" type="Area2D" parent="." unique_id=417658018]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=836077579]
+position = Vector2(-1, 8)
+shape = SubResource("CircleShape2D_3yu3n")
+disabled = true
+debug_color = Color(0.9699355, 0.17583784, 0, 0.41960785)
+
 [connection signal="area_entered" from="ItemCollectionArea" to="." method="_on_item_collection_area_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var inventory_ui: CanvasLayer = $InventoryUI
 @onready var magnetic_area: CollisionShape2D = $ItemCollectionArea/CollisionShape2D
 @onready var foot_step_sound: AudioStreamPlayer = $FootStepSound
+@onready var hurt_box_collision: CollisionShape2D = $HurtBox/CollisionShape2D
+@onready var spinning_state: SpinningState = $StateMachine/SpinningState
 
 var _can_move: bool = true
 
@@ -33,6 +35,12 @@ func _physics_process(_delta: float) -> void:
 	if velocity and not foot_step_sound.playing:
 		foot_step_sound.play()
 		await foot_step_sound.finished
+	
+	
+	if spinning_state._is_spinning == true:
+		hurt_box_collision.set_deferred("disabled", false)
+	else:
+		hurt_box_collision.set_deferred("disabled", true)
 
 
 func try_plant_seed() -> void:
@@ -94,3 +102,8 @@ func refill_water() -> void:
 func _on_item_collection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("DroppedItem"):
 		area.go_to_player()
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Boss"):
+		body.adjust_health(1)
