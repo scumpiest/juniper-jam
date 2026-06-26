@@ -62,6 +62,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		select_slot(wrapi(selected_slot_index - 1, 0, HOTBAR_ITEM_SLOTS))
 	elif event.is_action_pressed("next_slot"):
 		select_slot(wrapi(selected_slot_index + 1, 0, HOTBAR_ITEM_SLOTS))
+	elif event.is_action_pressed("debug_mode"):
+		_debug_fill_products()
+
+
+func _debug_fill_products() -> void:
+	for product: ProductResource in ProductDatabase.get_all_products():
+		if product != null:
+			product_counts[product.id] = 999
+	inventory_updated.emit()
 
 
 func select_slot(index: int) -> void:

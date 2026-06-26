@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://3b1mocgiiua1" path="res://scenes/UI/upgrade_node.tscn" id="1_jeeb3"]
 [ext_resource type="Script" uid="uid://c4k8m2n7p1qwr" path="res://scenes/UI/tree_canvas.gd" id="2_tree_canvas"]
 [ext_resource type="Script" uid="uid://b7n3k8m2p4qws" path="res://scenes/UI/skilltree.gd" id="3_skilltree"]
-[ext_resource type="Resource" uid="uid://bfgedsprrax28" path="res://resources/products/A.tres" id="4_3e7kn"]
 [ext_resource type="Script" uid="uid://0arycpveld2t" path="res://resources/upgrade_requirement.gd" id="4_requirement"]
 [ext_resource type="Resource" uid="uid://bfgedsprrax28" path="res://resources/products/A.tres" id="5_5f6wk"]
 [ext_resource type="Script" uid="uid://8myouhndsiay" path="res://resources/upgrade.gd" id="5_upgrade"]
@@ -30,6 +29,7 @@
 [sub_resource type="Resource" id="Resource_uvpvw"]
 script = ExtResource("6_product_req")
 product = ExtResource("5_5f6wk")
+amount = 5
 metadata/_custom_type_script = "uid://dui8myk081vo5"
 
 [sub_resource type="Resource" id="Resource_kx33d"]
@@ -82,7 +82,7 @@ amount = 10
 
 [sub_resource type="Resource" id="Resource_o8g4a"]
 script = ExtResource("4_requirement")
-required_nodes = Array[StringName]([&"Hold"])
+required_nodes = Array[StringName]([&"UnlockTree"])
 products = Array[ExtResource("6_product_req")]([SubResource("ProductReq_product1")])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
@@ -328,7 +328,7 @@ metadata/_custom_type_script = "uid://dui8myk081vo5"
 
 [sub_resource type="Resource" id="Resource_lqvsw"]
 script = ExtResource("4_requirement")
-required_nodes = Array[StringName]([&"MovSpeed1", &"SpinRecharge"])
+required_nodes = Array[StringName]([&"MovSpeed1", &"SpinRecharge1"])
 products = Array[ExtResource("6_product_req")]([SubResource("Resource_l58h4"), SubResource("Resource_164ru")])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
@@ -872,7 +872,7 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_lqvsw")
 upgrade = SubResource("Resource_pncj8")
 upgrade_texture = ExtResource("17_5f6wk")
-upgrade_description = "Makes Seeds and Products Magnetic"
+upgrade_description = "Increase Magnet Radius"
 
 [node name="SpinSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=730734119 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
