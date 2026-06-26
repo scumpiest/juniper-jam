@@ -26,8 +26,8 @@ var _unlocked_skill_nodes: Dictionary = { }
 
 
 func _ready() -> void:
-	slot_1 = PlantDatabase.WHEAT
-	slot_2 = PlantDatabase.TOMATO
+	slot_1 = PlantDatabase.A
+	slot_2 = PlantDatabase.B
 	plant_selected = slot_1
 
 	var water_tool := ToolResource.new()
@@ -41,12 +41,15 @@ func _ready() -> void:
 	hotbar_slots[1] = harvest_tool
 
 	# TODO: DELETE THIS AFTER TESTING
-	var wheat_seed := PlantDatabase.WHEAT.seed_item
-	var tomato_seed := PlantDatabase.TOMATO.seed_item
-	hotbar_slots[2] = wheat_seed
-	hotbar_slots[3] = tomato_seed
-	seed_counts[wheat_seed.id] = 5
-	seed_counts[tomato_seed.id] = 5
+	var a_seed := PlantDatabase.A.seed_item
+	var b_seed := PlantDatabase.B.seed_item
+	var c_seed := PlantDatabase.C.seed_item
+	hotbar_slots[2] = a_seed
+	hotbar_slots[3] = b_seed
+	hotbar_slots[4] = c_seed
+	seed_counts[a_seed.id] = 5
+	seed_counts[b_seed.id] = 5
+	seed_counts[c_seed.id] = 5
 
 
 func _unhandled_input(event: InputEvent) -> void:

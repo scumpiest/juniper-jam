@@ -143,10 +143,12 @@ Press \"F\" to water
 Plants cannot grow unless watered for each stage"
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=1529742515 instance=ExtResource("6_tefeu")]
-offset_left = -260.60803
-offset_top = -104.0
-offset_right = 161.39197
-offset_bottom = -40.0
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="SkilltreeButton" type="TextureButton" parent="CanvasLayer" unique_id=1873352984]
 offset_left = 992.0
