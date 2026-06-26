@@ -39,6 +39,10 @@ DroppedItem=""
 Player=""
 Boss=""
 
+[gui]
+
+theme/custom_font="uid://c44fn4s534irr"
+
 [input]
 
 left_click={
