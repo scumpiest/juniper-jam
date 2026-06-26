@@ -31,15 +31,15 @@ var _unlocked_skill_nodes: Dictionary = { }
 
 # Per skill-tree tier (each node adds upgrade.value)
 const UPGRADE_PER_LEVEL: Dictionary = {
-	Upgrade.Type.MOVE_SPEED: 40.0,
-	Upgrade.Type.SPIN_SPEED: 0.3,
-	Upgrade.Type.SPIN_DURATION: 2.0,
-	Upgrade.Type.SPIN_RECHARGE: 0.20,
-	Upgrade.Type.SPIN_RADIUS: 1,
-	Upgrade.Type.MAGNET_RADIUS: 30.0,
-	Upgrade.Type.WATER_HOLD: 50.0,
-	Upgrade.Type.PRODUCT_YIELD: 1.0,
-	Upgrade.Type.SEED_YIELD: 1.0,
+	Upgrade.Type.MOVE_SPEED: 40.0, # 40 units per second
+	Upgrade.Type.SPIN_SPEED: 0.3, # 0.3 multiplier
+	Upgrade.Type.SPIN_DURATION: 2.0, # 2 seconds
+	Upgrade.Type.SPIN_RECHARGE: 0.20, # 0.2 seconds less to recharge
+	Upgrade.Type.SPIN_RADIUS: 1, # 1 unit radius
+	Upgrade.Type.MAGNET_RADIUS: 25.0, # 30 units radius
+	Upgrade.Type.WATER_HOLD: 50.0, # 50 water hold? maybe
+	Upgrade.Type.PRODUCT_YIELD: 1.0, # 1 more product per harvest
+	Upgrade.Type.SEED_YIELD: 1.0, # 1 more seed per harvest
 }
 
 const SKILLTREE_SCENE := preload("res://scenes/UI/skilltree.tscn")
