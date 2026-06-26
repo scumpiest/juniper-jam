@@ -132,11 +132,11 @@ libraries/ = SubResource("AnimationLibrary_upgrade")
 autoplay = &"RESET"
 
 [node name="ToolTip" type="NinePatchRect" parent="." unique_id=385942191]
+visible = false
 top_level = true
-custom_minimum_size = Vector2(500, 50)
+z_index = 100
+custom_minimum_size = Vector2(280, 100)
 layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, -150)
 texture = ExtResource("3_18id2")
 region_rect = Rect2(26, 25, 45, 46)
 patch_margin_left = 10
@@ -144,21 +144,30 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="Label" type="Label" parent="ToolTip" unique_id=1739289368]
-top_level = true
-custom_minimum_size = Vector2(450, 100)
+[node name="VBoxContainer" type="VBoxContainer" parent="ToolTip" unique_id=1847293650]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_right = -702.0
-offset_bottom = 23.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = -8.0
 grow_horizontal = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(10, -140)
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="ToolTip/VBoxContainer" unique_id=1739289368]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "TITLE
 Descr:
 Requirements:"
 autowrap_mode = 3
+
+[node name="ProductRequirements" type="HBoxContainer" parent="ToolTip/VBoxContainer" unique_id=2847193651]
+layout_mode = 2
+theme_override_constants/separation = 8
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -3,8 +3,37 @@
 [ext_resource type="PackedScene" uid="uid://3b1mocgiiua1" path="res://scenes/UI/upgrade_node.tscn" id="1_jeeb3"]
 [ext_resource type="Script" uid="uid://c4k8m2n7p1qwr" path="res://scenes/UI/tree_canvas.gd" id="2_tree_canvas"]
 [ext_resource type="Script" uid="uid://b7n3k8m2p4qws" path="res://scenes/UI/skilltree.gd" id="3_skilltree"]
+[ext_resource type="Resource" uid="uid://cprodwheat001" path="res://resources/products/wheat.tres" id="4_3e7kn"]
+[ext_resource type="Script" uid="uid://0arycpveld2t" path="res://resources/upgrade_requirement.gd" id="4_requirement"]
+[ext_resource type="Script" uid="uid://8myouhndsiay" path="res://resources/upgrade.gd" id="5_upgrade"]
+[ext_resource type="Script" uid="uid://dui8myk081vo5" path="res://resources/product_requirement.gd" id="6_product_req"]
+[ext_resource type="Resource" uid="uid://cprodtomato01" path="res://resources/products/tomato.tres" id="7_udf84"]
+[ext_resource type="Texture2D" uid="uid://dv3oqv1u581dp" path="res://assets/UpgradeTextures/faster_spin_recharge.png" id="11_mxj6j"]
 [ext_resource type="Material" uid="uid://bq54x6gkkmjl0" path="res://assets/shaders/dotted_line.tres" id="19_dotted"]
 [ext_resource type="Texture2D" uid="uid://brjkjgxqya8mt" path="res://assets/textures/line_tile.png" id="20_line_tile"]
+
+[sub_resource type="Resource" id="Resource_0yfkb"]
+script = ExtResource("6_product_req")
+product = ExtResource("4_3e7kn")
+amount = 5
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_56nyk"]
+script = ExtResource("6_product_req")
+product = ExtResource("7_udf84")
+amount = 10
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_18id2"]
+script = ExtResource("4_requirement")
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_0yfkb"), SubResource("Resource_56nyk")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_d1qk0"]
+script = ExtResource("5_upgrade")
+type = 6
+value = 10.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
 
 [node name="Skilltree" type="Panel" unique_id=694997367]
 anchors_preset = 15
@@ -58,7 +87,11 @@ offset_right = 592.0
 offset_bottom = 96.0
 grow_horizontal = 1
 grow_vertical = 1
-upgrade_requirements = "skjfakjfjha"
+requirement = SubResource("Resource_18id2")
+upgrade = SubResource("Resource_d1qk0")
+upgrade_texture = ExtResource("11_mxj6j")
+upgrade_description = "Increase water capacity"
+upgrade_title = "Water Capacity I"
 metadata/_edit_use_anchors_ = true
 
 [node name="Seed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
@@ -72,6 +105,7 @@ offset_right = 448.0
 offset_bottom = 192.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="WaterHold1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
@@ -85,6 +119,7 @@ offset_right = 592.0
 offset_bottom = 192.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Product1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
@@ -98,6 +133,7 @@ offset_right = 736.0
 offset_bottom = 192.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Crafting1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
@@ -111,6 +147,7 @@ offset_right = 592.0
 offset_bottom = 288.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Seed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1297630236 instance=ExtResource("1_jeeb3")]
@@ -124,6 +161,7 @@ offset_right = 416.0
 offset_bottom = 320.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Product2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=695918069 instance=ExtResource("1_jeeb3")]
@@ -137,6 +175,7 @@ offset_right = 768.0
 offset_bottom = 320.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="SpinSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
@@ -150,6 +189,7 @@ offset_right = 480.0
 offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Radius1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
@@ -163,6 +203,7 @@ offset_right = 592.0
 offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="SpinDuration1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
@@ -176,6 +217,7 @@ offset_right = 704.0
 offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="WaterHold2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
@@ -189,6 +231,7 @@ offset_right = 592.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="SpinRecharge1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
@@ -202,6 +245,7 @@ offset_right = 704.0
 offset_bottom = 512.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="MovSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1949281106 instance=ExtResource("1_jeeb3")]
@@ -215,6 +259,7 @@ offset_right = 480.0
 offset_bottom = 512.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Magnet1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1722084100 instance=ExtResource("1_jeeb3")]
@@ -228,6 +273,7 @@ offset_right = 592.0
 offset_bottom = 576.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Breeding1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=422137281 instance=ExtResource("1_jeeb3")]
@@ -241,6 +287,7 @@ offset_right = 592.0
 offset_bottom = 672.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="SpinSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=730734119 instance=ExtResource("1_jeeb3")]
@@ -254,6 +301,7 @@ offset_right = 352.0
 offset_bottom = 736.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="MovSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1509533974 instance=ExtResource("1_jeeb3")]
@@ -267,6 +315,7 @@ offset_right = 448.0
 offset_bottom = 736.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Radius2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=447374802 instance=ExtResource("1_jeeb3")]
@@ -280,6 +329,7 @@ offset_right = 544.0
 offset_bottom = 736.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Magnet2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=2097643275 instance=ExtResource("1_jeeb3")]
@@ -293,6 +343,7 @@ offset_right = 640.0
 offset_bottom = 736.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="SpinDuration2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1731881315 instance=ExtResource("1_jeeb3")]
@@ -306,6 +357,7 @@ offset_right = 736.0
 offset_bottom = 736.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="SpinRecharge2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1444881647 instance=ExtResource("1_jeeb3")]
@@ -319,6 +371,7 @@ offset_right = 832.0
 offset_bottom = 736.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Product3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=377300484 instance=ExtResource("1_jeeb3")]
@@ -332,6 +385,7 @@ offset_right = 400.0
 offset_bottom = 816.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="WaterHold3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1574901165 instance=ExtResource("1_jeeb3")]
@@ -345,6 +399,7 @@ offset_right = 592.0
 offset_bottom = 816.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Seed3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1993908457 instance=ExtResource("1_jeeb3")]
@@ -358,6 +413,7 @@ offset_right = 784.0
 offset_bottom = 816.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Final" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1304529009 instance=ExtResource("1_jeeb3")]
@@ -371,6 +427,7 @@ offset_right = 690.0
 offset_bottom = 1051.0
 grow_horizontal = 1
 grow_vertical = 1
+tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
 [node name="Lines" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1381957057]

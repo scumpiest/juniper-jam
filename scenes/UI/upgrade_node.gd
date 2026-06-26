@@ -6,19 +6,20 @@ signal unlock_failed
 
 const UNLOCKED_MODULATE := Color(0.45, 1.0, 0.45, 1.0)
 const LOCKED_MODULATE := Color(1.0, 0.35, 0.35, 1.0)
+const RESOURCE_ENTRY_SCENE := preload("res://scenes/UI/resource_entry.tscn")
 
 @export var requirement: UpgradeRequirement
 @export var upgrade: Upgrade
 @export var is_unlocked: bool = false
-@export var upgrade_texture : Texture2D
-@export var upgrade_description : String
-@export var upgrade_title : String
-@export var upgrade_requirements : String
+@export var upgrade_texture: Texture2D
+@export var upgrade_description: String
+@export var upgrade_title: String
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var tool_tip: NinePatchRect = $ToolTip
-@onready var label: Label = $ToolTip/Label
+@onready var label: Label = $ToolTip/VBoxContainer/Label
+@onready var _product_requirements: HBoxContainer = $ToolTip/VBoxContainer/ProductRequirements
 
 
 func _ready() -> void:
@@ -27,8 +28,20 @@ func _ready() -> void:
 		is_unlocked = true
 	_apply_locked_visual()
 	texture_rect.texture = upgrade_texture
-	label.text = "%s\nRequirements: %s" % [upgrade_description, upgrade_requirements] #requirement.get_requrement_text() 
-	#for easier making of requirement text in future]
+	_update_tooltip_content()
+	tool_tip.visible = false
+	call_deferred("_reparent_tooltip_outside_clip")
+
+
+func _reparent_tooltip_outside_clip() -> void:
+	var node: Node = get_parent()
+	while node != null:
+		if node is Control and (node as Control).clip_contents:
+			var target: Node = node.get_parent()
+			if target != null and tool_tip.get_parent() != target:
+				tool_tip.reparent(target)
+			return
+		node = node.get_parent()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -67,6 +80,34 @@ func _can_unlock() -> bool:
 	return requirement.is_met(self)
 
 
+func _update_tooltip_content() -> void:
+	label.text = "%s\n%s" % [upgrade_title, upgrade_description]
+	var node_requirements := _get_node_requirements_text()
+	var product_requirements: Array[ProductRequirement] = []
+	if requirement != null:
+		product_requirements = requirement.get_product_requirements()
+
+	if node_requirements != "":
+		label.text += "\nRequires: %s" % node_requirements
+	elif product_requirements.is_empty():
+		label.text += "\nRequires: None"
+
+	for child in _product_requirements.get_children():
+		child.queue_free()
+
+	for entry: ProductRequirement in product_requirements:
+		var row: ResourceEntry = RESOURCE_ENTRY_SCENE.instantiate()
+		_product_requirements.add_child(row)
+		row.setup(entry.product)
+		row.show_required(entry.amount)
+
+
+func _get_node_requirements_text() -> String:
+	if requirement == null:
+		return ""
+	return requirement.get_node_requirements_text(self)
+
+
 func refresh_visual() -> void:
 	_apply_locked_visual()
 
@@ -83,8 +124,22 @@ func _on_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_mouse_entered() -> void:
-	tool_tip.visible = true
+	_show_tooltip()
 
 
 func _on_mouse_exited() -> void:
 	tool_tip.visible = false
+
+
+func _show_tooltip() -> void:
+	await get_tree().process_frame
+	if not is_inside_tree():
+		return
+	var tooltip_size := tool_tip.size
+	if tooltip_size == Vector2.ZERO:
+		tooltip_size = tool_tip.custom_minimum_size
+	tool_tip.global_position = global_position + Vector2(
+		size.x + 8.0,
+		(size.y - tooltip_size.y) * 0.5
+	)
+	tool_tip.visible = true

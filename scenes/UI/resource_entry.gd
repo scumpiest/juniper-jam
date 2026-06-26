@@ -10,14 +10,29 @@ const DIMMED_COLOR := Color(0, 0, 0, 1)
 
 
 func setup(product_data: ProductResource) -> void:
+	_ensure_nodes()
 	product = product_data
 	_icon.texture = product_data.icon if product_data != null else null
 
 
 func update_display(count: int) -> void:
+	_ensure_nodes()
 	if count > 0:
 		_icon.modulate = Color.WHITE
 		_amount.text = str(count)
 	else:
 		_icon.modulate = DIMMED_COLOR
 		_amount.text = ""
+
+
+func show_required(amount: int) -> void:
+	_ensure_nodes()
+	_icon.modulate = Color.WHITE
+	_amount.text = "x%d" % amount
+
+
+func _ensure_nodes() -> void:
+	if _icon == null:
+		_icon = $Icon
+	if _amount == null:
+		_amount = $Amount
