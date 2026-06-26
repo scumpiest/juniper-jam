@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bfgedsprrax28" path="res://resources/products/A.tres" id="5_5f6wk"]
 [ext_resource type="Script" uid="uid://8myouhndsiay" path="res://resources/upgrade.gd" id="5_upgrade"]
 [ext_resource type="Script" uid="uid://dui8myk081vo5" path="res://resources/product_requirement.gd" id="6_product_req"]
+[ext_resource type="Texture2D" uid="uid://cch088xy56h3w" path="res://assets/UpgradeTextures/Unlock_Skill_Tree.png" id="8_i5pfo"]
 [ext_resource type="Texture2D" uid="uid://2g8xdc7onxwd" path="res://assets/UpgradeTextures/Hold_Water_Capacity.png" id="8_svjrb"]
 [ext_resource type="Texture2D" uid="uid://kn6xk82an4tg" path="res://assets/UpgradeTextures/Defeat_Enemy_2.png" id="9_ncjuy"]
 [ext_resource type="Texture2D" uid="uid://bye8w0is5mx75" path="res://assets/UpgradeTextures/seed_outcome.png" id="10_k4h56"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://1mxh7txuypkq" path="res://assets/UpgradeTextures/Product_Outcome.png" id="11_uvpvw"]
 [ext_resource type="Texture2D" uid="uid://cekilv4wd887f" path="res://assets/UpgradeTextures/radius.png" id="12_6lvx3"]
 [ext_resource type="Resource" uid="uid://dl48x3do8innj" path="res://resources/products/C.tres" id="12_abx6w"]
+[ext_resource type="Texture2D" uid="uid://c1iqqgwedebwf" path="res://assets/UpgradeTextures/go_over_water_icon_1.png" id="12_w3hb8"]
 [ext_resource type="Texture2D" uid="uid://d3n3kgomuhp4f" path="res://assets/UpgradeTextures/Spin_Duration.png" id="13_gdtny"]
 [ext_resource type="Resource" uid="uid://dupc0iubisp4g" path="res://resources/products/B.tres" id="13_xod7u"]
 [ext_resource type="Texture2D" uid="uid://cuw3uaoe5n6tf" path="res://assets/UpgradeTextures/Movement_Speed.png" id="16_378tx"]
@@ -624,18 +626,18 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 528.0
-offset_top = 32.0
-offset_right = 592.0
-offset_bottom = 96.0
+offset_left = 512.0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 144.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_kx33d")
 upgrade = SubResource("Upgrade_hold")
-upgrade_texture = ExtResource("8_svjrb")
-upgrade_description = "Unlock Skill Tree"
-upgrade_title = "Skill Tree"
+upgrade_texture = ExtResource("8_i5pfo")
+upgrade_description = "This is just the beginning"
+upgrade_title = "Unlock Skilltree"
 
 [node name="Seed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -652,7 +654,7 @@ tooltip_text = "Description"
 requirement = SubResource("Requirement_seed1")
 upgrade = SubResource("Upgrade_seed1")
 upgrade_texture = ExtResource("10_k4h56")
-upgrade_description = "Increase Seed Yield"
+upgrade_description = "Get one more seed upon harvest"
 upgrade_title = "Seed Yield I"
 
 [node name="WaterHold1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
@@ -670,7 +672,7 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_i5pfo")
 upgrade = SubResource("Resource_t08qe")
 upgrade_texture = ExtResource("8_svjrb")
-upgrade_description = "Increases Water Hold Capacity"
+upgrade_description = "Have more water available"
 upgrade_title = "Water Capacity I"
 
 [node name="Product1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
@@ -688,7 +690,7 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_o8g4a")
 upgrade = SubResource("Resource_ksmug")
 upgrade_texture = ExtResource("11_uvpvw")
-upgrade_description = "Increase Product Yield"
+upgrade_description = "Get one more product upon harvest"
 upgrade_title = "Product Yield I"
 
 [node name="MoveOverWater" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
@@ -696,16 +698,17 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 528.0
-offset_top = 224.0
-offset_right = 592.0
-offset_bottom = 288.0
+offset_left = 512.0
+offset_top = 240.0
+offset_right = 640.0
+offset_bottom = 368.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_bgfia")
-upgrade_texture = ExtResource("10_srk5f")
-upgrade_description = "Unlock Crafting"
+upgrade_texture = ExtResource("12_w3hb8")
+upgrade_description = "Unlock Spinning On Water"
+upgrade_title = "Waterspin "
 
 [node name="Seed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1297630236 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -713,17 +716,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 288.0
-offset_top = 320.0
+offset_top = 384.0
 offset_right = 352.0
-offset_bottom = 384.0
+offset_bottom = 448.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_q1kp0")
 upgrade = SubResource("Resource_vvtsx")
 upgrade_texture = ExtResource("10_k4h56")
-upgrade_description = "Increase Seed Yield"
-upgrade_title = "Increase Seed Yield"
+upgrade_description = "Get one more seed upon harvest"
+upgrade_title = "Seed Yield II"
 
 [node name="Product2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=695918069 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -731,16 +734,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 768.0
-offset_top = 320.0
+offset_top = 384.0
 offset_right = 832.0
-offset_bottom = 384.0
+offset_bottom = 448.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_5olwl")
 upgrade = SubResource("Resource_jv2lr")
 upgrade_texture = ExtResource("11_uvpvw")
-upgrade_description = "Increase Product Yield"
+upgrade_description = "Get one more product upon harvest"
+upgrade_title = "Product Yield II"
 
 [node name="SpinSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -748,52 +752,19 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 352.0
-offset_top = 256.0
+offset_top = 320.0
 offset_right = 416.0
-offset_bottom = 320.0
+offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_p1p0m")
 upgrade = SubResource("Resource_j47si")
 upgrade_texture = ExtResource("11_mxj6j")
-upgrade_description = "Increase Spin Speed"
+upgrade_description = "Be faster when spinning"
+upgrade_title = "Spin Speed I"
 
 [node name="Radius1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 528.0
-offset_top = 280.0
-offset_right = 592.0
-offset_bottom = 344.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-requirement = SubResource("Resource_68sxl")
-upgrade = SubResource("Resource_llord")
-upgrade_texture = ExtResource("12_6lvx3")
-upgrade_description = "Increases Radius"
-
-[node name="SpinDuration1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 704.0
-offset_top = 256.0
-offset_right = 768.0
-offset_bottom = 320.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-requirement = SubResource("Resource_gf7dq")
-upgrade = SubResource("Resource_e0puw")
-upgrade_texture = ExtResource("13_gdtny")
-upgrade_description = "Increases Spin Duration"
-
-[node name="WaterHold2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -805,27 +776,65 @@ offset_bottom = 408.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_68sxl")
+upgrade = SubResource("Resource_llord")
+upgrade_texture = ExtResource("12_6lvx3")
+upgrade_description = "Affect a bigger area when Spinning"
+upgrade_title = "Spin Radius I"
+
+[node name="SpinDuration1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 704.0
+offset_top = 320.0
+offset_right = 768.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
+requirement = SubResource("Resource_gf7dq")
+upgrade = SubResource("Resource_e0puw")
+upgrade_texture = ExtResource("11_mxj6j")
+upgrade_description = "Spin longer"
+upgrade_title = "Spin Duration I"
+
+[node name="WaterHold2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 528.0
+offset_top = 408.0
+offset_right = 592.0
+offset_bottom = 472.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
 requirement = SubResource("Resource_htuxu")
 upgrade = SubResource("Resource_0n7y6")
 upgrade_texture = ExtResource("8_svjrb")
-upgrade_description = "Increases Water Hold Capacity"
+upgrade_description = "Have more water available"
+upgrade_title = "Water Capacity II"
 
 [node name="Breeding1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=422137281 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 528.0
-offset_top = 424.0
-offset_right = 592.0
-offset_bottom = 488.0
+offset_left = 512.0
+offset_top = 492.0
+offset_right = 640.0
+offset_bottom = 620.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_6anig")
 upgrade = SubResource("Resource_f73d0")
 upgrade_texture = ExtResource("10_srk5f")
-upgrade_description = "Makes Plants Breedable"
+upgrade_description = "Breed plants by placing two seeds on one tile"
+upgrade_title = "Breeding"
 
 [node name="SpinRecharge1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -833,16 +842,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 608.0
-offset_top = 576.0
+offset_top = 700.0
 offset_right = 672.0
-offset_bottom = 640.0
+offset_bottom = 764.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_xc3uy")
 upgrade = SubResource("Resource_yytsk")
 upgrade_texture = ExtResource("13_gdtny")
-upgrade_description = "Reduces Spin Cooldown"
+upgrade_description = "Spin more often"
+upgrade_title = "Spin Cooldown I"
 
 [node name="MovSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1949281106 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -850,16 +860,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 448.0
-offset_top = 576.0
+offset_top = 700.0
 offset_right = 512.0
-offset_bottom = 640.0
+offset_bottom = 764.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_lb3kq")
 upgrade = SubResource("Resource_meibo")
 upgrade_texture = ExtResource("16_378tx")
-upgrade_description = "Increase Movement Speed"
+upgrade_description = "Walk faster"
+upgrade_title = "Walk Speed I"
 
 [node name="Magnet1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1722084100 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -867,16 +878,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 640.0
+offset_top = 764.0
 offset_right = 592.0
-offset_bottom = 704.0
+offset_bottom = 828.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_lqvsw")
 upgrade = SubResource("Resource_pncj8")
 upgrade_texture = ExtResource("17_5f6wk")
-upgrade_description = "Increase Magnet Radius"
+upgrade_description = "Pick up seeds and products in a bigger area"
+upgrade_title = "Magnet Radius I"
 
 [node name="SpinSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=730734119 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -884,16 +896,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 336.0
-offset_top = 712.0
+offset_top = 836.0
 offset_right = 400.0
-offset_bottom = 776.0
+offset_bottom = 900.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_poloa")
 upgrade = SubResource("Resource_04g6b")
 upgrade_texture = ExtResource("18_k7w8q")
-upgrade_description = "Increases Spin Speed"
+upgrade_description = "Be faster when spinning"
+upgrade_title = "Spin Speed II"
 
 [node name="MovSpeed2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1509533974 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -901,16 +914,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 336.0
-offset_top = 796.0
+offset_top = 920.0
 offset_right = 400.0
-offset_bottom = 860.0
+offset_bottom = 984.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_tx54y")
 upgrade = SubResource("Resource_x8e75")
 upgrade_texture = ExtResource("16_378tx")
-upgrade_description = "Increase Move Speed"
+upgrade_description = "Walk faster"
+upgrade_title = "Walk Speed I"
 
 [node name="Radius2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=447374802 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -918,16 +932,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 712.0
+offset_top = 836.0
 offset_right = 592.0
-offset_bottom = 776.0
+offset_bottom = 900.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_keokf")
 upgrade = SubResource("Resource_318dm")
 upgrade_texture = ExtResource("12_6lvx3")
-upgrade_description = "Increases Radius"
+upgrade_description = "Affect a bigger area"
+upgrade_title = "Spin Radius II"
 
 [node name="Magnet2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=2097643275 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -935,16 +950,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 796.0
+offset_top = 920.0
 offset_right = 592.0
-offset_bottom = 860.0
+offset_bottom = 984.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_rvvlr")
 upgrade = SubResource("Resource_nh754")
 upgrade_texture = ExtResource("17_5f6wk")
-upgrade_description = "Makes Magnet Stronger"
+upgrade_description = "Pick up seeds and products in a bigger area"
+upgrade_title = "Magnet Radius II"
 
 [node name="SpinDuration2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1731881315 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -952,16 +968,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 720.0
-offset_top = 712.0
+offset_top = 836.0
 offset_right = 784.0
-offset_bottom = 776.0
+offset_bottom = 900.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_3ni6v")
 upgrade = SubResource("Resource_72280")
-upgrade_texture = ExtResource("13_gdtny")
-upgrade_description = "Increases Spin Duration"
+upgrade_texture = ExtResource("11_mxj6j")
+upgrade_description = "Spin longer"
+upgrade_title = "Spin Duration II"
 
 [node name="SpinRecharge2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1444881647 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -969,16 +986,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 720.0
-offset_top = 796.0
+offset_top = 920.0
 offset_right = 784.0
-offset_bottom = 860.0
+offset_bottom = 984.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_c28fx")
 upgrade = SubResource("Resource_m84ha")
 upgrade_texture = ExtResource("13_gdtny")
-upgrade_description = "Reduces Spin Cooldown"
+upgrade_description = "Spin more often"
+upgrade_title = "Spin Cooldown II"
 
 [node name="Product3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=377300484 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -986,16 +1004,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 368.0
-offset_top = 504.0
+offset_top = 628.0
 offset_right = 432.0
-offset_bottom = 568.0
+offset_bottom = 692.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_x0vxy")
 upgrade = SubResource("Resource_1vi8p")
 upgrade_texture = ExtResource("11_uvpvw")
-upgrade_description = "Increase Product Yield"
+upgrade_description = "Get one more product upon harvest"
+upgrade_title = "Product Yield III"
 
 [node name="WaterHold3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1574901165 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -1003,16 +1022,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 504.0
+offset_top = 628.0
 offset_right = 592.0
-offset_bottom = 568.0
+offset_bottom = 692.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_tmaya")
 upgrade = SubResource("Resource_p5dvo")
 upgrade_texture = ExtResource("8_svjrb")
-upgrade_description = "Increases Water Hold Capacity"
+upgrade_description = "Have more water available"
+upgrade_title = "Water Capacity III"
 
 [node name="Seed3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1993908457 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -1020,16 +1040,17 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 688.0
-offset_top = 504.0
+offset_top = 628.0
 offset_right = 752.0
-offset_bottom = 568.0
+offset_bottom = 692.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_yst4g")
 upgrade = SubResource("Resource_ebi72")
 upgrade_texture = ExtResource("10_k4h56")
-upgrade_description = "Increase Seed Yield"
+upgrade_description = "Get one more seed upon harvest"
+upgrade_title = "Seed Yield III"
 
 [node name="Final" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1304529009 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -1037,15 +1058,16 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 488.0
-offset_top = 916.0
+offset_top = 1040.0
 offset_right = 712.0
-offset_bottom = 1140.0
+offset_bottom = 1264.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_dpn0q")
 upgrade_texture = ExtResource("9_ncjuy")
-upgrade_description = "Gives you the Strength to Kill the Tree"
+upgrade_description = "Unlock Final Powers"
+upgrade_title = "KILL MUM???"
 
 [node name="Lines" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1381957057]
 z_index = -1
@@ -1076,15 +1098,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier2" unique_id=156395182]
-points = PackedVector2Array(400, 144, 544, 240)
+points = PackedVector2Array(400, 144, 544, 272)
 width = 3.0
 
 [node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier2" unique_id=2016355457]
-points = PackedVector2Array(544, 144, 544, 240)
+points = PackedVector2Array(544, 144, 544, 272)
 width = 3.0
 
 [node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier2" unique_id=633057247]
-points = PackedVector2Array(688, 144, 544, 240)
+points = PackedVector2Array(688, 144, 544, 272)
 width = 3.0
 
 [node name="Tier3" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=1112920162]
@@ -1094,6 +1116,7 @@ offset_bottom = 40.0
 
 [node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=778785820]
 material = ExtResource("19_dotted")
+position = Vector2(0, 64)
 points = PackedVector2Array(368, 272, 304, 336)
 width = 3.0
 texture = ExtResource("20_line_tile")
@@ -1101,7 +1124,7 @@ texture_mode = 2
 
 [node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1831981264]
 material = ExtResource("19_dotted")
-position = Vector2(0, 96)
+position = Vector2(0, 160)
 points = PackedVector2Array(544, 184, 544, 280)
 width = 3.0
 texture = ExtResource("20_line_tile")
@@ -1109,48 +1132,49 @@ texture_mode = 2
 
 [node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=366064045]
 material = ExtResource("19_dotted")
+position = Vector2(0, 64)
 points = PackedVector2Array(720, 272, 784, 336)
 width = 3.0
 texture = ExtResource("20_line_tile")
 texture_mode = 2
 
 [node name="Line2D4" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=494591038]
-position = Vector2(-144, 96)
-points = PackedVector2Array(688, 144, 512, 176)
+position = Vector2(-144, 160)
+points = PackedVector2Array(688, 112, 512, 176)
 width = 3.0
 
 [node name="Line2D6" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=85049548]
-position = Vector2(-144, 96)
-points = PackedVector2Array(688, 144, 688, 200)
+position = Vector2(-144, 160)
+points = PackedVector2Array(688, 112, 688, 200)
 width = 3.0
 
 [node name="Line2D5" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=2029849148]
-position = Vector2(-144, 96)
-points = PackedVector2Array(688, 144, 864, 176)
+position = Vector2(-144, 160)
+points = PackedVector2Array(688, 112, 864, 176)
 width = 3.0
 
 [node name="Line2D7" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1910636979]
-position = Vector2(-144, 246.41791)
+position = Vector2(-144, 310.4179)
 scale = Vector2(1, 0.97761196)
-points = PackedVector2Array(511.99997, 34.351135, 687.99994, 189.83203)
+points = PackedVector2Array(511.99997, 34.351135, 687.99994, 218.47327)
 width = 3.0
 
 [node name="Line2D9" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=513530811]
-position = Vector2(-144, 246.41791)
+position = Vector2(-144, 310.4179)
 scale = Vector2(1, 0.97761196)
-points = PackedVector2Array(687.99994, 50.71756, 615.99994, 124.366394)
+points = PackedVector2Array(687.99994, 50.71756, 607.99994, 132.54959)
 width = 3.0
 
 [node name="Line2D10" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1334927532]
-position = Vector2(-144, 246.41791)
+position = Vector2(-144, 310.4179)
 scale = Vector2(1, 0.97761196)
-points = PackedVector2Array(687.99994, 50.71756, 759.99994, 124.366394)
+points = PackedVector2Array(687.99994, 50.71756, 767.99994, 132.54959)
 width = 3.0
 
 [node name="Line2D8" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=551946234]
-position = Vector2(-144, 246.41791)
+position = Vector2(-144, 310.4179)
 scale = Vector2(1, 0.97761196)
-points = PackedVector2Array(863.99994, 34.351135, 687.99994, 189.83203)
+points = PackedVector2Array(863.99994, 34.351135, 687.99994, 218.47327)
 width = 3.0
 
 [node name="Tier4" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=707024395]
@@ -1161,105 +1185,105 @@ offset_bottom = -8.0
 
 [node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=338618948]
 material = ExtResource("19_dotted")
-position = Vector2(0, 264)
-points = PackedVector2Array(376, 296, 544, 240)
+position = Vector2(0, 388)
+points = PackedVector2Array(376, 296, 544, 224)
 width = 3.0
 texture = ExtResource("20_line_tile")
 texture_mode = 2
 
 [node name="Line2D4" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1788233204]
 material = ExtResource("19_dotted")
-position = Vector2(0, 264)
-points = PackedVector2Array(712, 296, 544, 240)
+position = Vector2(0, 388)
+points = PackedVector2Array(712, 296, 544, 224)
 width = 3.0
 texture = ExtResource("20_line_tile")
 texture_mode = 2
 
 [node name="Line2D5" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=791120236]
 material = ExtResource("19_dotted")
-position = Vector2(0, 256)
-points = PackedVector2Array(544, 320, 544, 224)
+position = Vector2(0, 380)
+points = PackedVector2Array(544, 320, 544, 192)
 width = 3.0
 texture = ExtResource("20_line_tile")
 texture_mode = 2
 
 [node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1083465289]
-position = Vector2(0, 208)
-points = PackedVector2Array(376, 368, 464, 417)
+position = Vector2(0, 332)
+points = PackedVector2Array(384, 360, 464, 432)
 width = 3.0
 
 [node name="Line2D11" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1371269446]
-position = Vector2(0, 215)
-points = PackedVector2Array(544, 473, 456, 433)
+position = Vector2(0, 339)
+points = PackedVector2Array(544, 489, 464, 425)
 width = 3.0
 
 [node name="Line2D7" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1441415541]
-position = Vector2(0, 215)
-points = PackedVector2Array(544, 369, 464, 409)
+position = Vector2(0, 339)
+points = PackedVector2Array(544, 353, 464, 425)
 width = 3.0
 
 [node name="Line2D8" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=66401045]
-position = Vector2(0, 215)
-points = PackedVector2Array(544, 369, 624, 409)
+position = Vector2(0, 339)
+points = PackedVector2Array(544, 353, 624, 425)
 width = 3.0
 
 [node name="Line2D9" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1292281846]
-position = Vector2(0, 215)
-points = PackedVector2Array(712, 361, 624, 409)
+position = Vector2(0, 339)
+points = PackedVector2Array(704, 353, 624, 425)
 width = 3.0
 
 [node name="Line2D10" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=870117591]
-position = Vector2(0, 215)
-points = PackedVector2Array(544, 473, 632, 433)
+position = Vector2(0, 339)
+points = PackedVector2Array(544, 489, 624, 425)
 width = 3.0
 
 [node name="Line2D12" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1771198623]
-position = Vector2(0, 215)
+position = Vector2(0, 339)
 points = PackedVector2Array(544, 497, 544, 561)
 width = 3.0
 
 [node name="Line2D14" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1790124429]
-position = Vector2(0, 215)
+position = Vector2(0, 339)
 points = PackedVector2Array(544, 505, 736, 561)
 width = 3.0
 
 [node name="Line2D13" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=131455491]
-position = Vector2(0, 215)
+position = Vector2(0, 339)
 points = PackedVector2Array(544, 505, 352, 561)
 width = 3.0
 
 [node name="Line2D26" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=758928946]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(544, 705, 352, 609)
 width = 3.0
 
 [node name="Line2D31" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=432819868]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(352, 525, 352, 609)
 width = 3.0
 
 [node name="Line2D27" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1929652901]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(544, 705, 544, 609)
 width = 3.0
 
 [node name="Line2D33" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1280110887]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(544, 525, 544, 609)
 width = 3.0
 
 [node name="Line2D29" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=457817830]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(544, 705, 544, 721)
 width = 3.0
 
 [node name="Line2D28" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=2030934940]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(544, 705, 736, 609)
 width = 3.0
 
 [node name="Line2D35" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1988894474]
-position = Vector2(0, 251)
+position = Vector2(0, 375)
 points = PackedVector2Array(736, 525, 736, 609)
 width = 3.0
 
