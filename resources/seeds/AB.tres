@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_amqli")
-id = &"b"
-seed_name = "B"
-plant_id = &"b"
+id = &"ab"
+seed_name = "AB"
+plant_id = &"ab"
 metadata/_custom_type_script = "uid://cseedresrc001"

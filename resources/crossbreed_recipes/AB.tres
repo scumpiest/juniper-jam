@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CrossbreedRecipe" format=3 uid="uid://gec26cf3y6bm"]
+
+[ext_resource type="Resource" uid="uid://baxag3tuhspey" path="res://resources/plants/A.tres" id="1_b3axy"]
+[ext_resource type="Script" uid="uid://b1u4rwykbkewx" path="res://resources/crossbreed_recipe.gd" id="1_fe0af"]
+[ext_resource type="Resource" uid="uid://c7uaoeaedhdk4" path="res://resources/plants/B.tres" id="2_bwsdl"]
+[ext_resource type="Resource" uid="uid://bxyg148fuom2j" path="res://resources/plants/AB.tres" id="3_6ngcu"]
+
+[resource]
+script = ExtResource("1_fe0af")
+parent_a = ExtResource("1_b3axy")
+parent_b = ExtResource("2_bwsdl")
+result = ExtResource("3_6ngcu")
+metadata/_custom_type_script = "uid://b1u4rwykbkewx"

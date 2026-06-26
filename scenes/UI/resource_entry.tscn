@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bojg3j0748gm"]
 
-[ext_resource type="Script" path="res://scenes/UI/resource_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://dt7kk44gd6ri2" path="res://scenes/UI/resource_entry.gd" id="1_entry"]
 
-[node name="ResourceEntry" type="HBoxContainer"]
+[node name="ResourceEntry" type="HBoxContainer" unique_id=1583533649]
 theme_override_constants/separation = 6
 script = ExtResource("1_entry")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="." unique_id=326532139]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Amount" type="Label" parent="."]
+[node name="Amount" type="Label" parent="." unique_id=1582815217]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
