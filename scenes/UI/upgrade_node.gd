@@ -11,6 +11,7 @@ const LOCKED_MODULATE := Color(1.0, 0.35, 0.35, 1.0)
 @export var upgrade: Upgrade
 @export var is_unlocked: bool = false
 @export var upgrade_texture : Texture2D
+@export var upgrade_description : String
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
@@ -22,6 +23,7 @@ func _ready() -> void:
 		is_unlocked = true
 	_apply_locked_visual()
 	texture_rect.texture = upgrade_texture
+	tooltip_text = upgrade_description
 
 
 func _gui_input(event: InputEvent) -> void:

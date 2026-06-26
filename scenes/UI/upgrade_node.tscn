@@ -116,6 +116,7 @@ offset_bottom = -520.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+tooltip_text = "Description"
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0stq7")
 script = ExtResource("2_script")
 
@@ -127,3 +128,6 @@ expand_mode = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=293552451]
 libraries/ = SubResource("AnimationLibrary_upgrade")
 autoplay = &"RESET"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
