@@ -1,6 +1,6 @@
 extends Area2D
 
-const FINAL_STAGE := 2
+const FINAL_STAGE := 3
 
 @export var dropped_item_scene: PackedScene
 @export var data: PlantResource
