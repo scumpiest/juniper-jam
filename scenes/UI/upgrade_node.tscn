@@ -207,11 +207,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="Label" type="Label" parent="ToolTip/VBoxContainer" unique_id=1739289368]
+[node name="TitleLabel" type="Label" parent="ToolTip/VBoxContainer" unique_id=1739289368]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "TITLE
-Descr:
+theme_override_font_sizes/font_size = 18
+text = "TITLE"
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="ToolTip/VBoxContainer" unique_id=2847193051]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Descr:
 Requirements:"
 autowrap_mode = 3
 
