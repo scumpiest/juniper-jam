@@ -2,9 +2,13 @@ extends Control
 
 @export var player: CharacterBody2D
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var _sprite: AnimatedSprite2D = player.get_node("AnimatedSprite2D") as AnimatedSprite2D
 
 const REFILL_DURATION := 0.55
 const DEPLETE_DURATION := 0.30
+const BAR_HEIGHT := 5.0
+const BAR_MARGIN_TOP := 1.0
+const BAR_WIDTH_RATIO := 0.875
 
 var _tween: Tween
 var _empty_tween: Tween
@@ -18,8 +22,42 @@ var _is_empty: bool = false
 
 func _ready() -> void:
 	_setup_bar()
+	_sprite.frame_changed.connect(_update_layout)
+	_sprite.animation_changed.connect(_update_layout)
 	player.water_adjusted.connect(_on_water_adjusted)
+	GlobalData.slot_selection_changed.connect(_on_slot_selection_changed)
+	_update_layout()
+	_update_visibility()
 	set_process(false)
+
+
+func _update_layout() -> void:
+	var tex := _sprite.sprite_frames.get_frame_texture(_sprite.animation, _sprite.frame)
+	if tex == null:
+		return
+
+	var sprite_size := tex.get_size() * _sprite.scale
+	var bar_width := sprite_size.x * BAR_WIDTH_RATIO
+	var x := (sprite_size.x - bar_width) * 0.5 + _sprite.offset.x
+	var y := BAR_MARGIN_TOP + _sprite.offset.y
+
+	offset_left = x
+	offset_top = y
+	offset_right = x + bar_width
+	offset_bottom = y + BAR_HEIGHT
+
+
+func _is_water_mode_selected() -> bool:
+	var item: Resource = GlobalData.get_active_slot_item()
+	return item is ToolResource and (item as ToolResource).tool_type == ToolResource.ToolType.WATER
+
+
+func _update_visibility() -> void:
+	visible = _is_water_mode_selected()
+
+
+func _on_slot_selection_changed(_index: int) -> void:
+	_update_visibility()
 
 
 func _setup_bar() -> void:
