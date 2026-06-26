@@ -10,8 +10,12 @@ atlas = ExtResource("1_vhle6")
 region = Rect2(64, 0, 32, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msp22"]
+atlas = ExtResource("1_vhle6")
+region = Rect2(32, 0, 32, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1tde"]
+atlas = ExtResource("1_vhle6")
+region = Rect2(0, 0, 32, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chyd6"]
 atlas = ExtResource("1_vhle6")

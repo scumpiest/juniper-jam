@@ -1,13 +1,34 @@
 [gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://docc7faw773qy"]
 
+[ext_resource type="Texture2D" uid="uid://nsdcejnafks1" path="res://assets/plants/spr_water_jelly_plant.png" id="1_ap2og"]
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="1_jp77d"]
 [ext_resource type="Resource" uid="uid://bhd4nsisfn7nb" path="res://resources/products/BC.tres" id="1_u6cth"]
 [ext_resource type="Resource" uid="uid://d2almhdjclw04" path="res://resources/seeds/BC.tres" id="3_ap2og"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oahst"]
+atlas = ExtResource("1_ap2og")
+region = Rect2(64, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwhfx"]
+atlas = ExtResource("1_ap2og")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5cxc"]
+atlas = ExtResource("1_ap2og")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77v08"]
+atlas = ExtResource("1_ap2og")
+region = Rect2(96, 0, 32, 0)
 
 [resource]
 script = ExtResource("1_jp77d")
 id = &"bc"
 plant_name = "BC"
+initial_stage = SubResource("AtlasTexture_o5cxc")
+growing_stage = SubResource("AtlasTexture_lwhfx")
+almost_stage = SubResource("AtlasTexture_oahst")
+mature_stage = SubResource("AtlasTexture_77v08")
 product = ExtResource("1_u6cth")
 seed_item = ExtResource("3_ap2og")
 metadata/_custom_type_script = "uid://pd7dellu40h4"
