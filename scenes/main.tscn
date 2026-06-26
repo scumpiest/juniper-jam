@@ -137,10 +137,9 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Press \"E\" to plant
-Press \"Space\" to harvest
-Press \"F\" to water
-Plants cannot grow unless watered for each stage"
+text = "Press 1-6 or Q/E to select a hotbar slot
+Press Space to use the selected tool or seed
+Hold Space or Shift to spin"
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=1529742515 instance=ExtResource("6_tefeu")]
 anchors_preset = 7

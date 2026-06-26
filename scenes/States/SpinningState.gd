@@ -60,6 +60,11 @@ func _is_resource_depleted(delta: float) -> bool:
 	match action_type:
 		ActionType.WATER:
 			return player.water_amount <= player.min_water_amount
+		ActionType.PLANT:
+			if not _has_seeds_to_plant():
+				return true
+			_spin_time_left -= delta
+			return _spin_time_left <= 0.0
 		_:
 			_spin_time_left -= delta
 			return _spin_time_left <= 0.0
@@ -101,9 +106,18 @@ func _perform_action() -> bool:
 			player.try_water()
 			return true
 		ActionType.PLANT:
+			if not _has_seeds_to_plant():
+				return false
 			player.try_plant_seed()
 			return true
 	return false
+
+
+func _has_seeds_to_plant() -> bool:
+	var plant := GlobalData.plant_selected
+	if plant == null or plant.seed_item == null:
+		return false
+	return GlobalData.get_seed_count(plant.seed_item) > 0
 
 
 func _play_spin_start() -> void:

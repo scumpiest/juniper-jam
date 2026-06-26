@@ -2,26 +2,21 @@
 
 [ext_resource type="Script" uid="uid://ki7takyk7v5h" path="res://scenes/slot.gd" id="1_slot"]
 
-[node name="Slot" type="PanelContainer" unique_id=1171020822]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1024.0
-offset_bottom = -520.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
 script = ExtResource("1_slot")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=635952175]
-custom_minimum_size = Vector2(64, 64)
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Amount" type="Label" parent="." unique_id=745959118]
+[node name="Amount" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 2
 vertical_alignment = 2

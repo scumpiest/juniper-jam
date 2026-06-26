@@ -11,12 +11,22 @@ var _style_selected: StyleBoxFlat
 
 func _ready() -> void:
 	_build_styles()
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	gui_input.connect(_on_gui_input)
 	if slot_index < 0:
 		return
 	GlobalData.inventory_updated.connect(_update_display)
 	GlobalData.slot_selection_changed.connect(_on_slot_selection_changed)
 	_update_display()
 	_on_slot_selection_changed(GlobalData.selected_slot_index)
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if slot_index < 0:
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		GlobalData.select_slot(slot_index)
+		accept_event()
 
 
 func _build_styles() -> void:
