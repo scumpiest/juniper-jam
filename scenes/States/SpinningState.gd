@@ -44,17 +44,31 @@ func update(delta: float) -> void:
 	if not _is_spinning:
 		return
 
-	if GlobalData.is_feature_unlocked(Upgrade.Type.UNLOCK_SPIN_HOLD):
-		if not Input.is_action_pressed("spin"):
-			_end_spin()
-			_transition_to_movement_state()
+	if not _is_spin_input_held():
+		_end_spin_and_transition()
 		return
 
-	_spin_time_left -= delta
-	if _spin_time_left <= 0.0:
-		_end_spin()
-		_transition_to_movement_state()
-		
+	if _is_resource_depleted(delta):
+		_end_spin_and_transition()
+
+
+func _is_spin_input_held() -> bool:
+	return Input.is_action_pressed("spin") or Input.is_action_pressed("action")
+
+
+func _is_resource_depleted(delta: float) -> bool:
+	match action_type:
+		ActionType.WATER:
+			return player.water_amount <= player.min_water_amount
+		_:
+			_spin_time_left -= delta
+			return _spin_time_left <= 0.0
+
+
+func _end_spin_and_transition() -> void:
+	_end_spin()
+	_transition_to_movement_state()
+
 
 
 

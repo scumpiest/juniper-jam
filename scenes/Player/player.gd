@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var water_amount: float = 100.0
 @export var max_water_amount: float = 100.0
 @export var min_water_amount: float = 0.0
-@export var water_step: float = 1.0
+@export var water_step: float = 10.0
+@export var water_action_duration: float = 0.30
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _harvest_area: Area2D = $HarvestArea

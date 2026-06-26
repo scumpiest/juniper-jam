@@ -5,7 +5,6 @@ extends Control
 @onready var _sprite: AnimatedSprite2D = player.get_node("AnimatedSprite2D") as AnimatedSprite2D
 
 const REFILL_DURATION := 0.55
-const DEPLETE_DURATION := 0.30
 const BAR_HEIGHT := 5.0
 const BAR_MARGIN_TOP := 1.0
 const BAR_WIDTH_RATIO := 0.875
@@ -113,7 +112,7 @@ func _update_speed() -> void:
 	_depleting = distance < 0.0
 	if _depleting:
 		var step := maxf(progress_bar.step, 1.0)
-		_speed = step / DEPLETE_DURATION
+		_speed = step / player.water_action_duration
 	else:
 		_speed = absf(distance) / REFILL_DURATION
 
