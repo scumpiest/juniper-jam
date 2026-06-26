@@ -11,9 +11,11 @@ extends CharacterBody2D
 @onready var _harvest_area: Area2D = $HarvestArea
 @onready var inventory_ui: CanvasLayer = $InventoryUI
 @onready var magnetic_area: CollisionShape2D = $ItemCollectionArea/CollisionShape2D
-@onready var foot_step_sound: AudioStreamPlayer = $FootStepSound
 @onready var hurt_box_collision: CollisionShape2D = $HurtBox/CollisionShape2D
 @onready var spinning_state: SpinningState = $StateMachine/SpinningState
+#audio nodes
+@onready var foot_step_sound: AudioStreamPlayer = $FootStepSound
+@onready var watering_sound: AudioStreamPlayer = $WateringSound
 
 var _can_move: bool = true
 
@@ -51,11 +53,14 @@ func try_plant_seed() -> void:
 func try_water() -> void:
 	if water_amount <= min_water_amount:
 		return
+
 	for area in _harvest_area.get_overlapping_areas():
+		if not watering_sound.is_playing:
+			watering_sound.play()
 		if area.is_in_group("crops") and area.has_method("water"):
 			area.water()
 	adjust_water(water_step)
-
+	
 
 func try_harvest() -> int:
 	var count := 0

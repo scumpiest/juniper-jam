@@ -85,6 +85,7 @@ func physics_update(delta: float) -> void:
 
 	player.move_and_slide()
 
+
 	_harvest_timer -= delta
 	if _harvest_timer <= 0.0:
 		_harvest_timer = harvest_interval

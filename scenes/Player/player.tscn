@@ -18,6 +18,10 @@
 atlas = ExtResource("13_jxtnq")
 region = Rect2(65, 1, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_32uah"]
+atlas = ExtResource("13_jxtnq")
+region = Rect2(32, 0, 32, 33)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_43ckd"]
 atlas = ExtResource("13_jxtnq")
 region = Rect2(33, 1, 32, 32)
@@ -83,6 +87,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jxtnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32uah")
 }],
 "loop": 1,
 "name": &"idle",
@@ -211,14 +218,14 @@ region = Rect2(0, 0, 4, 4)
 atlas = ExtResource("12_wyey8")
 region = Rect2(5, 0, 4, 4)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yu3n"]
+radius = 18.439089
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uxo23"]
 playback_mode = 1
 random_pitch = 1.0594631
 streams_count = 1
 stream_0/stream = ExtResource("12_jxtnq")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3yu3n"]
-radius = 18.439089
 
 [node name="Player" type="CharacterBody2D" unique_id=2141744375 groups=["Player"]]
 process_mode = 3
@@ -381,9 +388,6 @@ initial_velocity_max = 160.0
 scale_amount_max = 2.0
 color = Color(0.741176, 0.560784, 0.290196, 1)
 
-[node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
-stream = SubResource("AudioStreamRandomizer_uxo23")
-
 [node name="HurtBox" type="Area2D" parent="." unique_id=417658018]
 collision_layer = 0
 collision_mask = 8
@@ -393,6 +397,12 @@ position = Vector2(-1, 8)
 shape = SubResource("CircleShape2D_3yu3n")
 disabled = true
 debug_color = Color(0.9699355, 0.17583784, 0, 0.41960785)
+
+[node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
+stream = SubResource("AudioStreamRandomizer_uxo23")
+
+[node name="WateringSound" type="AudioStreamPlayer" parent="." unique_id=1477632363]
+stream = SubResource("AudioStreamRandomizer_uxo23")
 
 [connection signal="area_entered" from="ItemCollectionArea" to="." method="_on_item_collection_area_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

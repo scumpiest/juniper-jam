@@ -15,6 +15,8 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+[ext_resource type="AudioStream" uid="uid://ck7xjmd4jati8" path="res://assets/SFX/UI_hover.wav" id="3_3b8pq"]
+[ext_resource type="AudioStream" uid="uid://c78xo055c2c3f" path="res://assets/SFX/UI_click.wav" id="4_xfgxo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i2gn"]
 bg_color = Color(0.6, 0, 1, 1)
@@ -133,6 +135,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3b8pq")
 text = "Exit
 "
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=1528417961]
+stream = ExtResource("3_3b8pq")
+
+[node name="ButtonClicked" type="AudioStreamPlayer" parent="." unique_id=705644564]
+stream = ExtResource("4_xfgxo")
+
+[connection signal="mouse_entered" from="GenericBackground/VBoxContainer/PlayButton" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="GenericBackground/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="GenericBackground/VBoxContainer/OptionsButton" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="GenericBackground/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="GenericBackground/VBoxContainer/ExitButton" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="GenericBackground/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
