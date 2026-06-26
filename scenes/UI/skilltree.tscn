@@ -1062,6 +1062,7 @@ requirement = SubResource("Resource_dpn0q")
 upgrade_texture = ExtResource("9_ncjuy")
 upgrade_description = "Unlock Final Powers"
 upgrade_title = "KILL MUM???"
+tooltip_min_size = Vector2(280, 130)
 
 [node name="Lines" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1381957057]
 z_index = -1

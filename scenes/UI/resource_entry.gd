@@ -28,7 +28,7 @@ func update_display(count: int) -> void:
 func show_required(amount: int) -> void:
 	_ensure_nodes()
 	_icon.modulate = Color.WHITE
-	_amount.text = "x%d" % amount
+	_amount.text = "x" + str(amount)
 
 
 func _ensure_nodes() -> void:

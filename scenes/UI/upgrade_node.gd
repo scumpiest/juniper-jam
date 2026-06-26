@@ -14,21 +14,24 @@ const RESOURCE_ENTRY_SCENE := preload("res://scenes/UI/resource_entry.tscn")
 @export var upgrade_texture: Texture2D
 @export var upgrade_description: String
 @export var upgrade_title: String
+@export var tooltip_min_size: Vector2 = Vector2(280, 100)
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var tool_tip: NinePatchRect = $ToolTip
 @onready var title_label: Label = $ToolTip/VBoxContainer/TitleLabel
 @onready var label: Label = $ToolTip/VBoxContainer/Label
-@onready var _product_requirements: HBoxContainer = $ToolTip/VBoxContainer/ProductRequirements
+@onready var _product_requirements: GridContainer = $ToolTip/VBoxContainer/ProductRequirements
 
 
 func _ready() -> void:
+	tooltip_text = ""
 	_animation_player.animation_finished.connect(_on_animation_finished)
 	if GlobalData.is_skill_node_unlocked(name):
 		is_unlocked = true
 	_apply_locked_visual()
 	texture_rect.texture = upgrade_texture
+	tool_tip.custom_minimum_size = tooltip_min_size
 	_update_tooltip_content()
 	tool_tip.visible = false
 	call_deferred("_reparent_tooltip_outside_clip")
@@ -84,15 +87,9 @@ func _can_unlock() -> bool:
 func _update_tooltip_content() -> void:
 	title_label.text = upgrade_title
 	label.text = upgrade_description
-	var node_requirements := _get_node_requirements_text()
 	var product_requirements: Array[ProductRequirement] = []
 	if requirement != null:
 		product_requirements = requirement.get_product_requirements()
-
-	if node_requirements != "":
-		label.text += "\nRequires: %s" % node_requirements
-	elif product_requirements.is_empty():
-		label.text += "\nRequires: None"
 
 	for child in _product_requirements.get_children():
 		child.queue_free()
@@ -102,12 +99,6 @@ func _update_tooltip_content() -> void:
 		_product_requirements.add_child(row)
 		row.setup(entry.product)
 		row.show_required(entry.amount)
-
-
-func _get_node_requirements_text() -> String:
-	if requirement == null:
-		return ""
-	return requirement.get_node_requirements_text(self)
 
 
 func refresh_visual() -> void:
