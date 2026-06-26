@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_oxrv8")
-id = &"b"
-seed_name = "B"
-plant_id = &"b"
+id = &"ca"
+seed_name = "CA"
+plant_id = &"ca"
 metadata/_custom_type_script = "uid://cseedresrc001"

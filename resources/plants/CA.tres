@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://ci5yocytwppo2"]
 
+[ext_resource type="Resource" uid="uid://bl5vxk1seywee" path="res://resources/products/CA.tres" id="1_j42h4"]
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="1_xxkkt"]
+[ext_resource type="Resource" uid="uid://d2w5do3yq5kow" path="res://resources/seeds/CA.tres" id="3_b1urn"]
 
 [resource]
 script = ExtResource("1_xxkkt")
-id = &"c"
-plant_name = "C"
+id = &"ca"
+plant_name = "CA"
+product = ExtResource("1_j42h4")
+seed_item = ExtResource("3_b1urn")
 metadata/_custom_type_script = "uid://pd7dellu40h4"

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_bgclc")
-id = &"b"
-seed_name = "B"
-plant_id = &"b"
+id = &"bc"
+seed_name = "BC"
+plant_id = &"bc"
 metadata/_custom_type_script = "uid://cseedresrc001"

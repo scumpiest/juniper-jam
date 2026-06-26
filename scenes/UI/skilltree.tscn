@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://cuw3uaoe5n6tf" path="res://assets/UpgradeTextures/Movement_Speed.png" id="16_378tx"]
 [ext_resource type="Texture2D" uid="uid://b4fv6sgfl12bq" path="res://assets/UpgradeTextures/Magnet.png" id="17_5f6wk"]
 [ext_resource type="Texture2D" uid="uid://d0furp4arl6ae" path="res://assets/UpgradeTextures/spin_speed.png" id="18_k7w8q"]
+[ext_resource type="Material" uid="uid://bq54x6gkkmjl0" path="res://assets/shaders/dotted_line.tres" id="19_dotted"]
+[ext_resource type="Texture2D" uid="uid://brjkjgxqya8mt" path="res://assets/textures/line_tile.png" id="20_line_tile"]
 
 [sub_resource type="Resource" id="ProductReq_hold"]
 script = ExtResource("6_product_req")
@@ -470,6 +472,88 @@ grow_horizontal = 1
 grow_vertical = 1
 upgrade_texture = ExtResource("9_ncjuy")
 upgrade_description = "Gives you the Strength to Kill the Tree"
+
+[node name="Lines" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1381957057]
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tier1" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=897027266]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier1" unique_id=1495826611]
+points = PackedVector2Array(544, 48, 400, 144)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier1" unique_id=955089899]
+points = PackedVector2Array(544, 48, 544, 144)
+width = 3.0
+
+[node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier1" unique_id=1513597993]
+points = PackedVector2Array(544, 48, 688, 144)
+width = 3.0
+
+[node name="Tier2" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=1975747624]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier2" unique_id=156395182]
+points = PackedVector2Array(400, 144, 544, 240)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier2" unique_id=2016355457]
+points = PackedVector2Array(544, 144, 544, 240)
+width = 3.0
+
+[node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier2" unique_id=633057247]
+points = PackedVector2Array(688, 144, 544, 240)
+width = 3.0
+
+[node name="Tier3" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=1112920162]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=778785820]
+material = ExtResource("19_dotted")
+points = PackedVector2Array(544, 240, 368, 272)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1831981264]
+material = ExtResource("19_dotted")
+position = Vector2(0, 96)
+points = PackedVector2Array(544, 240, 544, 336)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 1
+
+[node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=366064045]
+material = ExtResource("19_dotted")
+points = PackedVector2Array(544, 240, 720, 272)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 1
+
+[node name="Line2D4" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=494591038]
+position = Vector2(-144, 96)
+points = PackedVector2Array(688, 144, 576, 240)
+width = 3.0
+
+[node name="Line2D6" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=85049548]
+position = Vector2(-144, 96)
+points = PackedVector2Array(688, 144, 688, 240)
+width = 3.0
+
+[node name="Line2D5" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=2029849148]
+position = Vector2(-144, 96)
+points = PackedVector2Array(688, 144, 800, 240)
+width = 3.0
 
 [node name="CloseButton" type="Button" parent="." unique_id=-1447773646]
 z_index = 1
