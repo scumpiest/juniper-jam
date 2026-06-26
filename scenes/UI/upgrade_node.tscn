@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="2_rd6r8"]
 [ext_resource type="Script" uid="uid://bo1cflaud46xn" path="res://scenes/UI/upgrade_node.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://sdv5db1m1qyh" path="res://assets/spr_ui_blank.png" id="3_18id2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0stq7"]
 
@@ -117,7 +118,6 @@ offset_bottom = -520.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-tooltip_text = "Description"
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0stq7")
 script = ExtResource("2_script")
 
@@ -130,6 +130,44 @@ expand_mode = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=293552451]
 libraries/ = SubResource("AnimationLibrary_upgrade")
 autoplay = &"RESET"
+
+[node name="ToolTip" type="NinePatchRect" parent="." unique_id=385942191]
+visible = false
+top_level = true
+z_index = 100
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+texture = ExtResource("3_18id2")
+region_rect = Rect2(26, 25, 45, 46)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ToolTip" unique_id=1847293650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="ToolTip/VBoxContainer" unique_id=1739289368]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TITLE
+Descr:
+Requirements:"
+autowrap_mode = 3
+
+[node name="ProductRequirements" type="HBoxContainer" parent="ToolTip/VBoxContainer" unique_id=2847193651]
+layout_mode = 2
+theme_override_constants/separation = 8
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
