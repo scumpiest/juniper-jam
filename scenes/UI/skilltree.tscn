@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://3b1mocgiiua1" path="res://scenes/UI/upgrade_node.tscn" id="1_jeeb3"]
 [ext_resource type="Script" uid="uid://c4k8m2n7p1qwr" path="res://scenes/UI/tree_canvas.gd" id="2_tree_canvas"]
 [ext_resource type="Script" uid="uid://b7n3k8m2p4qws" path="res://scenes/UI/skilltree.gd" id="3_skilltree"]
-[ext_resource type="Resource" uid="uid://cprodwheat001" path="res://resources/products/wheat.tres" id="4_3e7kn"]
+[ext_resource type="Resource" uid="uid://bfgedsprrax28" path="res://resources/products/A.tres" id="4_3e7kn"]
 [ext_resource type="Script" uid="uid://0arycpveld2t" path="res://resources/upgrade_requirement.gd" id="4_requirement"]
+[ext_resource type="Resource" uid="uid://bfgedsprrax28" path="res://resources/products/A.tres" id="5_5f6wk"]
 [ext_resource type="Script" uid="uid://8myouhndsiay" path="res://resources/upgrade.gd" id="5_upgrade"]
 [ext_resource type="Script" uid="uid://dui8myk081vo5" path="res://resources/product_requirement.gd" id="6_product_req"]
 [ext_resource type="Texture2D" uid="uid://2g8xdc7onxwd" path="res://assets/UpgradeTextures/Hold_Water_Capacity.png" id="8_svjrb"]
@@ -14,17 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://dv3oqv1u581dp" path="res://assets/UpgradeTextures/faster_spin_recharge.png" id="11_mxj6j"]
 [ext_resource type="Texture2D" uid="uid://1mxh7txuypkq" path="res://assets/UpgradeTextures/Product_Outcome.png" id="11_uvpvw"]
 [ext_resource type="Texture2D" uid="uid://cekilv4wd887f" path="res://assets/UpgradeTextures/radius.png" id="12_6lvx3"]
+[ext_resource type="Resource" uid="uid://dl48x3do8innj" path="res://resources/products/C.tres" id="12_abx6w"]
 [ext_resource type="Texture2D" uid="uid://d3n3kgomuhp4f" path="res://assets/UpgradeTextures/Spin_Duration.png" id="13_gdtny"]
+[ext_resource type="Resource" uid="uid://dupc0iubisp4g" path="res://resources/products/B.tres" id="13_xod7u"]
 [ext_resource type="Texture2D" uid="uid://cuw3uaoe5n6tf" path="res://assets/UpgradeTextures/Movement_Speed.png" id="16_378tx"]
 [ext_resource type="Texture2D" uid="uid://b4fv6sgfl12bq" path="res://assets/UpgradeTextures/Magnet.png" id="17_5f6wk"]
+[ext_resource type="Resource" uid="uid://ctnvfaxsn0ggh" path="res://resources/products/AB.tres" id="17_i5pfo"]
 [ext_resource type="Texture2D" uid="uid://d0furp4arl6ae" path="res://assets/UpgradeTextures/spin_speed.png" id="18_k7w8q"]
+[ext_resource type="Resource" uid="uid://bl5vxk1seywee" path="res://resources/products/CA.tres" id="18_w3hb8"]
 [ext_resource type="Material" uid="uid://bq54x6gkkmjl0" path="res://assets/shaders/dotted_line.tres" id="19_dotted"]
 [ext_resource type="Texture2D" uid="uid://brjkjgxqya8mt" path="res://assets/textures/line_tile.png" id="20_line_tile"]
+[ext_resource type="Resource" uid="uid://bhd4nsisfn7nb" path="res://resources/products/BC.tres" id="20_m3trr"]
 
 [sub_resource type="Resource" id="Resource_uvpvw"]
 script = ExtResource("6_product_req")
-product = ExtResource("4_3e7kn")
-amount = 5
+product = ExtResource("5_5f6wk")
 metadata/_custom_type_script = "uid://dui8myk081vo5"
 
 [sub_resource type="Resource" id="Resource_kx33d"]
@@ -37,18 +42,42 @@ script = ExtResource("5_upgrade")
 type = 12
 value = 1.0
 
+[sub_resource type="Resource" id="ProductReq_seed1"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 10
+
 [sub_resource type="Resource" id="Requirement_seed1"]
 script = ExtResource("4_requirement")
-required_nodes = Array[StringName]([&"Hold"])
+required_nodes = Array[StringName]([&"UnlockTree"])
+products = Array[ExtResource("6_product_req")]([SubResource("ProductReq_seed1")])
 
 [sub_resource type="Resource" id="Upgrade_seed1"]
 script = ExtResource("5_upgrade")
 type = 10
 value = 1.0
 
+[sub_resource type="Resource" id="Resource_sw3jk"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 10
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_i5pfo"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"UnlockTree"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_sw3jk")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_t08qe"]
+script = ExtResource("5_upgrade")
+type = 6
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
 [sub_resource type="Resource" id="ProductReq_product1"]
 script = ExtResource("6_product_req")
-product = ExtResource("4_3e7kn")
+product = ExtResource("5_5f6wk")
 amount = 10
 
 [sub_resource type="Resource" id="Resource_o8g4a"]
@@ -63,17 +92,496 @@ type = 9
 value = 1.0
 metadata/_custom_type_script = "uid://8myouhndsiay"
 
+[sub_resource type="Resource" id="Resource_7ybui"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 30
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
 [sub_resource type="Resource" id="Resource_bgfia"]
 script = ExtResource("4_requirement")
 required_nodes = Array[StringName]([&"Seed1", &"WaterHold1", &"Product1"])
-products = Array[ExtResource("6_product_req")]([null, null])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_7ybui")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_wiwg1"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 15
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_3g0tc"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 15
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_q1kp0"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"SpinSpeed1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_wiwg1"), SubResource("Resource_3g0tc")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_vvtsx"]
+script = ExtResource("5_upgrade")
+type = 10
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_xyeew"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 15
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_i1y3r"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 15
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_5olwl"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"SpinDuration1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_xyeew"), SubResource("Resource_i1y3r")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_jv2lr"]
+script = ExtResource("5_upgrade")
+type = 9
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_aq3b4"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 30
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_p1p0m"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"MoveOverWater"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_aq3b4")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_j47si"]
+script = ExtResource("5_upgrade")
+type = 1
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_d6rvo"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 20
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_l14ee"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 20
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_68sxl"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"MoveOverWater"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_d6rvo"), SubResource("Resource_l14ee")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_llord"]
+script = ExtResource("5_upgrade")
+type = 4
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_gq5mt"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 30
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_gf7dq"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"MoveOverWater"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_gq5mt")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_e0puw"]
+script = ExtResource("5_upgrade")
+type = 2
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_5e0k8"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 10
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_ivk0h"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 10
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_htuxu"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Radius1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_5e0k8"), SubResource("Resource_ivk0h")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_0n7y6"]
+script = ExtResource("5_upgrade")
+type = 6
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_6g1ea"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_qrf2r"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_wuhff"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_6anig"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"SpinSpeed1", &"Radius1", &"SpinDuration1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_6g1ea"), SubResource("Resource_qrf2r"), SubResource("Resource_wuhff")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_f73d0"]
+script = ExtResource("5_upgrade")
+type = 8
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_463de"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_svu8i"]
+script = ExtResource("6_product_req")
+product = ExtResource("17_i5pfo")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_xc3uy"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"WaterHold3", &"Seed3"])
+required_nodes_mode = 1
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_463de"), SubResource("Resource_svu8i")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_yytsk"]
+script = ExtResource("5_upgrade")
+type = 3
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_mwdqu"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_eckkj"]
+script = ExtResource("6_product_req")
+product = ExtResource("18_w3hb8")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_lb3kq"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Product3", &"WaterHold3"])
+required_nodes_mode = 1
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_mwdqu"), SubResource("Resource_eckkj")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_meibo"]
+script = ExtResource("5_upgrade")
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_l58h4"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 75
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_164ru"]
+script = ExtResource("6_product_req")
+product = ExtResource("20_m3trr")
+amount = 75
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_lqvsw"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"MovSpeed1", &"SpinRecharge"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_l58h4"), SubResource("Resource_164ru")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_pncj8"]
+script = ExtResource("5_upgrade")
+type = 5
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_5yysa"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_5syr5"]
+script = ExtResource("6_product_req")
+product = ExtResource("17_i5pfo")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_poloa"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Magnet1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_5yysa"), SubResource("Resource_5syr5")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_04g6b"]
+script = ExtResource("5_upgrade")
+type = 1
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_j77wx"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_sqnpv"]
+script = ExtResource("6_product_req")
+product = ExtResource("18_w3hb8")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_tx54y"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"SpinSpeed2"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_j77wx"), SubResource("Resource_sqnpv")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_x8e75"]
+script = ExtResource("5_upgrade")
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_v7smi"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_t3h1k"]
+script = ExtResource("6_product_req")
+product = ExtResource("20_m3trr")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_keokf"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Magnet1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_v7smi"), SubResource("Resource_t3h1k")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_318dm"]
+script = ExtResource("5_upgrade")
+type = 4
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_boyfj"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_yfsva"]
+script = ExtResource("6_product_req")
+product = ExtResource("17_i5pfo")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_rvvlr"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Radius2"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_boyfj"), SubResource("Resource_yfsva")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_nh754"]
+script = ExtResource("5_upgrade")
+type = 5
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_73aiy"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_msi7h"]
+script = ExtResource("6_product_req")
+product = ExtResource("18_w3hb8")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_3ni6v"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Magnet1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_73aiy"), SubResource("Resource_msi7h")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_72280"]
+script = ExtResource("5_upgrade")
+type = 2
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_msqil"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_b7wnb"]
+script = ExtResource("6_product_req")
+product = ExtResource("20_m3trr")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_c28fx"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"SpinDuration2"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_msqil"), SubResource("Resource_b7wnb")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_m84ha"]
+script = ExtResource("5_upgrade")
+type = 3
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_vnf5c"]
+script = ExtResource("6_product_req")
+product = ExtResource("17_i5pfo")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_x0vxy"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Breeding1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_vnf5c")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_1vi8p"]
+script = ExtResource("5_upgrade")
+type = 9
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_ry8mm"]
+script = ExtResource("6_product_req")
+product = ExtResource("20_m3trr")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_tmaya"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Breeding1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_ry8mm")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_p5dvo"]
+script = ExtResource("5_upgrade")
+type = 6
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_jjyal"]
+script = ExtResource("6_product_req")
+product = ExtResource("18_w3hb8")
+amount = 50
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_yst4g"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"Breeding1"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_jjyal")])
+metadata/_custom_type_script = "uid://0arycpveld2t"
+
+[sub_resource type="Resource" id="Resource_ebi72"]
+script = ExtResource("5_upgrade")
+type = 10
+value = 1.0
+metadata/_custom_type_script = "uid://8myouhndsiay"
+
+[sub_resource type="Resource" id="Resource_utbbg"]
+script = ExtResource("6_product_req")
+product = ExtResource("5_5f6wk")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_n68ck"]
+script = ExtResource("6_product_req")
+product = ExtResource("13_xod7u")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_x4x4v"]
+script = ExtResource("6_product_req")
+product = ExtResource("12_abx6w")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_0xfb8"]
+script = ExtResource("6_product_req")
+product = ExtResource("17_i5pfo")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_cv01u"]
+script = ExtResource("6_product_req")
+product = ExtResource("20_m3trr")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_0fv4m"]
+script = ExtResource("6_product_req")
+product = ExtResource("18_w3hb8")
+amount = 100
+metadata/_custom_type_script = "uid://dui8myk081vo5"
+
+[sub_resource type="Resource" id="Resource_dpn0q"]
+script = ExtResource("4_requirement")
+required_nodes = Array[StringName]([&"MovSpeed2", &"Magnet2", &"SpinRecharge2"])
+products = Array[ExtResource("6_product_req")]([SubResource("Resource_utbbg"), SubResource("Resource_n68ck"), SubResource("Resource_x4x4v"), SubResource("Resource_0xfb8"), SubResource("Resource_cv01u"), SubResource("Resource_0fv4m")])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
 [node name="Skilltree" type="Panel" unique_id=694997367]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 424.0
+offset_bottom = 592.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_skilltree")
@@ -111,7 +619,7 @@ offset_top = 80.0
 offset_right = 56.0
 offset_bottom = 120.0
 
-[node name="Hold" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=702462050 instance=ExtResource("1_jeeb3")]
+[node name="UnlockTree" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=702462050 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -158,6 +666,8 @@ offset_bottom = 192.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_i5pfo")
+upgrade = SubResource("Resource_t08qe")
 upgrade_texture = ExtResource("8_svjrb")
 upgrade_description = "Increases Water Hold Capacity"
 
@@ -178,7 +688,7 @@ upgrade = SubResource("Resource_ksmug")
 upgrade_texture = ExtResource("11_uvpvw")
 upgrade_description = "Unlocks a New Product"
 
-[node name="Crafting1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
+[node name="MoveOverWater" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -206,6 +716,8 @@ offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_q1kp0")
+upgrade = SubResource("Resource_vvtsx")
 upgrade_texture = ExtResource("10_k4h56")
 upgrade_description = "Unlocks a New Seed"
 
@@ -221,6 +733,8 @@ offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_5olwl")
+upgrade = SubResource("Resource_jv2lr")
 upgrade_texture = ExtResource("11_uvpvw")
 upgrade_description = "Unlocks a New Product"
 
@@ -236,6 +750,8 @@ offset_bottom = 320.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_p1p0m")
+upgrade = SubResource("Resource_j47si")
 upgrade_texture = ExtResource("11_mxj6j")
 upgrade_description = "Increase Spin Speed"
 
@@ -251,6 +767,8 @@ offset_bottom = 344.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_68sxl")
+upgrade = SubResource("Resource_llord")
 upgrade_texture = ExtResource("12_6lvx3")
 upgrade_description = "Increases Radius"
 
@@ -266,6 +784,8 @@ offset_bottom = 320.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_gf7dq")
+upgrade = SubResource("Resource_e0puw")
 upgrade_texture = ExtResource("13_gdtny")
 upgrade_description = "Increases Spin Duration"
 
@@ -281,6 +801,8 @@ offset_bottom = 408.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_htuxu")
+upgrade = SubResource("Resource_0n7y6")
 upgrade_texture = ExtResource("8_svjrb")
 upgrade_description = "Increases Water Hold Capacity"
 
@@ -296,6 +818,8 @@ offset_bottom = 488.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_6anig")
+upgrade = SubResource("Resource_f73d0")
 upgrade_texture = ExtResource("10_srk5f")
 upgrade_description = "Makes Plants Breedable"
 
@@ -311,6 +835,8 @@ offset_bottom = 640.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_xc3uy")
+upgrade = SubResource("Resource_yytsk")
 upgrade_texture = ExtResource("13_gdtny")
 upgrade_description = "Reduces Spin Cooldown"
 
@@ -326,6 +852,8 @@ offset_bottom = 640.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_lb3kq")
+upgrade = SubResource("Resource_meibo")
 upgrade_texture = ExtResource("16_378tx")
 upgrade_description = "Increase Movement Speed"
 
@@ -341,6 +869,8 @@ offset_bottom = 704.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_lqvsw")
+upgrade = SubResource("Resource_pncj8")
 upgrade_texture = ExtResource("17_5f6wk")
 upgrade_description = "Makes Seeds and Products Magnetic"
 
@@ -349,13 +879,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 296.0
-offset_top = 728.0
-offset_right = 360.0
-offset_bottom = 792.0
+offset_left = 336.0
+offset_top = 712.0
+offset_right = 400.0
+offset_bottom = 776.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_poloa")
+upgrade = SubResource("Resource_04g6b")
 upgrade_texture = ExtResource("18_k7w8q")
 upgrade_description = "Increases Spin Speed"
 
@@ -364,13 +896,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 376.0
-offset_top = 728.0
-offset_right = 440.0
-offset_bottom = 792.0
+offset_left = 336.0
+offset_top = 796.0
+offset_right = 400.0
+offset_bottom = 860.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_tx54y")
+upgrade = SubResource("Resource_x8e75")
 upgrade_texture = ExtResource("16_378tx")
 upgrade_description = "Increase Move Speed"
 
@@ -379,13 +913,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 488.0
-offset_top = 728.0
-offset_right = 552.0
-offset_bottom = 792.0
+offset_left = 528.0
+offset_top = 712.0
+offset_right = 592.0
+offset_bottom = 776.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_keokf")
+upgrade = SubResource("Resource_318dm")
 upgrade_texture = ExtResource("12_6lvx3")
 upgrade_description = "Increases Radius"
 
@@ -394,13 +930,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 568.0
-offset_top = 728.0
-offset_right = 632.0
-offset_bottom = 792.0
+offset_left = 528.0
+offset_top = 796.0
+offset_right = 592.0
+offset_bottom = 860.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_rvvlr")
+upgrade = SubResource("Resource_nh754")
 upgrade_texture = ExtResource("17_5f6wk")
 upgrade_description = "Makes Magnet Stronger"
 
@@ -409,13 +947,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 680.0
-offset_top = 728.0
-offset_right = 744.0
-offset_bottom = 792.0
+offset_left = 720.0
+offset_top = 712.0
+offset_right = 784.0
+offset_bottom = 776.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_3ni6v")
+upgrade = SubResource("Resource_72280")
 upgrade_texture = ExtResource("13_gdtny")
 upgrade_description = "Increases Spin Duration"
 
@@ -424,13 +964,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 760.0
-offset_top = 728.0
-offset_right = 824.0
-offset_bottom = 792.0
+offset_left = 720.0
+offset_top = 796.0
+offset_right = 784.0
+offset_bottom = 860.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_c28fx")
+upgrade = SubResource("Resource_m84ha")
 upgrade_texture = ExtResource("13_gdtny")
 upgrade_description = "Reduces Spin Cooldown"
 
@@ -446,6 +988,8 @@ offset_bottom = 568.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_x0vxy")
+upgrade = SubResource("Resource_1vi8p")
 upgrade_texture = ExtResource("11_uvpvw")
 upgrade_description = "Unlocks a New Product"
 
@@ -461,6 +1005,8 @@ offset_bottom = 568.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_tmaya")
+upgrade = SubResource("Resource_p5dvo")
 upgrade_texture = ExtResource("8_svjrb")
 upgrade_description = "Increases Water Hold Capacity"
 
@@ -476,6 +1022,8 @@ offset_bottom = 568.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_yst4g")
+upgrade = SubResource("Resource_ebi72")
 upgrade_texture = ExtResource("10_k4h56")
 upgrade_description = "Unlocks a new Seed"
 
@@ -485,12 +1033,13 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 488.0
-offset_top = 880.0
+offset_top = 916.0
 offset_right = 712.0
-offset_bottom = 1104.0
+offset_bottom = 1140.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
+requirement = SubResource("Resource_dpn0q")
 upgrade_texture = ExtResource("9_ncjuy")
 upgrade_description = "Gives you the Strength to Kill the Tree"
 
@@ -579,13 +1128,25 @@ width = 3.0
 [node name="Line2D7" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1910636979]
 position = Vector2(-144, 246.41791)
 scale = Vector2(1, 0.97761196)
-points = PackedVector2Array(511.99997, 34.351135, 599.99994, 108, 679.99994, 50.71756, 599.99994, 108, 687.99994, 189.83203)
+points = PackedVector2Array(511.99997, 34.351135, 687.99994, 189.83203)
+width = 3.0
+
+[node name="Line2D9" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=513530811]
+position = Vector2(-144, 246.41791)
+scale = Vector2(1, 0.97761196)
+points = PackedVector2Array(687.99994, 50.71756, 615.99994, 124.366394)
+width = 3.0
+
+[node name="Line2D10" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1334927532]
+position = Vector2(-144, 246.41791)
+scale = Vector2(1, 0.97761196)
+points = PackedVector2Array(687.99994, 50.71756, 759.99994, 124.366394)
 width = 3.0
 
 [node name="Line2D8" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=551946234]
 position = Vector2(-144, 246.41791)
 scale = Vector2(1, 0.97761196)
-points = PackedVector2Array(863.99994, 34.351135, 775.99994, 108, 695.99994, 50.71756, 775.99994, 108, 687.99994, 189.83203)
+points = PackedVector2Array(863.99994, 34.351135, 687.99994, 189.83203)
 width = 3.0
 
 [node name="Tier4" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=707024395]
@@ -650,115 +1211,52 @@ width = 3.0
 
 [node name="Line2D12" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1771198623]
 position = Vector2(0, 215)
-points = PackedVector2Array(544, 497, 544, 545)
+points = PackedVector2Array(544, 497, 544, 561)
 width = 3.0
 
 [node name="Line2D14" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1790124429]
 position = Vector2(0, 215)
-points = PackedVector2Array(544, 505, 736, 545)
+points = PackedVector2Array(544, 505, 736, 561)
 width = 3.0
 
 [node name="Line2D13" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=131455491]
 position = Vector2(0, 215)
-points = PackedVector2Array(544, 505, 352, 545)
+points = PackedVector2Array(544, 505, 352, 561)
 width = 3.0
-
-[node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=312315364]
-material = ExtResource("19_dotted")
-position = Vector2(0, 264)
-points = PackedVector2Array(304, 520, 352, 496)
-width = 3.0
-texture = ExtResource("20_line_tile")
-texture_mode = 2
-
-[node name="Line2D15" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1383037353]
-material = ExtResource("19_dotted")
-position = Vector2(0, 261)
-points = PackedVector2Array(400, 523, 352, 499)
-width = 3.0
-texture = ExtResource("20_line_tile")
-texture_mode = 2
-
-[node name="Line2D16" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1171087329]
-material = ExtResource("19_dotted")
-position = Vector2(0, 261)
-points = PackedVector2Array(496, 523, 544, 499)
-width = 3.0
-texture = ExtResource("20_line_tile")
-texture_mode = 2
-
-[node name="Line2D17" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1224431289]
-material = ExtResource("19_dotted")
-position = Vector2(0, 261)
-points = PackedVector2Array(592, 523, 544, 499)
-width = 3.0
-texture = ExtResource("20_line_tile")
-texture_mode = 2
-
-[node name="Line2D18" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1027405454]
-material = ExtResource("19_dotted")
-position = Vector2(0, 261)
-points = PackedVector2Array(688, 523, 736, 499)
-width = 3.0
-texture = ExtResource("20_line_tile")
-texture_mode = 2
-
-[node name="Line2D19" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=726307297]
-material = ExtResource("19_dotted")
-position = Vector2(0, 261)
-points = PackedVector2Array(784, 523, 736, 499)
-width = 3.0
-texture = ExtResource("20_line_tile")
-texture_mode = 2
 
 [node name="Line2D26" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=758928946]
-position = Vector2(0, 215)
+position = Vector2(0, 251)
 points = PackedVector2Array(544, 705, 352, 609)
 width = 3.0
 
-[node name="Line2D30" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=541576369]
-position = Vector2(0, 215)
-points = PackedVector2Array(304, 585, 352, 609)
-width = 3.0
-
 [node name="Line2D31" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=432819868]
-position = Vector2(0, 215)
-points = PackedVector2Array(400, 585, 352, 609)
+position = Vector2(0, 251)
+points = PackedVector2Array(352, 525, 352, 609)
 width = 3.0
 
 [node name="Line2D27" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1929652901]
-position = Vector2(0, 215)
+position = Vector2(0, 251)
 points = PackedVector2Array(544, 705, 544, 609)
 width = 3.0
 
-[node name="Line2D32" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=774140321]
-position = Vector2(0, 215)
-points = PackedVector2Array(496, 585, 544, 609)
-width = 3.0
-
 [node name="Line2D33" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1280110887]
-position = Vector2(0, 215)
-points = PackedVector2Array(592, 585, 544, 609)
+position = Vector2(0, 251)
+points = PackedVector2Array(544, 525, 544, 609)
 width = 3.0
 
 [node name="Line2D29" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=457817830]
-position = Vector2(0, 215)
+position = Vector2(0, 251)
 points = PackedVector2Array(544, 705, 544, 721)
 width = 3.0
 
 [node name="Line2D28" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=2030934940]
-position = Vector2(0, 215)
+position = Vector2(0, 251)
 points = PackedVector2Array(544, 705, 736, 609)
 width = 3.0
 
-[node name="Line2D34" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1338489772]
-position = Vector2(0, 215)
-points = PackedVector2Array(688, 585, 736, 609)
-width = 3.0
-
 [node name="Line2D35" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1988894474]
-position = Vector2(0, 215)
-points = PackedVector2Array(784, 585, 736, 609)
+position = Vector2(0, 251)
+points = PackedVector2Array(736, 525, 736, 609)
 width = 3.0
 
 [node name="CloseButton" type="Button" parent="." unique_id=-1447773646]
