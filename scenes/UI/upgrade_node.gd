@@ -12,9 +12,13 @@ const LOCKED_MODULATE := Color(1.0, 0.35, 0.35, 1.0)
 @export var is_unlocked: bool = false
 @export var upgrade_texture : Texture2D
 @export var upgrade_description : String
+@export var upgrade_title : String
+@export var upgrade_requirements : String
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
+@onready var tool_tip: NinePatchRect = $ToolTip
+@onready var label: Label = $ToolTip/Label
 
 
 func _ready() -> void:
@@ -23,7 +27,8 @@ func _ready() -> void:
 		is_unlocked = true
 	_apply_locked_visual()
 	texture_rect.texture = upgrade_texture
-	tooltip_text = upgrade_description
+	label.text = "%s\nRequirements: %s" % [upgrade_description, upgrade_requirements] #requirement.get_requrement_text() 
+	#for easier making of requirement text in future]
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -75,3 +80,11 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		modulate = UNLOCKED_MODULATE
 	elif anim_name == &"unlock_denied" and not is_unlocked:
 		modulate = LOCKED_MODULATE
+
+
+func _on_mouse_entered() -> void:
+	tool_tip.visible = true
+
+
+func _on_mouse_exited() -> void:
+	tool_tip.visible = false
