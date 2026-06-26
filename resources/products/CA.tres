@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="ProductResource" format=3 uid="uid://bl5vxk1seywee"]
 
 [ext_resource type="Script" uid="uid://bh6ipqgjkxv6f" path="res://resources/product_resource.gd" id="1_ug6yn"]
+[ext_resource type="Texture2D" uid="uid://b2qlo4ypvqix2" path="res://assets/spr_fruit_icons.png" id="1_yv1bs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xod7u"]
+atlas = ExtResource("1_yv1bs")
+region = Rect2(32, 0, 32, 32)
 
 [resource]
 script = ExtResource("1_ug6yn")
 id = &"ca"
 product_name = "CA"
+icon = SubResource("AtlasTexture_xod7u")
 metadata/_custom_type_script = "uid://bh6ipqgjkxv6f"
