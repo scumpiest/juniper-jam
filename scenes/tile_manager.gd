@@ -42,7 +42,8 @@ func spread_seeds(center_tile: Vector2i, seed_item: SeedResource) -> void:
 
 func _spawn_plant(tile: Vector2i, plant_data: PlantResource) -> void:
 	var plant := plant_scene.instantiate()
-	plant.position = ground_area.get_global_from_tile(tile)
+	#offset the plant by 96 pixels down to center the planting
+	plant.position = ground_area.get_global_from_tile(tile) + Vector2(0, -96)
 	ground_area.add_child(plant)
 	ground_area.occupied_tiles[tile] = plant
 	if plant.has_method("setup"):

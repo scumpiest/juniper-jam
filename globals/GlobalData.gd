@@ -76,6 +76,9 @@ func _debug_fill_products() -> void:
 	for product: ProductResource in ProductDatabase.get_all_products():
 		if product != null:
 			product_counts[product.id] = 999
+	for plant: PlantResource in ProductDatabase.DISPLAY_PLANTS:
+		if plant != null and plant.seed_item != null:
+			seed_counts[plant.seed_item.id] = 999
 	inventory_updated.emit()
 
 
