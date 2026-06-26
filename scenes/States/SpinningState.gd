@@ -30,7 +30,7 @@ func enter() -> void:
 		return
 
 	_is_spinning = true
-	_spin_time_left = spin_duration
+	_spin_time_left = _get_spin_duration()
 	_harvest_timer = 0.0
 	_play_spin_start()
 
@@ -83,7 +83,7 @@ func physics_update(delta: float) -> void:
 
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if direction != Vector2.ZERO:
-		var target_speed: Vector2 = direction * player.speed * spin_speed_multiplier
+		var target_speed: Vector2 = direction * player.speed * _get_spin_speed_multiplier()
 		player.velocity = player.velocity.move_toward(target_speed, movement_acceleration * delta)
 	else:
 		player.velocity = player.velocity.move_toward(Vector2.ZERO, movement_deceleration * delta)
@@ -135,7 +135,7 @@ func _on_spin_start_finished() -> void:
 func _end_spin() -> void:
 	_is_spinning = false
 	_spin_time_left = 0.0
-	_cooldown_until_msec = Time.get_ticks_msec() + int(spin_cooldown_time * 1000.0)
+	_cooldown_until_msec = Time.get_ticks_msec() + int(_get_spin_cooldown() * 1000.0)
 	if player:
 		var sprite: AnimatedSprite2D = player.animated_sprite
 		if sprite.animation_finished.is_connected(_on_spin_start_finished):
@@ -153,3 +153,15 @@ func _transition_to_movement_state() -> void:
 		transitioned.emit(self, "IdleState")
 	else:
 		transitioned.emit(self, "MovingState")
+
+
+func _get_spin_duration() -> float:
+	return GlobalData.get_spin_duration(spin_duration)
+
+
+func _get_spin_cooldown() -> float:
+	return GlobalData.get_spin_cooldown(spin_cooldown_time)
+
+
+func _get_spin_speed_multiplier() -> float:
+	return GlobalData.get_spin_speed_multiplier(spin_speed_multiplier)

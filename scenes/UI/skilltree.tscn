@@ -39,11 +39,6 @@ script = ExtResource("4_requirement")
 products = Array[ExtResource("6_product_req")]([SubResource("Resource_uvpvw")])
 metadata/_custom_type_script = "uid://0arycpveld2t"
 
-[sub_resource type="Resource" id="Upgrade_hold"]
-script = ExtResource("5_upgrade")
-type = 12
-value = 1.0
-
 [sub_resource type="Resource" id="ProductReq_seed1"]
 script = ExtResource("6_product_req")
 product = ExtResource("5_5f6wk")
@@ -634,7 +629,6 @@ grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_kx33d")
-upgrade = SubResource("Upgrade_hold")
 upgrade_texture = ExtResource("8_i5pfo")
 upgrade_description = "This is just the beginning"
 upgrade_title = "Unlock Skilltree"

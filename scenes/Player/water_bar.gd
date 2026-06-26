@@ -25,6 +25,7 @@ func _ready() -> void:
 	_sprite.animation_changed.connect(_update_layout)
 	player.water_adjusted.connect(_on_water_adjusted)
 	GlobalData.slot_selection_changed.connect(_on_slot_selection_changed)
+	GlobalData.upgrades_changed.connect(_on_upgrades_changed)
 	_update_layout()
 	_update_visibility()
 	set_process(false)
@@ -81,7 +82,12 @@ func _process(delta: float) -> void:
 	_set_bar_value(_display_value)
 
 
+func _on_upgrades_changed() -> void:
+	progress_bar.max_value = player.max_water_amount
+
+
 func _on_water_adjusted() -> void:
+	progress_bar.max_value = player.max_water_amount
 	var new_target := _snap_to_step(float(player.water_amount))
 	if is_equal_approx(new_target, _target_value):
 		return

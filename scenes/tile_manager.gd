@@ -33,7 +33,7 @@ func spread_seeds(center_tile: Vector2i, seed_item: SeedResource) -> void:
 			if ground_area.can_plant_first_seed(target_tile):
 				if GlobalData.remove_seed(seed_item):
 					_spawn_plant(target_tile, GlobalData.plant_selected)
-			else:
+			elif GlobalData.is_feature_unlocked(Upgrade.Type.UNLOCK_BREEDING):
 				var existing: Node = ground_area.get_plant_at(target_tile)
 				if existing != null and existing.has_method("try_crossbreed_with"):
 					if existing.try_crossbreed_with(GlobalData.plant_selected):

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var base_speed: float = 200.0
 @export var water_amount: float = 100.0
+@export var base_max_water: float = 100.0
 @export var max_water_amount: float = 100.0
 @export var min_water_amount: float = 0.0
 @export var water_step: float = 10.0
@@ -9,6 +10,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _harvest_area: Area2D = $HarvestArea
+@onready var _harvest_collision: CollisionShape2D = $HarvestArea/CollisionShape2D
 @onready var inventory_ui: CanvasLayer = $InventoryUI
 @onready var magnetic_area: CollisionShape2D = $ItemCollectionArea/CollisionShape2D
 @onready var hurt_box_collision: CollisionShape2D = $HurtBox/CollisionShape2D
@@ -18,6 +20,10 @@ extends CharacterBody2D
 @onready var watering_sound: AudioStreamPlayer = $WateringSound
 
 var _can_move: bool = true
+var speed: float = 200.0
+
+const BASE_MAGNET_RADIUS := 100.0
+const BASE_HARVEST_SCALE := Vector2(2.0, 2.0)
 
 var _overlapping_crops: Array[Area2D] = []
 
@@ -29,9 +35,24 @@ func _ready() -> void:
 	GlobalData.set_player_refrence(self)
 	_harvest_area.area_entered.connect(_on_crop_entered)
 	_harvest_area.area_exited.connect(_on_crop_exited)
+	GlobalData.upgrades_changed.connect(_apply_upgrades)
+	_apply_upgrades()
 
-	#set value for magnetic area range
-	magnetic_area.shape.radius = 100
+
+func _apply_upgrades() -> void:
+	speed = GlobalData.get_move_speed(base_speed)
+
+	var previous_max := max_water_amount
+	max_water_amount = GlobalData.get_max_water(base_max_water)
+	if max_water_amount > previous_max:
+		water_amount += max_water_amount - previous_max
+	water_amount = minf(water_amount, max_water_amount)
+
+	if magnetic_area.shape is CircleShape2D:
+		(magnetic_area.shape as CircleShape2D).radius = GlobalData.get_magnet_radius(BASE_MAGNET_RADIUS)
+	_harvest_collision.scale = GlobalData.get_harvest_area_scale(BASE_HARVEST_SCALE)
+
+	water_adjusted.emit()
 
 
 func _physics_process(_delta: float) -> void:

@@ -90,11 +90,12 @@ func _spawn_drops(world_position: Vector2, parent: Node) -> void:
 		return
 
 	if data.product != null:
-		for i in data.product_amount:
+		var product_count: int = data.product_amount + GlobalData.get_yield_bonus(Upgrade.Type.PRODUCT_YIELD)
+		for i in product_count:
 			var product_offset := Vector2(-6 + i * 4, 0)
 			_spawn_product_drop(parent, world_position + product_offset, data.product)
 	if data.seed_item != null:
-		var seed_count := data.seed_amount + int(GlobalData.get_upgrade_modifier(Upgrade.Type.SEED_YIELD))
+		var seed_count: int = data.seed_amount + GlobalData.get_yield_bonus(Upgrade.Type.SEED_YIELD)
 		for i in seed_count:
 			var seed_offset := Vector2(6, -4 + i * 4)
 			_spawn_seed_drop(parent, world_position + seed_offset, data.seed_item)

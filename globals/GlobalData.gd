@@ -2,8 +2,10 @@ extends Node
 
 const TILE_SIZE = 32
 
+
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+
 
 var plant_selected: PlantResource
 var slot_1: PlantResource
@@ -27,12 +29,23 @@ var _upgrade_modifiers: Dictionary = { }
 var _feature_unlocks: Dictionary = { }
 var _unlocked_skill_nodes: Dictionary = { }
 
+# Per skill-tree tier (each node adds upgrade.value)
+const UPGRADE_PER_LEVEL: Dictionary = {
+	Upgrade.Type.MOVE_SPEED: 40.0,
+	Upgrade.Type.SPIN_SPEED: 0.3,
+	Upgrade.Type.SPIN_DURATION: 2.0,
+	Upgrade.Type.SPIN_RECHARGE: 0.20,
+	Upgrade.Type.SPIN_RADIUS: 1,
+	Upgrade.Type.MAGNET_RADIUS: 30.0,
+	Upgrade.Type.WATER_HOLD: 50.0,
+	Upgrade.Type.PRODUCT_YIELD: 1.0,
+	Upgrade.Type.SEED_YIELD: 1.0,
+}
+
+const SKILLTREE_SCENE := preload("res://scenes/UI/skilltree.tscn")
+
 
 func _ready() -> void:
-	slot_1 = PlantDatabase.A
-	slot_2 = PlantDatabase.B
-	plant_selected = slot_1
-
 	var water_tool := ToolResource.new()
 	water_tool.tool_type = ToolResource.ToolType.WATER
 	water_tool.display_name = "Water"
@@ -70,6 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		select_slot(wrapi(selected_slot_index + 1, 0, HOTBAR_ITEM_SLOTS))
 	elif event.is_action_pressed("debug_mode"):
 		_debug_fill_products()
+		_debug_unlock_all_upgrades()
 
 
 func _debug_fill_products() -> void:
@@ -80,6 +94,30 @@ func _debug_fill_products() -> void:
 		if plant != null and plant.seed_item != null:
 			seed_counts[plant.seed_item.id] = 999
 	inventory_updated.emit()
+
+
+func _debug_unlock_all_upgrades() -> void:
+	_upgrade_modifiers.clear()
+	_feature_unlocks.clear()
+	_unlocked_skill_nodes.clear()
+
+	var skilltree: Node = SKILLTREE_SCENE.instantiate()
+	var skill_nodes: Node = skilltree.get_node("MarginContainer/ClipContainer/TreeCanvas/SkillNodes")
+	for child in skill_nodes.get_children():
+		if child is UpgradeNode:
+			var node := child as UpgradeNode
+			_unlocked_skill_nodes[node.name] = true
+			if node.upgrade != null:
+				match node.upgrade.type:
+					Upgrade.Type.UNLOCK_CRAFTING, Upgrade.Type.UNLOCK_BREEDING, Upgrade.Type.UNLOCK_SPIN_HOLD:
+						_feature_unlocks[node.upgrade.type] = true
+					_:
+						_upgrade_modifiers[node.upgrade.type] = (
+								get_upgrade_modifier(node.upgrade.type) + node.upgrade.value
+						)
+	skilltree.queue_free()
+	upgrades_changed.emit()
+	_refresh_open_skilltree()
 
 
 func select_slot(index: int) -> void:
@@ -149,6 +187,42 @@ func get_upgrade_modifier(type: Upgrade.Type) -> float:
 	return _upgrade_modifiers.get(type, 0.0)
 
 
+func get_upgrade_bonus(type: Upgrade.Type) -> float:
+	return get_upgrade_modifier(type) * UPGRADE_PER_LEVEL.get(type, 0.0)
+
+
+func get_move_speed(base: float) -> float:
+	return base + get_upgrade_bonus(Upgrade.Type.MOVE_SPEED)
+
+
+func get_spin_duration(base: float) -> float:
+	return base + get_upgrade_bonus(Upgrade.Type.SPIN_DURATION)
+
+
+func get_spin_cooldown(base: float) -> float:
+	return maxf(0.5, base - get_upgrade_bonus(Upgrade.Type.SPIN_RECHARGE))
+
+
+func get_spin_speed_multiplier(base: float) -> float:
+	return base + get_upgrade_bonus(Upgrade.Type.SPIN_SPEED)
+
+
+func get_harvest_area_scale(base: Vector2) -> Vector2:
+	return base + Vector2.ONE * get_upgrade_bonus(Upgrade.Type.SPIN_RADIUS)
+
+
+func get_magnet_radius(base: float) -> float:
+	return base + get_upgrade_bonus(Upgrade.Type.MAGNET_RADIUS)
+
+
+func get_max_water(base: float) -> float:
+	return base + get_upgrade_bonus(Upgrade.Type.WATER_HOLD)
+
+
+func get_yield_bonus(type: Upgrade.Type) -> int:
+	return int(get_upgrade_modifier(type))
+
+
 func is_feature_unlocked(type: Upgrade.Type) -> bool:
 	return _feature_unlocks.get(type, false)
 
@@ -173,3 +247,15 @@ func apply_upgrade(upgrade: Upgrade) -> void:
 		_:
 			_upgrade_modifiers[upgrade.type] = get_upgrade_modifier(upgrade.type) + upgrade.value
 	upgrades_changed.emit()
+
+
+func _refresh_open_skilltree() -> void:
+	var tree: Node = get_tree().root.find_child("Skilltree", true, false)
+	if tree == null:
+		return
+	var skill_nodes: Node = tree.get_node("MarginContainer/ClipContainer/TreeCanvas/SkillNodes")
+	for child in skill_nodes.get_children():
+		if child is UpgradeNode:
+			var node := child as UpgradeNode
+			node.is_unlocked = is_skill_node_unlocked(node.name)
+			node.refresh_visual()
