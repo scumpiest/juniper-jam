@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b6imc1i5sl1" path="res://scenes/Player/player.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bojg3gm6eagm" path="res://scenes/UI/resource_bar.tscn" id="6_resource_bar"]
 [ext_resource type="PackedScene" uid="uid://d4nkaow8q86gb" path="res://scenes/UI/hotbar.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://c8dropitem001" path="res://scenes/dropped_item/dropped_item.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://7qwwhsg2klpr" path="res://scenes/environment/river_area.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://d5613q05vu62" path="res://scenes/main.gd" id="10_main"]
@@ -170,18 +169,6 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Skilltree"
-
-[node name="DroppedItem" parent="." unique_id=1370121672 instance=ExtResource("7_o6xl0")]
-position = Vector2(219, 136)
-
-[node name="DroppedItem2" parent="." unique_id=331468594 instance=ExtResource("7_o6xl0")]
-position = Vector2(303, 242)
-
-[node name="DroppedItem3" parent="." unique_id=1099150896 instance=ExtResource("7_o6xl0")]
-position = Vector2(83, 253)
-
-[node name="DroppedItem4" parent="." unique_id=1226943668 instance=ExtResource("7_o6xl0")]
-position = Vector2(355, 164)
 
 [node name="RiverArea" parent="." unique_id=1240244078 instance=ExtResource("10_choun")]
 position = Vector2(992, 320)
