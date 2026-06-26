@@ -2,6 +2,9 @@ extends Node
 
 const TILE_SIZE = 32
 
+func _init() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 var plant_selected: PlantResource
 var slot_1: PlantResource
 var slot_2: PlantResource
@@ -51,6 +54,9 @@ func _ready() -> void:
 	seed_counts[b_seed.id] = 5
 	seed_counts[c_seed.id] = 5
 
+	inventory_updated.emit()
+	select_slot(selected_slot_index)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	for i in HOTBAR_ITEM_SLOTS:
@@ -62,6 +68,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		select_slot(wrapi(selected_slot_index - 1, 0, HOTBAR_ITEM_SLOTS))
 	elif event.is_action_pressed("next_slot"):
 		select_slot(wrapi(selected_slot_index + 1, 0, HOTBAR_ITEM_SLOTS))
+	elif event.is_action_pressed("debug_mode"):
+		_debug_fill_products()
+
+
+func _debug_fill_products() -> void:
+	for product: ProductResource in ProductDatabase.get_all_products():
+		if product != null:
+			product_counts[product.id] = 999
+	inventory_updated.emit()
 
 
 func select_slot(index: int) -> void:
@@ -88,12 +103,33 @@ func add_product(product: ProductResource, amount: int = 1) -> void:
 	inventory_updated.emit()
 
 
+func get_seed_count(seed_item: SeedResource) -> int:
+	if seed_item == null:
+		return 0
+	return seed_counts.get(seed_item.id, 0)
+
+
 func add_seed(seed_item: SeedResource, amount: int = 1) -> void:
 	if seed_item == null:
 		return
 	seed_counts[seed_item.id] = seed_counts.get(seed_item.id, 0) + amount
 	_add_to_hotbar(seed_item)
 	inventory_updated.emit()
+
+
+func remove_seed(seed_item: SeedResource, amount: int = 1) -> bool:
+	if seed_item == null or amount <= 0:
+		return false
+	var current: int = seed_counts.get(seed_item.id, 0)
+	if current < amount:
+		return false
+	var remaining: int = current - amount
+	if remaining <= 0:
+		seed_counts.erase(seed_item.id)
+	else:
+		seed_counts[seed_item.id] = remaining
+	inventory_updated.emit()
+	return true
 
 
 func _add_to_hotbar(item: Resource) -> void:

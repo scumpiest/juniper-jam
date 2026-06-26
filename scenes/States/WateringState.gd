@@ -15,5 +15,7 @@ func enter():
 
 
 func update(delta: float):
+	if not player.watering_sound.is_playing:
+		player.watering_sound.play()
 	player.try_water()
 	transitioned.emit(self, "IdleState")
