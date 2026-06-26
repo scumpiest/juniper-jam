@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtnrefpxxo4s3"]
 
 [ext_resource type="Script" uid="uid://c7dg00iax7rwr" path="res://scenes/Evil Tree/evil_tree.gd" id="1_0ppiw"]
-[ext_resource type="Texture2D" uid="uid://bpmnfb6s525if" path="res://assets/evil_tree.png" id="1_vbstn"]
+[ext_resource type="Texture2D" uid="uid://ud0c5li7qin8" path="res://assets/spr_gray_tree1.png" id="2_0ppiw"]
 [ext_resource type="Script" uid="uid://b21ri83llcpus" path="res://scenes/Evil Tree/states/state_machine.gd" id="2_kj1ny"]
 
 [sub_resource type="Animation" id="Animation_0ppiw"]
@@ -18,10 +18,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.0178571, 0.9847417)]
+}
 
 [sub_resource type="Animation" id="Animation_ssmlt"]
 resource_name = "hit"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,29 +47,49 @@ tracks/0/keys = {
 "values": [Color(3.0964003, 3.0964003, 3.0964003, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kyv1l"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.034, 1), Vector2(1.0178571, 0.9847417), Vector2(1.034, 1), Vector2(1, 1), Vector2(1.0178571, 0.9847417)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kyv1l"]
 _data = {
 &"RESET": SubResource("Animation_0ppiw"),
-&"hit": SubResource("Animation_ssmlt")
+&"hit": SubResource("Animation_ssmlt"),
+&"idle": SubResource("Animation_kyv1l")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv227"]
-size = Vector2(86, 27)
+size = Vector2(70, 25.5)
 
 [node name="EvilTree" type="CharacterBody2D" unique_id=1926946499 groups=["Boss"]]
 collision_layer = 8
 script = ExtResource("1_0ppiw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554321955]
-position = Vector2(0, -44.999996)
-scale = Vector2(0.3532339, 0.35323384)
-texture = ExtResource("1_vbstn")
+position = Vector2(0, -2.706944)
+scale = Vector2(1.0178571, 0.9847417)
+texture = ExtResource("2_0ppiw")
+offset = Vector2(0, -42.464794)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=502420613]
 libraries/ = SubResource("AnimationLibrary_kyv1l")
+autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2088360504]
-position = Vector2(0, 6)
+position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_xv227")
 
 [node name="StateMachine" type="Node" parent="." unique_id=984731427]
