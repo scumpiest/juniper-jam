@@ -634,8 +634,8 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_kx33d")
 upgrade = SubResource("Upgrade_hold")
 upgrade_texture = ExtResource("8_svjrb")
-upgrade_description = "Increases Hold Capacity"
-upgrade_title = "Water Capacity I"
+upgrade_description = "Unlock Skill Tree"
+upgrade_title = "Skill Tree"
 
 [node name="Seed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1544268831 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -652,7 +652,8 @@ tooltip_text = "Description"
 requirement = SubResource("Requirement_seed1")
 upgrade = SubResource("Upgrade_seed1")
 upgrade_texture = ExtResource("10_k4h56")
-upgrade_description = "Unlocks a new Seed"
+upgrade_description = "Increase Seed Yield"
+upgrade_title = "Seed Yield I"
 
 [node name="WaterHold1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1289047732 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -670,6 +671,7 @@ requirement = SubResource("Resource_i5pfo")
 upgrade = SubResource("Resource_t08qe")
 upgrade_texture = ExtResource("8_svjrb")
 upgrade_description = "Increases Water Hold Capacity"
+upgrade_title = "Water Capacity I"
 
 [node name="Product1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1619036260 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -686,7 +688,8 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_o8g4a")
 upgrade = SubResource("Resource_ksmug")
 upgrade_texture = ExtResource("11_uvpvw")
-upgrade_description = "Unlocks a New Product"
+upgrade_description = "Increase Product Yield"
+upgrade_title = "Product Yield I"
 
 [node name="MoveOverWater" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1796093287 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -719,7 +722,8 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_q1kp0")
 upgrade = SubResource("Resource_vvtsx")
 upgrade_texture = ExtResource("10_k4h56")
-upgrade_description = "Unlocks a New Seed"
+upgrade_description = "Increase Seed Yield"
+upgrade_title = "Increase Seed Yield"
 
 [node name="Product2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=695918069 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -736,7 +740,7 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_5olwl")
 upgrade = SubResource("Resource_jv2lr")
 upgrade_texture = ExtResource("11_uvpvw")
-upgrade_description = "Unlocks a New Product"
+upgrade_description = "Increase Product Yield"
 
 [node name="SpinSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -991,7 +995,7 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_x0vxy")
 upgrade = SubResource("Resource_1vi8p")
 upgrade_texture = ExtResource("11_uvpvw")
-upgrade_description = "Unlocks a New Product"
+upgrade_description = "Increase Product Yield"
 
 [node name="WaterHold3" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1574901165 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
@@ -1025,7 +1029,7 @@ tooltip_text = "Description"
 requirement = SubResource("Resource_yst4g")
 upgrade = SubResource("Resource_ebi72")
 upgrade_texture = ExtResource("10_k4h56")
-upgrade_description = "Unlocks a new Seed"
+upgrade_description = "Increase Seed Yield"
 
 [node name="Final" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1304529009 instance=ExtResource("1_jeeb3")]
 layout_mode = 0

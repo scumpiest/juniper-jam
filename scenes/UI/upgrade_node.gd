@@ -18,6 +18,7 @@ const RESOURCE_ENTRY_SCENE := preload("res://scenes/UI/resource_entry.tscn")
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var tool_tip: NinePatchRect = $ToolTip
+@onready var title_label: Label = $ToolTip/VBoxContainer/TitleLabel
 @onready var label: Label = $ToolTip/VBoxContainer/Label
 @onready var _product_requirements: HBoxContainer = $ToolTip/VBoxContainer/ProductRequirements
 
@@ -81,7 +82,8 @@ func _can_unlock() -> bool:
 
 
 func _update_tooltip_content() -> void:
-	label.text = "%s\n%s" % [upgrade_title, upgrade_description]
+	title_label.text = upgrade_title
+	label.text = upgrade_description
 	var node_requirements := _get_node_requirements_text()
 	var product_requirements: Array[ProductRequirement] = []
 	if requirement != null:
