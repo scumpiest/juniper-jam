@@ -1,7 +1,10 @@
 class_name UpgradeRequirement
 extends Resource
 
+enum NodeRequirementMode { AND, OR }
+
 @export var required_nodes: Array[StringName] = []
+@export var required_nodes_mode: NodeRequirementMode = NodeRequirementMode.AND
 @export var products: Array[ProductRequirement] = []
 
 
@@ -34,7 +37,10 @@ func get_node_requirements_text(node: UpgradeNode) -> String:
 			parts.append(prereq.upgrade_title)
 		else:
 			parts.append(String(node_name))
-	return ", ".join(parts)
+	if parts.is_empty():
+		return ""
+	var separator := " and " if required_nodes_mode == NodeRequirementMode.AND else " or "
+	return separator.join(parts)
 
 
 func get_product_requirements() -> Array[ProductRequirement]:
@@ -58,6 +64,12 @@ func consume() -> void:
 func _are_nodes_unlocked(node: UpgradeNode) -> bool:
 	if required_nodes.is_empty():
 		return true
+	if required_nodes_mode == NodeRequirementMode.OR:
+		for node_name: StringName in required_nodes:
+			var prereq := _get_prereq_node(node, node_name)
+			if prereq != null and prereq.is_unlocked:
+				return true
+		return false
 	for node_name: StringName in required_nodes:
 		var prereq := _get_prereq_node(node, node_name)
 		if prereq == null or not prereq.is_unlocked:
