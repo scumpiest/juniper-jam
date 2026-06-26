@@ -65,8 +65,9 @@ size_flags_vertical = 3
 [node name="TreeCanvas" type="Control" parent="MarginContainer/ClipContainer" unique_id=1982736451]
 custom_minimum_size = Vector2(1152, 1152)
 anchors_preset = 0
+offset_top = -64.0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 1088.0
 script = ExtResource("2_tree_canvas")
 
 [node name="SkillNodes" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas" unique_id=58387261]
@@ -155,6 +156,34 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = 288.0
+offset_top = 320.0
+offset_right = 352.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
+metadata/_edit_use_anchors_ = true
+
+[node name="Product2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=695918069 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 768.0
+offset_top = 320.0
+offset_right = 832.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
+metadata/_edit_use_anchors_ = true
+
+[node name="SpinSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 352.0
 offset_top = 256.0
 offset_right = 416.0
@@ -164,7 +193,21 @@ grow_vertical = 1
 tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
-[node name="Product2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=695918069 instance=ExtResource("1_jeeb3")]
+[node name="Radius1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 528.0
+offset_top = 280.0
+offset_right = 592.0
+offset_bottom = 344.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
+metadata/_edit_use_anchors_ = true
+
+[node name="SpinDuration1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -178,99 +221,15 @@ grow_vertical = 1
 tooltip_text = "Description"
 metadata/_edit_use_anchors_ = true
 
-[node name="SpinSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1493069954 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 416.0
-offset_top = 320.0
-offset_right = 480.0
-offset_bottom = 384.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-metadata/_edit_use_anchors_ = true
-
-[node name="Radius1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1392058843 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 528.0
-offset_top = 320.0
-offset_right = 592.0
-offset_bottom = 384.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-metadata/_edit_use_anchors_ = true
-
-[node name="SpinDuration1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1594071065 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 640.0
-offset_top = 320.0
-offset_right = 704.0
-offset_bottom = 384.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-metadata/_edit_use_anchors_ = true
-
 [node name="WaterHold2" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1897104398 instance=ExtResource("1_jeeb3")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 416.0
+offset_top = 344.0
 offset_right = 592.0
-offset_bottom = 480.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-metadata/_edit_use_anchors_ = true
-
-[node name="SpinRecharge1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 640.0
-offset_top = 448.0
-offset_right = 704.0
-offset_bottom = 512.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-metadata/_edit_use_anchors_ = true
-
-[node name="MovSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1949281106 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 416.0
-offset_top = 448.0
-offset_right = 480.0
-offset_bottom = 512.0
-grow_horizontal = 1
-grow_vertical = 1
-tooltip_text = "Description"
-metadata/_edit_use_anchors_ = true
-
-[node name="Magnet1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1722084100 instance=ExtResource("1_jeeb3")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 528.0
-offset_top = 512.0
-offset_right = 592.0
-offset_bottom = 576.0
+offset_bottom = 408.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -282,9 +241,51 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 608.0
+offset_top = 424.0
 offset_right = 592.0
-offset_bottom = 672.0
+offset_bottom = 488.0
+grow_horizontal = 1
+grow_vertical = 1
+upgrade_texture = ExtResource("10_srk5f")
+upgrade_description = "Makes Plants Breedable"
+
+[node name="SpinRecharge1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1998115509 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 608.0
+offset_top = 576.0
+offset_right = 672.0
+offset_bottom = 640.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
+metadata/_edit_use_anchors_ = true
+
+[node name="MovSpeed1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1949281106 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 448.0
+offset_top = 576.0
+offset_right = 512.0
+offset_bottom = 640.0
+grow_horizontal = 1
+grow_vertical = 1
+tooltip_text = "Description"
+metadata/_edit_use_anchors_ = true
+
+[node name="Magnet1" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes" unique_id=1722084100 instance=ExtResource("1_jeeb3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 528.0
+offset_top = 640.0
+offset_right = 592.0
+offset_bottom = 704.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -295,10 +296,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 288.0
-offset_top = 672.0
-offset_right = 352.0
-offset_bottom = 736.0
+offset_left = 296.0
+offset_top = 728.0
+offset_right = 360.0
+offset_bottom = 792.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -309,10 +310,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 384.0
-offset_top = 672.0
-offset_right = 448.0
-offset_bottom = 736.0
+offset_left = 376.0
+offset_top = 728.0
+offset_right = 440.0
+offset_bottom = 792.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -323,10 +324,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 480.0
-offset_top = 672.0
-offset_right = 544.0
-offset_bottom = 736.0
+offset_left = 488.0
+offset_top = 728.0
+offset_right = 552.0
+offset_bottom = 792.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -337,10 +338,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 576.0
-offset_top = 672.0
-offset_right = 640.0
-offset_bottom = 736.0
+offset_left = 568.0
+offset_top = 728.0
+offset_right = 632.0
+offset_bottom = 792.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -351,10 +352,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 672.0
-offset_top = 672.0
-offset_right = 736.0
-offset_bottom = 736.0
+offset_left = 680.0
+offset_top = 728.0
+offset_right = 744.0
+offset_bottom = 792.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -365,10 +366,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 768.0
-offset_top = 672.0
-offset_right = 832.0
-offset_bottom = 736.0
+offset_left = 760.0
+offset_top = 728.0
+offset_right = 824.0
+offset_bottom = 792.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -379,10 +380,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 336.0
-offset_top = 752.0
-offset_right = 400.0
-offset_bottom = 816.0
+offset_left = 368.0
+offset_top = 504.0
+offset_right = 432.0
+offset_bottom = 568.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -394,9 +395,9 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 528.0
-offset_top = 752.0
+offset_top = 504.0
 offset_right = 592.0
-offset_bottom = 816.0
+offset_bottom = 568.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -407,10 +408,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 720.0
-offset_top = 752.0
-offset_right = 784.0
-offset_bottom = 816.0
+offset_left = 688.0
+offset_top = 504.0
+offset_right = 752.0
+offset_bottom = 568.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -421,10 +422,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 490.0
-offset_top = 851.0
-offset_right = 690.0
-offset_bottom = 1051.0
+offset_left = 488.0
+offset_top = 880.0
+offset_right = 712.0
+offset_bottom = 1104.0
 grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
@@ -477,39 +478,224 @@ offset_bottom = 40.0
 
 [node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=778785820]
 material = ExtResource("19_dotted")
-points = PackedVector2Array(544, 240, 368, 272)
+points = PackedVector2Array(368, 272, 304, 336)
 width = 3.0
 texture = ExtResource("20_line_tile")
-texture_mode = 1
+texture_mode = 2
 
 [node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1831981264]
 material = ExtResource("19_dotted")
 position = Vector2(0, 96)
-points = PackedVector2Array(544, 240, 544, 336)
+points = PackedVector2Array(544, 184, 544, 280)
 width = 3.0
 texture = ExtResource("20_line_tile")
-texture_mode = 1
+texture_mode = 2
 
 [node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=366064045]
 material = ExtResource("19_dotted")
-points = PackedVector2Array(544, 240, 720, 272)
+points = PackedVector2Array(720, 272, 784, 336)
 width = 3.0
 texture = ExtResource("20_line_tile")
-texture_mode = 1
+texture_mode = 2
 
 [node name="Line2D4" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=494591038]
 position = Vector2(-144, 96)
-points = PackedVector2Array(688, 144, 576, 240)
+points = PackedVector2Array(688, 144, 512, 176)
 width = 3.0
 
 [node name="Line2D6" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=85049548]
 position = Vector2(-144, 96)
-points = PackedVector2Array(688, 144, 688, 240)
+points = PackedVector2Array(688, 144, 688, 200)
 width = 3.0
 
 [node name="Line2D5" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=2029849148]
 position = Vector2(-144, 96)
-points = PackedVector2Array(688, 144, 800, 240)
+points = PackedVector2Array(688, 144, 864, 176)
+width = 3.0
+
+[node name="Line2D7" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=1910636979]
+position = Vector2(-144, 246.41791)
+scale = Vector2(1, 0.97761196)
+points = PackedVector2Array(511.99997, 34.351135, 599.99994, 108, 679.99994, 50.71756, 599.99994, 108, 687.99994, 189.83203)
+width = 3.0
+
+[node name="Line2D8" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier3" unique_id=551946234]
+position = Vector2(-144, 246.41791)
+scale = Vector2(1, 0.97761196)
+points = PackedVector2Array(863.99994, 34.351135, 775.99994, 108, 695.99994, 50.71756, 775.99994, 108, 687.99994, 189.83203)
+width = 3.0
+
+[node name="Tier4" type="Control" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines" unique_id=707024395]
+anchors_preset = 0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = -8.0
+
+[node name="Line2D3" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=338618948]
+material = ExtResource("19_dotted")
+position = Vector2(0, 264)
+points = PackedVector2Array(376, 296, 544, 240)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1788233204]
+material = ExtResource("19_dotted")
+position = Vector2(0, 264)
+points = PackedVector2Array(712, 296, 544, 240)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=791120236]
+material = ExtResource("19_dotted")
+position = Vector2(0, 256)
+points = PackedVector2Array(544, 320, 544, 224)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1083465289]
+position = Vector2(0, 208)
+points = PackedVector2Array(376, 368, 464, 417)
+width = 3.0
+
+[node name="Line2D11" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1371269446]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 473, 456, 433)
+width = 3.0
+
+[node name="Line2D7" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1441415541]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 369, 464, 409)
+width = 3.0
+
+[node name="Line2D8" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=66401045]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 369, 624, 409)
+width = 3.0
+
+[node name="Line2D9" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1292281846]
+position = Vector2(0, 215)
+points = PackedVector2Array(712, 361, 624, 409)
+width = 3.0
+
+[node name="Line2D10" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=870117591]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 473, 632, 433)
+width = 3.0
+
+[node name="Line2D12" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1771198623]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 497, 544, 545)
+width = 3.0
+
+[node name="Line2D14" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1790124429]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 505, 736, 545)
+width = 3.0
+
+[node name="Line2D13" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=131455491]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 505, 352, 545)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=312315364]
+material = ExtResource("19_dotted")
+position = Vector2(0, 264)
+points = PackedVector2Array(304, 520, 352, 496)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D15" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1383037353]
+material = ExtResource("19_dotted")
+position = Vector2(0, 261)
+points = PackedVector2Array(400, 523, 352, 499)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D16" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1171087329]
+material = ExtResource("19_dotted")
+position = Vector2(0, 261)
+points = PackedVector2Array(496, 523, 544, 499)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D17" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1224431289]
+material = ExtResource("19_dotted")
+position = Vector2(0, 261)
+points = PackedVector2Array(592, 523, 544, 499)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D18" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1027405454]
+material = ExtResource("19_dotted")
+position = Vector2(0, 261)
+points = PackedVector2Array(688, 523, 736, 499)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D19" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=726307297]
+material = ExtResource("19_dotted")
+position = Vector2(0, 261)
+points = PackedVector2Array(784, 523, 736, 499)
+width = 3.0
+texture = ExtResource("20_line_tile")
+texture_mode = 2
+
+[node name="Line2D26" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=758928946]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 705, 352, 609)
+width = 3.0
+
+[node name="Line2D30" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=541576369]
+position = Vector2(0, 215)
+points = PackedVector2Array(304, 585, 352, 609)
+width = 3.0
+
+[node name="Line2D31" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=432819868]
+position = Vector2(0, 215)
+points = PackedVector2Array(400, 585, 352, 609)
+width = 3.0
+
+[node name="Line2D27" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1929652901]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 705, 544, 609)
+width = 3.0
+
+[node name="Line2D32" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=774140321]
+position = Vector2(0, 215)
+points = PackedVector2Array(496, 585, 544, 609)
+width = 3.0
+
+[node name="Line2D33" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1280110887]
+position = Vector2(0, 215)
+points = PackedVector2Array(592, 585, 544, 609)
+width = 3.0
+
+[node name="Line2D29" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=457817830]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 705, 544, 721)
+width = 3.0
+
+[node name="Line2D28" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=2030934940]
+position = Vector2(0, 215)
+points = PackedVector2Array(544, 705, 736, 609)
+width = 3.0
+
+[node name="Line2D34" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1338489772]
+position = Vector2(0, 215)
+points = PackedVector2Array(688, 585, 736, 609)
+width = 3.0
+
+[node name="Line2D35" type="Line2D" parent="MarginContainer/ClipContainer/TreeCanvas/SkillNodes/Lines/Tier4" unique_id=1988894474]
+position = Vector2(0, 215)
+points = PackedVector2Array(784, 585, 736, 609)
 width = 3.0
 
 [node name="CloseButton" type="Button" parent="." unique_id=-1447773646]

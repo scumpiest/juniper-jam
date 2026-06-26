@@ -1,13 +1,34 @@
 [gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://ci5yocytwppo2"]
 
+[ext_resource type="Texture2D" uid="uid://cntaadxflw8lx" path="res://assets/plants/spr_tentacle_water_plant.png" id="1_b1urn"]
 [ext_resource type="Resource" uid="uid://bl5vxk1seywee" path="res://resources/products/CA.tres" id="1_j42h4"]
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="1_xxkkt"]
 [ext_resource type="Resource" uid="uid://d2w5do3yq5kow" path="res://resources/seeds/CA.tres" id="3_b1urn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnvbj"]
+atlas = ExtResource("1_b1urn")
+region = Rect2(64, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rm53"]
+atlas = ExtResource("1_b1urn")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvjbs"]
+atlas = ExtResource("1_b1urn")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckbn0"]
+atlas = ExtResource("1_b1urn")
+region = Rect2(96, 0, 32, 0)
 
 [resource]
 script = ExtResource("1_xxkkt")
 id = &"ca"
 plant_name = "CA"
+initial_stage = SubResource("AtlasTexture_nvjbs")
+growing_stage = SubResource("AtlasTexture_1rm53")
+almost_stage = SubResource("AtlasTexture_qnvbj")
+mature_stage = SubResource("AtlasTexture_ckbn0")
 product = ExtResource("1_j42h4")
 seed_item = ExtResource("3_b1urn")
 metadata/_custom_type_script = "uid://pd7dellu40h4"
