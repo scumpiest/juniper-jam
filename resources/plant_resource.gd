@@ -9,6 +9,7 @@ class_name PlantResource
 # Textures for the plant stages
 @export var initial_stage: AtlasTexture
 @export var growing_stage: AtlasTexture
+@export var almost_stage: AtlasTexture
 @export var mature_stage: AtlasTexture
 
 @export var product: ProductResource
@@ -25,6 +26,8 @@ func get_stage_texture(stage: int) -> AtlasTexture:
 		1:
 			return growing_stage
 		2:
+			return almost_stage
+		3:
 			return mature_stage
 		_:
 			return null

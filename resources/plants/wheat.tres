@@ -5,10 +5,6 @@
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="2_script"]
 [ext_resource type="Resource" uid="uid://cseedwheat001" path="res://resources/seeds/wheat.tres" id="4_h7bm0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_growing"]
-atlas = ExtResource("1_atlas")
-region = Rect2(32, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_initial"]
 atlas = ExtResource("1_atlas")
 region = Rect2(16, 0, 16, 16)
@@ -22,7 +18,6 @@ script = ExtResource("2_script")
 id = &"wheat"
 plant_name = "Wheat"
 initial_stage = SubResource("AtlasTexture_initial")
-growing_stage = SubResource("AtlasTexture_growing")
 mature_stage = SubResource("AtlasTexture_mature")
 product = ExtResource("2_in6rj")
 seed_item = ExtResource("4_h7bm0")

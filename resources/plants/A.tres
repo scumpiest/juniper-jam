@@ -1,13 +1,30 @@
 [gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://baxag3tuhspey"]
 
 [ext_resource type="Script" uid="uid://pd7dellu40h4" path="res://resources/plant_resource.gd" id="1_agmaw"]
+[ext_resource type="Texture2D" uid="uid://b3g47q4l8gtvg" path="res://assets/plants/spr_tentacle_plant.png" id="1_vhle6"]
 [ext_resource type="Resource" uid="uid://bfgedsprrax28" path="res://resources/products/A.tres" id="1_w8fy2"]
 [ext_resource type="Resource" uid="uid://batvb4bkhvkyq" path="res://resources/seeds/A.tres" id="3_vhle6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skiwf"]
+atlas = ExtResource("1_vhle6")
+region = Rect2(64, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msp22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1tde"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chyd6"]
+atlas = ExtResource("1_vhle6")
+region = Rect2(96, 0, 32, 0)
 
 [resource]
 script = ExtResource("1_agmaw")
 id = &"a"
 plant_name = "A"
+initial_stage = SubResource("AtlasTexture_h1tde")
+growing_stage = SubResource("AtlasTexture_msp22")
+almost_stage = SubResource("AtlasTexture_skiwf")
+mature_stage = SubResource("AtlasTexture_chyd6")
 product = ExtResource("1_w8fy2")
 seed_item = ExtResource("3_vhle6")
 metadata/_custom_type_script = "uid://pd7dellu40h4"
