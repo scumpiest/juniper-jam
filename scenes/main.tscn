@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bftxmutko7kwi" path="res://icon.svg" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://7qwwhsg2klpr" path="res://scenes/environment/river_area.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://d5613q05vu62" path="res://scenes/main.gd" id="10_main"]
+[ext_resource type="PackedScene" uid="uid://kua4oeulv4sd" path="res://scenes/Tutorial/tutorial.tscn" id="11_trceg"]
 [ext_resource type="PackedScene" uid="uid://dtnrefpxxo4s3" path="res://scenes/Evil Tree/evil_tree.tscn" id="12_eb6dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
@@ -169,6 +170,8 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Skilltree"
+
+[node name="Tutorial" parent="CanvasLayer" unique_id=149328006 instance=ExtResource("11_trceg")]
 
 [node name="RiverArea" parent="." unique_id=1240244078 instance=ExtResource("10_choun")]
 position = Vector2(992, 320)
