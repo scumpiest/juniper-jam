@@ -4,6 +4,18 @@
 [ext_resource type="Script" uid="uid://dhfuv0d10dq8o" path="res://scenes/Menus/main_menu.gd" id="1_rvjno"]
 [ext_resource type="Texture2D" uid="uid://nh6e23cp8r0u" path="res://assets/Untitled_Artwork.png" id="3_iep04"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iep04"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.6509804)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i2gn"]
 bg_color = Color(0.6, 0, 1, 1)
 expand_margin_left = 500.0
@@ -27,6 +39,16 @@ Button/styles/normal = SubResource("StyleBoxEmpty_xv227")
 Button/styles/pressed = SubResource("StyleBoxFlat_71dww")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_xv227")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfgxo"]
+bg_color = Color(0.11502238, 0.00017035879, 0.21878657, 0.38431373)
+expand_margin_left = 500.0
+expand_margin_right = 500.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b8pq"]
+bg_color = Color(0.15686275, 0, 0.28627452, 0.3254902)
+expand_margin_left = 500.0
+expand_margin_right = 500.0
+
 [node name="MainMenu" type="CanvasLayer" unique_id=2034472635]
 script = ExtResource("1_rvjno")
 
@@ -39,14 +61,30 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("3_iep04")
 
+[node name="Panel" type="Panel" parent="GenericBackground" unique_id=1723749663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iep04")
+
 [node name="Label" type="Label" parent="GenericBackground" unique_id=1723027352]
-layout_mode = 0
-offset_left = 355.0
-offset_top = 90.0
-offset_right = 803.0
-offset_bottom = 198.0
-theme_override_colors/font_color = Color(0.46757728, 0.010183408, 0.41735744, 1)
-theme_override_font_sizes/font_size = 100
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 41.0
+offset_right = 280.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.46666667)
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/shadow_outline_size = 20
+theme_override_font_sizes/font_size = 156
 text = "Blightseed"
 horizontal_alignment = 1
 
@@ -58,30 +96,40 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -224.0
-offset_top = -417.0
+offset_top = -413.0
 offset_right = 224.0
-offset_bottom = -200.0
+offset_bottom = -133.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 5
+metadata/_edit_group_ = true
 
 [node name="PlayButton" type="Button" parent="GenericBackground/VBoxContainer" unique_id=633488715]
 layout_mode = 2
 theme = SubResource("Theme_xv227")
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.7229824, 0.2452322, 1, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xfgxo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3b8pq")
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="GenericBackground/VBoxContainer" unique_id=218814864]
 layout_mode = 2
 theme = SubResource("Theme_xv227")
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.7229824, 0.2452322, 1, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xfgxo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3b8pq")
 text = "Options
 "
 
 [node name="ExitButton" type="Button" parent="GenericBackground/VBoxContainer" unique_id=841611126]
 layout_mode = 2
 theme = SubResource("Theme_xv227")
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0.7229824, 0.2452322, 1, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xfgxo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3b8pq")
 text = "Exit
 "
 
