@@ -14,8 +14,6 @@
 [ext_resource type="Script" uid="uid://d5613q05vu62" path="res://scenes/main.gd" id="10_main"]
 [ext_resource type="PackedScene" uid="uid://dtnrefpxxo4s3" path="res://scenes/Evil Tree/evil_tree.tscn" id="12_eb6dy"]
 
-[sub_resource type="Environment" id="Environment_xv227"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
 texture_region_size = Vector2i(32, 32)
@@ -106,9 +104,6 @@ sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 
 [node name="Main" type="Node2D" unique_id=1293231205]
 script = ExtResource("10_main")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=944831961]
-environment = SubResource("Environment_xv227")
 
 [node name="GroundArea" type="TileMapLayer" parent="." unique_id=1710577862]
 position = Vector2(0, 64)

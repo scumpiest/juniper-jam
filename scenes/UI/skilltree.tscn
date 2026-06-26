@@ -464,10 +464,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 384.0
-offset_top = 880.0
-offset_right = 1024.0
-offset_bottom = 944.0
+offset_left = 490.0
+offset_top = 851.0
+offset_right = 690.0
+offset_bottom = 1051.0
 grow_horizontal = 1
 grow_vertical = 1
 upgrade_texture = ExtResource("9_ncjuy")
@@ -567,3 +567,9 @@ offset_right = -24.0
 offset_bottom = 48.0
 grow_horizontal = 0
 text = "X"
+
+[node name="InfoLabel" type="Label" parent="." unique_id=620072010]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hover for Skill Info"

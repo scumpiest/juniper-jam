@@ -4,8 +4,9 @@ const SKILLTREE_SCENE := preload("res://scenes/UI/skilltree.tscn")
 
 @onready var _canvas_layer: CanvasLayer = $CanvasLayer
 
-func _ready() -> void:
-		AudioManager.BACKGROUND_AUDIO_NODE.stream_paused = false
+func _ready():
+	AudioManager.change_music_to_gameplay()
+	AudioServer.set_bus_volume_db(2, -10)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("skill_tree") and not _is_skilltree_open():

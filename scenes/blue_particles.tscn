@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://5sa6md6x75ef"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ln7ny"]
+blend_mode = 1
+
+[node name="BlueParticles" type="Node2D" unique_id=1885558817]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=756947519]
+modulate = Color(8.539971, 8.539971, 8.539971, 1)
+material = SubResource("CanvasItemMaterial_ln7ny")
+position = Vector2(590, 678)
+lifetime = 10.0
+speed_scale = 0.2
+explosiveness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(600, 30)
+gravity = Vector2(0, -400)
+scale_amount_max = 5.0
+color = Color(0, 1, 1, 1)
