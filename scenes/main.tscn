@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cch088xy56h3w" path="res://assets/UpgradeTextures/Unlock_Skill_Tree.png" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://bugn06o4kgq31" path="res://scenes/river_area.gd" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://5sa6md6x75ef" path="res://scenes/blue_particles.tscn" id="17_muem4"]
+[ext_resource type="Script" uid="uid://dv8n3xqpifttr" path="res://scenes/camera_2d.gd" id="17_camera"]
+[ext_resource type="Script" uid="uid://bwatrefill001" path="res://scenes/water_refilling_area.gd" id="18_refill"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -327,11 +329,14 @@ plant_scene = ExtResource("4_jyhfs")
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=2141744375 instance=ExtResource("5_tbgi4")]
-position = Vector2(477, 198)
+position = Vector2(477, 256)
+collision_mask = 98
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=259156676]
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
+script = ExtResource("17_camera")
+world_boundaries = NodePath("../../WorldBoundaries")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140806622]
 
@@ -369,24 +374,28 @@ position = Vector2(781, 143)
 [node name="WorldBoundaries" type="Node" parent="." unique_id=298948974]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WorldBoundaries" unique_id=1443944930]
+collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/StaticBody2D" unique_id=1780657928]
 position = Vector2(-87.5, 620)
 shape = SubResource("RectangleShape2D_xv227")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="WorldBoundaries" unique_id=1491584703]
+collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/StaticBody2D2" unique_id=1663297857]
-position = Vector2(1948, 617)
+position = Vector2(1944, 618)
 shape = SubResource("RectangleShape2D_xv227")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="WorldBoundaries" unique_id=1282800797]
+collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/StaticBody2D3" unique_id=162025964]
-position = Vector2(929, -87)
+position = Vector2(929, -80)
 shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="WorldBoundaries" unique_id=677566307]
+collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/StaticBody2D4" unique_id=1677585873]
 position = Vector2(925, 1327)
@@ -395,20 +404,11 @@ shape = SubResource("RectangleShape2D_jkv2x")
 [node name="RiverAreas" type="Node" parent="." unique_id=1091700881]
 
 [node name="RiverArea" type="Area2D" parent="RiverAreas" unique_id=1624837308]
-collision_layer = 8
+collision_layer = 64
 script = ExtResource("16_jbj1t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RiverAreas/RiverArea" unique_id=1655205141]
 position = Vector2(865, 0)
 polygon = PackedVector2Array(0, 0, 190, 0, 190, 126, 159, 127, 158, 286, 127, 288, 125, 382, 95, 383, 93, 480, 63, 480, 62, 540, 28, 543, 29, 573, -2, 574, -3, 605, -33, 607, -33, 638, -97, 639, -98, 671, -225, 671, -225, 703, -417, 703, -417, 733, -642, 735, -642, 767, -801, 767, -802, 798, -865, 798, -865, 641, -737, 641, -736, 610, -609, 609, -608, 577, -417, 577, -416, 546, -289, 545, -288, 514, -193, 513, -192, 482, -160, 481, -160, 450, -129, 449, -128, 417, -96, 417, -96, 353, -65, 353, -64, 289, -33, 288, -32, 97, -1, 97)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=873803037]
-color = Color(0.42288277, 0.4228828, 0.4228828, 1)
-
-[node name="BlueParticles" parent="." unique_id=1885558817 instance=ExtResource("17_muem4")]
-z_index = 10
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=416791789]
-environment = SubResource("Environment_xv227")
 
 [connection signal="pressed" from="CanvasLayer/SkilltreeButton" to="." method="_on_skilltree_button_pressed"]

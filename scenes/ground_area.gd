@@ -1,8 +1,5 @@
 extends TileMapLayer
 
-# The size of the map in tiles
-@export var map_size: Vector2i = Vector2i(20, 12)
-
 var bounds: Rect2i
 
 # Stores what is on each tile. Key: Vector2i (tile), Value: Node2D (the object)
@@ -10,7 +7,7 @@ var occupied_tiles: Dictionary = { }
 
 
 func _ready() -> void:
-	bounds = Rect2i(Vector2i.ZERO, map_size)
+	bounds = get_used_rect()
 
 
 # Converts a global position to a tile position
