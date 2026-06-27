@@ -116,6 +116,8 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		modulate = UNLOCKED_MODULATE
 	elif anim_name == &"unlock_denied" and not is_unlocked:
 		modulate = LOCKED_MODULATE
+	elif anim_name == &"RESET":
+		_apply_locked_visual()
 
 
 func _on_mouse_entered() -> void:
