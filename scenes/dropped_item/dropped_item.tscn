@@ -21,6 +21,7 @@ collision_layer = 4
 script = ExtResource("1_drop")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=495059773]
+scale = Vector2(0.75, 0.75)
 texture = SubResource("AtlasTexture_jx4wa")
 region_rect = Rect2(80, 0, 16, 16)
 
