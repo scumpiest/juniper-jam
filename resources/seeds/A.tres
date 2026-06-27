@@ -1,16 +1,12 @@
 [gd_resource type="Resource" script_class="SeedResource" format=3 uid="uid://batvb4bkhvkyq"]
 
-[ext_resource type="Texture2D" uid="uid://b2qlo4ypvqix2" path="res://assets/spr_fruit_icons.png" id="1_icon"]
+[ext_resource type="Texture2D" uid="uid://dgo8ajgxshx7q" path="res://assets/tentacle seed pack.png" id="1_6s8p1"]
 [ext_resource type="Script" uid="uid://cseedresrc001" path="res://resources/seed_resource.gd" id="1_pej37"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_seed"]
-atlas = ExtResource("1_icon")
-region = Rect2(0, 0, 32, 32)
 
 [resource]
 script = ExtResource("1_pej37")
 id = &"a"
 seed_name = "A"
-icon = SubResource("AtlasTexture_seed")
+icon = ExtResource("1_6s8p1")
 plant_id = &"a"
 metadata/_custom_type_script = "uid://cseedresrc001"

@@ -4,7 +4,7 @@ class_name SeedResource
 
 @export var id: StringName = &""
 @export var seed_name: String = ""
-@export var icon: AtlasTexture
+@export var icon: Texture2D
 @export var plant_id: StringName = &""
 
 
