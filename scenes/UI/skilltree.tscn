@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://1mxh7txuypkq" path="res://assets/UpgradeTextures/Product_Outcome.png" id="11_uvpvw"]
 [ext_resource type="Texture2D" uid="uid://cekilv4wd887f" path="res://assets/UpgradeTextures/radius.png" id="12_6lvx3"]
 [ext_resource type="Resource" uid="uid://dl48x3do8innj" path="res://resources/products/C.tres" id="12_abx6w"]
-[ext_resource type="Texture2D" uid="uid://c1iqqgwedebwf" path="res://assets/UpgradeTextures/go_over_water_icon_1.png" id="12_w3hb8"]
+[ext_resource type="Texture2D" uid="uid://bs17i275gvs8v" path="res://assets/UpgradeTextures/go_over_water_special.png" id="12_i5pfo"]
 [ext_resource type="Texture2D" uid="uid://d3n3kgomuhp4f" path="res://assets/UpgradeTextures/Spin_Duration.png" id="13_gdtny"]
 [ext_resource type="Resource" uid="uid://dupc0iubisp4g" path="res://resources/products/B.tres" id="13_xod7u"]
 [ext_resource type="Texture2D" uid="uid://cuw3uaoe5n6tf" path="res://assets/UpgradeTextures/Movement_Speed.png" id="16_378tx"]
@@ -700,7 +700,7 @@ grow_horizontal = 1
 grow_vertical = 1
 tooltip_text = "Description"
 requirement = SubResource("Resource_bgfia")
-upgrade_texture = ExtResource("12_w3hb8")
+upgrade_texture = ExtResource("12_i5pfo")
 upgrade_description = "Unlock Spinning On Water"
 upgrade_title = "Waterspin "
 

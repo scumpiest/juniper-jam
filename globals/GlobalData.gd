@@ -85,9 +85,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		select_slot(wrapi(selected_slot_index - 1, 0, HOTBAR_ITEM_SLOTS))
 	elif event.is_action_pressed("next_slot"):
 		select_slot(wrapi(selected_slot_index + 1, 0, HOTBAR_ITEM_SLOTS))
+	elif event.is_action_pressed("unlock_skilltree"):
+		_debug_unlock_skilltree()
 	elif event.is_action_pressed("debug_mode"):
 		_debug_fill_products()
-		_debug_unlock_all_upgrades()
 
 
 func _debug_fill_products() -> void:
@@ -100,7 +101,7 @@ func _debug_fill_products() -> void:
 	inventory_updated.emit()
 
 
-func _debug_unlock_all_upgrades() -> void:
+func _debug_unlock_skilltree() -> void:
 	_upgrade_modifiers.clear()
 	_feature_unlocks.clear()
 	_unlocked_skill_nodes.clear()

@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cch088xy56h3w" path="res://assets/UpgradeTextures/Unlock_Skill_Tree.png" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://bugn06o4kgq31" path="res://scenes/river_area.gd" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://dv8n3xqpifttr" path="res://scenes/camera_2d.gd" id="17_camera"]
+[ext_resource type="Script" uid="uid://bhwrjfrioqq81" path="res://scenes/water_refilling_area.gd" id="18_refill"]
 [ext_resource type="PackedScene" uid="uid://5sa6md6x75ef" path="res://scenes/blue_particles.tscn" id="17_muem4"]
 [ext_resource type="Shader" uid="uid://ci51v1cumj864" path="res://assets/shaders/vignette.gdshader" id="19_0ld40"]
 
@@ -423,6 +424,10 @@ script = ExtResource("16_jbj1t")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RiverAreas/RiverArea" unique_id=1655205141]
 position = Vector2(865, 0)
 polygon = PackedVector2Array(0, 0, 190, 0, 190, 126, 159, 127, 158, 286, 127, 288, 125, 382, 95, 383, 93, 480, 63, 480, 62, 540, 28, 543, 29, 573, -2, 574, -3, 605, -33, 607, -33, 638, -97, 639, -98, 671, -225, 671, -225, 703, -417, 703, -417, 733, -642, 735, -642, 767, -801, 767, -802, 798, -865, 798, -865, 641, -737, 641, -736, 610, -609, 609, -608, 577, -417, 577, -416, 546, -289, 545, -288, 514, -193, 513, -192, 482, -160, 481, -160, 450, -129, 449, -128, 417, -96, 417, -96, 353, -65, 353, -64, 289, -33, 288, -32, 97, -1, 97)
+
+[node name="WaterRefillingArea" type="Area2D" parent="RiverAreas" unique_id=225556561]
+collision_layer = 4
+script = ExtResource("18_refill")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1054614434]
 environment = SubResource("Environment_xv227")
