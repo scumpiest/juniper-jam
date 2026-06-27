@@ -411,6 +411,7 @@ polygon = PackedVector2Array(0, 0, 190, 0, 190, 126, 159, 127, 158, 286, 127, 28
 [node name="WaterRefillingArea" type="Area2D" parent="RiverAreas" unique_id=225556561]
 collision_layer = 4
 script = ExtResource("18_refill")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1054614434]
 environment = SubResource("Environment_xv227")
 
