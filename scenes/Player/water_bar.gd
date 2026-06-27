@@ -2,7 +2,7 @@ extends Control
 
 @export var player: CharacterBody2D
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var _sprite: AnimatedSprite2D = player.get_node("AnimatedSprite2D") as AnimatedSprite2D
+@onready var _sprite: AnimatedSprite2D = get_parent() as AnimatedSprite2D
 
 const REFILL_DURATION := 0.55
 const BAR_HEIGHT := 5.0
