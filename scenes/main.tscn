@@ -383,7 +383,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="EvilTree" parent="." unique_id=1926946499 instance=ExtResource("12_eb6dy")]
-position = Vector2(781, 143)
+position = Vector2(1136, 264)
 
 [node name="WorldBoundaries" type="Node" parent="." unique_id=298948974]
 
@@ -431,7 +431,7 @@ script = ExtResource("18_refill")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RiverAreas/WaterRefillingArea" unique_id=413361692]
 position = Vector2(866, 4)
-polygon = PackedVector2Array(1, 1, 18, 0, 21, 106, -11, 105, -19, 298, -55, 297, -52, 360, -86, 362, -85, 425, -118, 426, -115, 458, -140, 457, -141, 490, -164, 488, -165, 521, -275, 522, -275, 554, -404, 562, -405, 580, -600, 586, -597, 619, -727, 621, -736, 606, -612, 603, -610, 572, -418, 571, -417, 542, -290, 542, -290, 509, -193, 505, -194, 478, -160, 476, -163, 444, -131, 444, -132, 413, -95, 409, -96, 349, -66, 349, -65, 284, -32, 283, -35, 95, 0, 94)
+polygon = PackedVector2Array(1, 1, 189, 0, 182, 84, 158, 100, 158, 284, 126, 284, 126, 380, 94, 380, 94, 444, 94, 476, 62, 476, 62, 540, 30, 540, 30, 572, -2, 572, -2, 604, -34, 604, -34, 636, -98, 628, -98, 668, -226, 700, -418, 700, -418, 732, -642, 732, -642, 772, -794, 764, -802, 796, -858, 796, -858, 628, -738, 628, -738, 604, -612, 603, -610, 572, -418, 571, -417, 542, -290, 542, -290, 509, -193, 505, -194, 478, -160, 476, -163, 444, -131, 444, -132, 413, -95, 409, -96, 349, -66, 349, -65, 284, -32, 283, -35, 95, 0, 94)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1054614434]
 environment = SubResource("Environment_xv227")
