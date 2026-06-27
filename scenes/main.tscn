@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cch088xy56h3w" path="res://assets/UpgradeTextures/Unlock_Skill_Tree.png" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://bugn06o4kgq31" path="res://scenes/river_area.gd" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://dv8n3xqpifttr" path="res://scenes/camera_2d.gd" id="17_camera"]
-[ext_resource type="Script" uid="uid://bhwrjfrioqq81" path="res://scenes/water_refilling_area.gd" id="18_refill"]
 [ext_resource type="PackedScene" uid="uid://5sa6md6x75ef" path="res://scenes/blue_particles.tscn" id="17_muem4"]
+[ext_resource type="Script" uid="uid://bwatrefill001" path="res://scenes/water_refilling_area.gd" id="18_refill"]
 [ext_resource type="Shader" uid="uid://ci51v1cumj864" path="res://assets/shaders/vignette.gdshader" id="19_0ld40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
@@ -353,6 +353,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 20
 text = "Press 1-6 or Q/E to select a hotbar slot
 Press Space to use the selected tool or seed
 Hold Space or Shift to spin"
@@ -436,5 +437,6 @@ environment = SubResource("Environment_xv227")
 color = Color(0.3172787, 0.31727865, 0.31727865, 1)
 
 [node name="BlueParticles" parent="." unique_id=1885558817 instance=ExtResource("17_muem4")]
+z_index = 5
 
 [connection signal="pressed" from="CanvasLayer/SkilltreeButton" to="." method="_on_skilltree_button_pressed"]

@@ -9,7 +9,7 @@ func _ready() -> void:
 	BACKGROUND_AUDIO_NODE.stream = load("res://assets/Music/Menu_loop.ogg")
 	BACKGROUND_AUDIO_NODE.autoplay = true
 	BACKGROUND_AUDIO_NODE.bus = "Music"
-	AudioServer.set_bus_volume_db(2, -10)
+	AudioServer.set_bus_volume_db(2, -15)
 	add_child(BACKGROUND_AUDIO_NODE)
 
 func change_music_to_gameplay():
