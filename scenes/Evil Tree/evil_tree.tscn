@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7dg00iax7rwr" path="res://scenes/Evil Tree/evil_tree.gd" id="1_0ppiw"]
 [ext_resource type="Texture2D" uid="uid://ud0c5li7qin8" path="res://assets/spr_gray_tree1.png" id="2_0ppiw"]
 [ext_resource type="Script" uid="uid://b21ri83llcpus" path="res://scenes/Evil Tree/states/state_machine.gd" id="2_kj1ny"]
+[ext_resource type="Texture2D" uid="uid://ddcjidlqp626" path="res://assets/shadow.png" id="2_ssmlt"]
 
 [sub_resource type="Animation" id="Animation_0ppiw"]
 length = 0.001
@@ -77,6 +78,10 @@ size = Vector2(70, 25.5)
 [node name="EvilTree" type="CharacterBody2D" unique_id=1926946499 groups=["Boss"]]
 collision_layer = 40
 script = ExtResource("1_0ppiw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1621247745]
+scale = Vector2(2.75, 1.5)
+texture = ExtResource("2_ssmlt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554321955]
 position = Vector2(0, -2.706944)

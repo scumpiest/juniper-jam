@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://bugn06o4kgq31" path="res://scenes/river_area.gd" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://dv8n3xqpifttr" path="res://scenes/camera_2d.gd" id="17_camera"]
 [ext_resource type="PackedScene" uid="uid://5sa6md6x75ef" path="res://scenes/blue_particles.tscn" id="17_muem4"]
+[ext_resource type="Shader" uid="uid://ci51v1cumj864" path="res://assets/shaders/vignette.gdshader" id="19_0ld40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -285,6 +286,12 @@ sources/2 = SubResource("TileSetAtlasSource_jbj1t")
 sources/3 = SubResource("TileSetAtlasSource_muem4")
 sources/4 = SubResource("TileSetAtlasSource_dp3eg")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xv227"]
+shader = ExtResource("19_0ld40")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.62
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv227"]
 size = Vector2(175.5, 1260)
 
@@ -295,9 +302,8 @@ size = Vector2(1856, 158)
 background_mode = 3
 tonemap_mode = 3
 glow_enabled = true
-glow_levels/1 = 2.6
-glow_levels/3 = 1.38
-glow_levels/4 = 2.0
+glow_levels/1 = 1.09
+glow_levels/4 = 0.62
 glow_blend_mode = 0
 
 [node name="Main" type="Node2D" unique_id=1293231205]
@@ -363,6 +369,17 @@ stretch_mode = 0
 
 [node name="Tutorial" parent="CanvasLayer" unique_id=149328006 instance=ExtResource("11_trceg")]
 visible = false
+z_index = 3
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer" unique_id=298327891]
+material = SubResource("ShaderMaterial_xv227")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.093160845, 0.093160845, 0.09316083, 1)
 
 [node name="EvilTree" parent="." unique_id=1926946499 instance=ExtResource("12_eb6dy")]
 position = Vector2(781, 143)
