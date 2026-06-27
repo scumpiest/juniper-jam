@@ -53,7 +53,7 @@ func update(delta: float) -> void:
 
 
 func _is_spin_input_held() -> bool:
-	return Input.is_action_pressed("spin") or Input.is_action_pressed("action")
+	return Input.is_action_pressed("action")
 
 
 func _is_resource_depleted(delta: float) -> bool:

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cjmcmof8g4n3c"]
+
+[ext_resource type="Shader" uid="uid://87074c25834147e1" path="res://assets/shaders/river_foam.gdshader" id="1_foam"]
+
+[resource]
+shader = ExtResource("1_foam")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.92, 0.97, 0.99, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/flow_speed = 0.35
+shader_parameter/tile = Vector2(4, 14)
+shader_parameter/foam_intensity = 1.8
+shader_parameter/edge_foam_width = 0.0
+shader_parameter/streak_scale = 3.0

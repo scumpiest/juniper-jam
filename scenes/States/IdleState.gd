@@ -23,9 +23,7 @@ func physics_update(_delta: float):
 func _input(event: InputEvent) -> void:
 	if not player or not player.get_can_move():
 		return
-	if event.is_action_pressed("spin"):
-		transitioned.emit(self, "SpinningState")
-	elif event.is_action_pressed("action"):
+	if event.is_action_pressed("action"):
 		_handle_action()
 
 
