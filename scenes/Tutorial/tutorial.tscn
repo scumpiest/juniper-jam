@@ -414,9 +414,11 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial1/MarginContainer" unique_id=1467992276]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Welcome to the tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Tutorial2" type="NinePatchRect" parent="." unique_id=71583404]
 layout_mode = 1
@@ -453,11 +455,12 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial2/MarginContainer" unique_id=606415422]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "W,A,S,D to move
-Press LeftShift to Spin
-"
+Press LeftShift to Spin"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Tutorial3" type="NinePatchRect" parent="." unique_id=491240412]
 visible = false
@@ -495,11 +498,12 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial3/MarginContainer" unique_id=47625186]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "This down here is your hotbar
-Press 'Q' or 'E' to navigate through it
-"
+Press 'Q' or 'E' to navigate through it"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Tutorial4" type="NinePatchRect" parent="." unique_id=1453090031]
 visible = false
@@ -537,8 +541,8 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial4/MarginContainer" unique_id=1769035626]
 layout_mode = 2
-text = "When you have selected the action on the Hotbar, Press the 'SpaceBar ' to Use the ability or Item
-"
+theme_override_font_sizes/font_size = 25
+text = "When you have selected the action on the Hotbar, Press the 'SpaceBar ' to Use the ability or Item"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -579,7 +583,8 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial5/MarginContainer" unique_id=943485480]
 layout_mode = 2
-text = "Over Here to the Right, You can Refill Your Water"
+theme_override_font_sizes/font_size = 25
+text = "You can Refill Your Water by Entering the River"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -620,6 +625,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial6/MarginContainer" unique_id=574592904]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Get more plants and seed, then level up from the skill tree to the top right side of the screen."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -661,6 +667,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Tutorial7/MarginContainer" unique_id=1699062346]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Level Up and get strong enough to kill The Tree.
 GOOD LUCK"
 horizontal_alignment = 1
