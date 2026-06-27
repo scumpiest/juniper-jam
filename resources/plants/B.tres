@@ -31,5 +31,6 @@ almost_stage = SubResource("AtlasTexture_imxe4")
 mature_stage = SubResource("AtlasTexture_cg7sv")
 product = ExtResource("1_71qat")
 seed_item = ExtResource("3_2viea")
+seed_amount = 3
 grow_speed = 1.5
 metadata/_custom_type_script = "uid://pd7dellu40h4"
