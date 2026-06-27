@@ -37,7 +37,7 @@ const UPGRADE_PER_LEVEL: Dictionary = {
 	Upgrade.Type.SPIN_RECHARGE: 0.20, # 0.2 seconds less to recharge
 	Upgrade.Type.SPIN_RADIUS: 1, # 1 unit radius
 	Upgrade.Type.MAGNET_RADIUS: 25.0, # 30 units radius
-	Upgrade.Type.WATER_HOLD: 50.0, # 50 water hold? maybe
+	Upgrade.Type.WATER_HOLD: 60.0, # 60 water hold? maybe
 	Upgrade.Type.PRODUCT_YIELD: 1.0, # 1 more product per harvest
 	Upgrade.Type.SEED_YIELD: 1.0, # 1 more seed per harvest
 }

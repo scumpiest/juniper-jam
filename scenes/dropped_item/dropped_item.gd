@@ -6,7 +6,9 @@ class_name DroppedItem
 @export var product: ProductResource
 @export var seed_item: SeedResource
 
-var tween : Tween
+var tween: Tween
+var _collect_start: Vector2
+var _collected: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -38,10 +40,20 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and not _collected:
+		_collected = true
+		_hide_pickup()
 		item_pickup.play()
 		await item_pickup.finished
 		_collect()
+
+
+func _hide_pickup() -> void:
+	_sprite.visible = false
+	collision_shape.disabled = true
+	monitoring = false
+	if tween:
+		tween.kill()
 
 
 func _collect() -> void:
@@ -61,22 +73,26 @@ func _update_sprite() -> void:
 		_sprite.texture = seed_item.icon
 		
 
-func go_to_player(duration = 2.0, delay = 0.0):
-	
-	if tween: tween.kill()
-	
+func go_to_player(duration: float = 0.55, delay: float = 0.0) -> void:
+	if _collected:
+		return
+	if tween:
+		tween.kill()
+	_collect_start = global_position
 	tween = create_tween()
-	
-	tween.tween_interval(delay)
-	
-	tween.tween_method(_lerp_to_target, 0.0, 1.0, duration)
-	
-func _lerp_to_target(progression : float):
-	
-	var target_position = get_tree().get_first_node_in_group("Player").global_position
+	if delay > 0.0:
+		tween.tween_interval(delay)
+	tween.tween_method(_lerp_to_target, 0.0, 1.0, duration) \
+		.set_ease(Tween.EASE_IN) \
+		.set_trans(Tween.TRANS_EXPO)
 
-	global_position = lerp(global_position, target_position, progression)
-	
-	if global_position.distance_to(target_position) <=  2.0:
+
+func _lerp_to_target(t: float) -> void:
+	var player := get_tree().get_first_node_in_group("Player") as Node2D
+	if player == null:
+		return
+	var target_pos := player.global_position
+	global_position = _collect_start.lerp(target_pos, t)
+	if global_position.distance_to(target_pos) <= 4.0:
 		target_reached.emit()
 		tween.kill()

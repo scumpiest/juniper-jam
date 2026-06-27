@@ -4,11 +4,22 @@ extends PanelContainer
 
 @onready var _icon: TextureRect = $ItemIcon
 @onready var _amount: Label = $Amount
+@onready var _background: TextureRect = $SlotBackground
 
-const SELECTED_MODULATE := Color(1.15, 1.12, 0.85, 1.0)
+var _normal_style: StyleBoxEmpty
+var _selected_style: StyleBoxFlat
 
 
 func _ready() -> void:
+	_normal_style = StyleBoxEmpty.new()
+	_selected_style = StyleBoxFlat.new()
+	_selected_style.bg_color = Color(1.0, 0.78, 0.12, 0.45)
+	_selected_style.border_color = Color(1.0, 0.92, 0.35, 1.0)
+	_selected_style.set_border_width_all(3)
+	_selected_style.set_corner_radius_all(4)
+	_selected_style.set_expand_margin_all(2)
+	add_theme_stylebox_override("panel", _normal_style)
+
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	gui_input.connect(_on_gui_input)
 	if slot_index < 0:
@@ -30,7 +41,13 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_slot_selection_changed(index: int) -> void:
 	if slot_index < 0:
 		return
-	modulate = SELECTED_MODULATE if slot_index == index else Color.WHITE
+	var selected := slot_index == index
+	if selected:
+		add_theme_stylebox_override("panel", _selected_style)
+		_background.modulate = Color(1.25, 1.15, 0.85)
+	else:
+		add_theme_stylebox_override("panel", _normal_style)
+		_background.modulate = Color.WHITE
 
 
 func _update_display() -> void:
