@@ -1,15 +1,35 @@
 [gd_scene format=3 uid="uid://1odqdfu3o1wd"]
 
 [ext_resource type="Script" uid="uid://ki7takyk7v5h" path="res://scenes/slot.gd" id="1_slot"]
+[ext_resource type="Texture2D" uid="uid://bedfvrd67iyp5" path="res://assets/UI/inventory_slot.png" id="2_slotbg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slot"]
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_slot")
 script = ExtResource("1_slot")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(48, 48)
+[node name="SlotBackground" type="TextureRect" parent="."]
 layout_mode = 2
+texture = ExtResource("2_slotbg")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 

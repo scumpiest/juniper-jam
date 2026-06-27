@@ -43,17 +43,21 @@ const UPGRADE_PER_LEVEL: Dictionary = {
 }
 
 const SKILLTREE_SCENE := preload("res://scenes/UI/skilltree.tscn")
+const WATER_ICON := preload("res://assets/UI/spr_water_icon.png")
+const HARVEST_ICON := preload("res://assets/UI/spr_harvest_icon.png")
 
 
 func _ready() -> void:
 	var water_tool := ToolResource.new()
 	water_tool.tool_type = ToolResource.ToolType.WATER
 	water_tool.display_name = "Water"
+	water_tool.icon = WATER_ICON
 	hotbar_slots[0] = water_tool
 
 	var harvest_tool := ToolResource.new()
 	harvest_tool.tool_type = ToolResource.ToolType.HARVEST
 	harvest_tool.display_name = "Harvest"
+	harvest_tool.icon = HARVEST_ICON
 	hotbar_slots[1] = harvest_tool
 
 	# TODO: DELETE THIS AFTER TESTING

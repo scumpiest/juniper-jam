@@ -341,24 +341,10 @@ offset_bottom = 0.0
 [node name="SkilltreeButton" type="TextureButton" parent="CanvasLayer" unique_id=1873352984]
 offset_left = 992.0
 offset_top = 64.0
-offset_right = 1120.0
-offset_bottom = 192.0
+offset_right = 1072.0
+offset_bottom = 144.0
 texture_normal = ExtResource("13_jbj1t")
 stretch_mode = 0
-
-[node name="Label2" type="Label" parent="CanvasLayer/SkilltreeButton" unique_id=1262678170]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -23.0
-offset_right = -32.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Skilltree"
 
 [node name="Tutorial" parent="CanvasLayer" unique_id=149328006 instance=ExtResource("11_trceg")]
 visible = false
