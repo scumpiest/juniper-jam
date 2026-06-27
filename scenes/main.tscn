@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cch088xy56h3w" path="res://assets/UpgradeTextures/Unlock_Skill_Tree.png" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://bugn06o4kgq31" path="res://scenes/river_area.gd" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://dv8n3xqpifttr" path="res://scenes/camera_2d.gd" id="17_camera"]
+[ext_resource type="Script" uid="uid://bwatrefill001" path="res://scenes/water_refilling_area.gd" id="18_refill"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("1_sugp2")
@@ -395,5 +396,13 @@ script = ExtResource("16_jbj1t")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RiverAreas/RiverArea" unique_id=1655205141]
 position = Vector2(865, 0)
 polygon = PackedVector2Array(0, 0, 190, 0, 190, 126, 159, 127, 158, 286, 127, 288, 125, 382, 95, 383, 93, 480, 63, 480, 62, 540, 28, 543, 29, 573, -2, 574, -3, 605, -33, 607, -33, 638, -97, 639, -98, 671, -225, 671, -225, 703, -417, 703, -417, 733, -642, 735, -642, 767, -801, 767, -802, 798, -865, 798, -865, 641, -737, 641, -736, 610, -609, 609, -608, 577, -417, 577, -416, 546, -289, 545, -288, 514, -193, 513, -192, 482, -160, 481, -160, 450, -129, 449, -128, 417, -96, 417, -96, 353, -65, 353, -64, 289, -33, 288, -32, 97, -1, 97)
+
+[node name="WaterRefillingArea" type="Area2D" parent="RiverAreas" unique_id=225556561]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("18_refill")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RiverAreas/WaterRefillingArea" unique_id=508760275]
+polygon = PackedVector2Array(0, 608, 96, 608, 128, 576, 224, 576, 256, 544, 416, 544, 448, 512, 544, 512, 576, 480, 640, 480, 736, 384, 736, 352, 768, 288, 800, 256, 800, 192, 800, 160, 800, 96, 832, 64, 832, 0, 1088, 0, 1088, 96, 1056, 160, 1056, 256, 1056, 288, 1024, 320, 1024, 384, 992, 416, 992, 480, 960, 512, 960, 544, 832, 672, 800, 672, 768, 704, 672, 704, 640, 736, 480, 736, 448, 768, 256, 768, 224, 800, 96, 800, 64, 832, 0, 832)
 
 [connection signal="pressed" from="CanvasLayer/SkilltreeButton" to="." method="_on_skilltree_button_pressed"]

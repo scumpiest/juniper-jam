@@ -8,7 +8,6 @@ var _river_blocker: StaticBody2D
 
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
 	_setup_river_blocker()
 	GlobalData.upgrades_changed.connect(_update_river_blocking)
 	_update_river_blocking()
@@ -30,8 +29,3 @@ func _setup_river_blocker() -> void:
 func _update_river_blocking() -> void:
 	var passable := GlobalData.can_move_over_water()
 	_river_blocker.collision_layer = 0 if passable else RIVER_COLLISION_LAYER
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") and body.has_method("refill_water"):
-		body.refill_water()
