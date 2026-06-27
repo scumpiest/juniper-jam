@@ -29,4 +29,5 @@ growing_stage = SubResource("AtlasTexture_6vs4y")
 almost_stage = SubResource("AtlasTexture_n25cl")
 mature_stage = SubResource("AtlasTexture_725bk")
 product = ExtResource("1_lsm6l")
+grow_speed = 2.5
 metadata/_custom_type_script = "uid://pd7dellu40h4"
