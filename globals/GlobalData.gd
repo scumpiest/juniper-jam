@@ -235,6 +235,10 @@ func is_skill_node_unlocked(node_name: StringName) -> bool:
 	return _unlocked_skill_nodes.get(node_name, false)
 
 
+func can_move_over_water() -> bool:
+	return is_skill_node_unlocked(&"MoveOverWater")
+
+
 func unlock_skill_node(node_name: StringName) -> bool:
 	if is_skill_node_unlocked(node_name):
 		return false

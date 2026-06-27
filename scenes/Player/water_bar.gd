@@ -4,6 +4,19 @@ extends Control
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var _sprite: AnimatedSprite2D = get_parent() as AnimatedSprite2D
 
+
+func _resolve_player() -> CharacterBody2D:
+	if player != null:
+		return player
+	if owner is CharacterBody2D:
+		return owner as CharacterBody2D
+	var current: Node = get_parent()
+	while current != null:
+		if current is CharacterBody2D:
+			return current as CharacterBody2D
+		current = current.get_parent()
+	return null
+
 const REFILL_DURATION := 0.55
 const BAR_HEIGHT := 5.0
 const BAR_MARGIN_TOP := 1.0
@@ -20,6 +33,10 @@ var _is_empty: bool = false
 
 
 func _ready() -> void:
+	player = _resolve_player()
+	if player == null:
+		push_error("WaterBar: could not find player CharacterBody2D")
+		return
 	_setup_bar()
 	_sprite.frame_changed.connect(_update_layout)
 	_sprite.animation_changed.connect(_update_layout)

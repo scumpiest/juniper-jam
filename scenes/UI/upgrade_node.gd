@@ -70,6 +70,8 @@ func try_unlock() -> bool:
 		is_unlocked = true
 		if upgrade != null:
 			upgrade.apply()
+		else:
+			GlobalData.upgrades_changed.emit()
 		_animation_player.play(&"unlock_success")
 		unlocked.emit()
 		return true
