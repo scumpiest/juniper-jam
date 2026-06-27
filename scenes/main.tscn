@@ -356,7 +356,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "Press 1-6 or Q/E to select a hotbar slot
 Press Space to use the selected tool or seed
-Hold Space or Shift to spin"
+Hold Space"
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=1529742515 instance=ExtResource("6_tefeu")]
 offset_bottom = 0.0
