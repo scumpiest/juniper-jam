@@ -75,7 +75,7 @@ _data = {
 size = Vector2(70, 25.5)
 
 [node name="EvilTree" type="CharacterBody2D" unique_id=1926946499 groups=["Boss"]]
-collision_layer = 8
+collision_layer = 40
 script = ExtResource("1_0ppiw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554321955]
