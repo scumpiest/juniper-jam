@@ -2,15 +2,13 @@ extends PanelContainer
 
 @export var slot_index: int = -1
 
-@onready var _icon: TextureRect = $TextureRect
+@onready var _icon: TextureRect = $ItemIcon
 @onready var _amount: Label = $Amount
 
-var _style_normal: StyleBoxFlat
-var _style_selected: StyleBoxFlat
+const SELECTED_MODULATE := Color(1.15, 1.12, 0.85, 1.0)
 
 
 func _ready() -> void:
-	_build_styles()
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	gui_input.connect(_on_gui_input)
 	if slot_index < 0:
@@ -29,29 +27,10 @@ func _on_gui_input(event: InputEvent) -> void:
 		accept_event()
 
 
-func _build_styles() -> void:
-	_style_normal = StyleBoxFlat.new()
-	_style_normal.bg_color = Color(0.12, 0.12, 0.18, 0.85)
-	_style_normal.set_corner_radius_all(4)
-	_style_normal.set_border_width_all(1)
-	_style_normal.border_color = Color(0.3, 0.3, 0.4, 0.6)
-
-	_style_selected = StyleBoxFlat.new()
-	_style_selected.bg_color = Color(0.12, 0.12, 0.18, 0.85)
-	_style_selected.set_corner_radius_all(4)
-	_style_selected.set_border_width_all(2)
-	_style_selected.border_color = Color(1.0, 0.85, 0.2, 1.0)
-
-	add_theme_stylebox_override("panel", _style_normal)
-
-
 func _on_slot_selection_changed(index: int) -> void:
 	if slot_index < 0:
 		return
-	if slot_index == index:
-		add_theme_stylebox_override("panel", _style_selected)
-	else:
-		add_theme_stylebox_override("panel", _style_normal)
+	modulate = SELECTED_MODULATE if slot_index == index else Color.WHITE
 
 
 func _update_display() -> void:

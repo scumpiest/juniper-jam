@@ -10,8 +10,8 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -168.0
 offset_top = -64.0
-offset_right = 168.0
-offset_bottom = -8.0
+offset_right = 98.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -34,6 +34,3 @@ slot_index = 3
 
 [node name="Slot5" parent="HBoxContainer" unique_id=1297135626 instance=ExtResource("1_yj1xu")]
 slot_index = 4
-
-[node name="Slot6" parent="HBoxContainer" unique_id=1581442466 instance=ExtResource("1_yj1xu")]
-slot_index = 5
