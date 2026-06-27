@@ -1299,4 +1299,6 @@ text = "X"
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Hover for Skill Info"
+text = "Hover for Skill Info
+Left Clik to Upgrade
+Hold Right Click to Move the Camera"

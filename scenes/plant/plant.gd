@@ -92,13 +92,19 @@ func _spawn_drops(world_position: Vector2, parent: Node) -> void:
 	if data.product != null:
 		var product_count: int = data.product_amount + GlobalData.get_yield_bonus(Upgrade.Type.PRODUCT_YIELD)
 		for i in product_count:
-			var product_offset := Vector2(-6 + i * 4, 0)
-			_spawn_product_drop(parent, world_position + product_offset, data.product)
+			var offset := _random_radial_offset(18.0, 45.0)
+			_spawn_product_drop(parent, world_position + offset, data.product)
 	if data.seed_item != null:
 		var seed_count: int = data.seed_amount + GlobalData.get_yield_bonus(Upgrade.Type.SEED_YIELD)
 		for i in seed_count:
-			var seed_offset := Vector2(6, -4 + i * 4)
-			_spawn_seed_drop(parent, world_position + seed_offset, data.seed_item)
+			var offset := _random_radial_offset(18.0, 45.0)
+			_spawn_seed_drop(parent, world_position + offset, data.seed_item)
+
+
+func _random_radial_offset(min_dist: float, max_dist: float) -> Vector2:
+	var angle := randf() * TAU
+	var dist := randf_range(min_dist, max_dist)
+	return Vector2(cos(angle), sin(angle)) * dist
 
 
 func _spawn_product_drop(
@@ -106,14 +112,14 @@ func _spawn_product_drop(
 ) -> void:
 	var drop := dropped_item_scene.instantiate()
 	parent.add_child(drop)
-	drop.global_position = world_position + Vector2(randf_range(0, 20), randf_range(0,20)) #remove_vector 2 part if u want to
+	drop.global_position = world_position
 	drop.setup_product(product_data)
 
 
 func _spawn_seed_drop(parent: Node, world_position: Vector2, seed_data: SeedResource) -> void:
 	var drop := dropped_item_scene.instantiate()
 	parent.add_child(drop)
-	drop.global_position = world_position  + Vector2(randf_range(0, 20), randf_range(0,20)) #remove_vector 2 part if u want to
+	drop.global_position = world_position
 	drop.setup_seed(seed_data)
 
 

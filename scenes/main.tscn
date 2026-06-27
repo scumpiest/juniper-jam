@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://bugn06o4kgq31" path="res://scenes/river_area.gd" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://dv8n3xqpifttr" path="res://scenes/camera_2d.gd" id="17_camera"]
 [ext_resource type="PackedScene" uid="uid://5sa6md6x75ef" path="res://scenes/blue_particles.tscn" id="17_muem4"]
-[ext_resource type="Script" uid="uid://bwatrefill001" path="res://scenes/water_refilling_area.gd" id="18_refill"]
+[ext_resource type="Script" uid="uid://bhwrjfrioqq81" path="res://scenes/water_refilling_area.gd" id="18_refill"]
 [ext_resource type="Shader" uid="uid://ci51v1cumj864" path="res://assets/shaders/vignette.gdshader" id="19_0ld40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
