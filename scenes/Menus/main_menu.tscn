@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b4r4lhonv50mb" path="res://scenes/Generic Background/generic_background.tscn" id="1_8i5ae"]
 [ext_resource type="Script" uid="uid://dhfuv0d10dq8o" path="res://scenes/Menus/main_menu.gd" id="1_rvjno"]
-[ext_resource type="Texture2D" uid="uid://nh6e23cp8r0u" path="res://assets/Untitled_Artwork.png" id="3_iep04"]
 [ext_resource type="AudioStream" uid="uid://ck7xjmd4jati8" path="res://assets/SFX/UI_hover.wav" id="3_3b8pq"]
+[ext_resource type="Texture2D" uid="uid://nh6e23cp8r0u" path="res://assets/Untitled_Artwork.png" id="3_iep04"]
 [ext_resource type="AudioStream" uid="uid://c78xo055c2c3f" path="res://assets/SFX/UI_click.wav" id="4_xfgxo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iep04"]

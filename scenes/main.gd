@@ -8,6 +8,7 @@ func _ready():
 	AudioManager.change_music_to_gameplay()
 	AudioServer.set_bus_volume_db(2, -15)
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("skill_tree") and not _is_skilltree_open():
 		open_skilltree()

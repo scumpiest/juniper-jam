@@ -10,9 +10,9 @@
 [ext_resource type="Script" uid="uid://cp5xip800scyr" path="res://scenes/States/WateringState.gd" id="8_dl1wr"]
 [ext_resource type="Script" uid="uid://chcj7idnd6bgj" path="res://scenes/States/PlantingState.gd" id="9_wwtew"]
 [ext_resource type="Script" uid="uid://x1gmejvrbamt" path="res://scenes/States/SpinningState.gd" id="10_uxo23"]
-[ext_resource type="AudioStream" uid="uid://bttp0wtvup2bp" path="res://assets/SFX/Footsteps.wav" id="12_jxtnq"]
 [ext_resource type="Texture2D" uid="uid://ckv46cp7i0spe" path="res://assets/seeds and drops.png" id="12_wyey8"]
 [ext_resource type="Texture2D" uid="uid://dmm8hmuxgv00m" path="res://assets/player.png" id="13_jxtnq"]
+[ext_resource type="AudioStream" uid="uid://n8e6qwyogt2o" path="res://assets/SFX/Watering.wav" id="13_t6q27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxtnq"]
 atlas = ExtResource("13_jxtnq")
@@ -225,7 +225,7 @@ radius = 18.439089
 playback_mode = 1
 random_pitch = 1.0594631
 streams_count = 1
-stream_0/stream = ExtResource("12_jxtnq")
+stream_0/stream = ExtResource("13_t6q27")
 
 [sub_resource type="Gradient" id="Gradient_jxtnq"]
 offsets = PackedFloat32Array(0, 0.6802326, 1)
@@ -388,9 +388,13 @@ debug_color = Color(0.9699355, 0.17583784, 0, 0.41960785)
 
 [node name="FootStepSound" type="AudioStreamPlayer" parent="." unique_id=628354522]
 stream = SubResource("AudioStreamRandomizer_uxo23")
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="WateringSound" type="AudioStreamPlayer" parent="." unique_id=1477632363]
 stream = SubResource("AudioStreamRandomizer_uxo23")
+volume_db = 24.0
+bus = &"SFX"
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1872575651]
 color = Color(0.7058824, 0.40784314, 1, 1)

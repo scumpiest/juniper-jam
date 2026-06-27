@@ -289,9 +289,9 @@ sources/4 = SubResource("TileSetAtlasSource_dp3eg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xv227"]
 shader = ExtResource("19_0ld40")
-shader_parameter/alpha = 1.0
+shader_parameter/alpha = 0.65
 shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 1.62
+shader_parameter/outer_radius = 2.015
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv227"]
 size = Vector2(175.5, 1260)
@@ -381,7 +381,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.093160845, 0.093160845, 0.09316083, 1)
 
 [node name="EvilTree" parent="." unique_id=1926946499 instance=ExtResource("12_eb6dy")]
 position = Vector2(781, 143)
