@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://lwh4081sy36q" path="res://scenes/Player/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dsq0osu24bu06" path="res://scenes/Player/water_bar.tscn" id="2_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://ddcjidlqp626" path="res://assets/shadow.png" id="2_t6q27"]
-[ext_resource type="PackedScene" uid="uid://dx1rhfhqivr03" path="res://scenes/Inventory/inventory_ui.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://dcfd4qe1bdffi" path="res://scenes/States/state_machine.gd" id="4_c4h5g"]
 [ext_resource type="Script" uid="uid://ddpe8c85my62p" path="res://scenes/States/IdleState.gd" id="5_uiqp4"]
 [ext_resource type="Script" uid="uid://pv33efjejljx" path="res://scenes/States/MovingState.gd" id="6_hvfru"]
@@ -234,8 +233,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0.060077548, 0.060077548, 0.060077548, 1, 
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xv227"]
 gradient = SubResource("Gradient_jxtnq")
-width = 256
-height = 256
+width = 512
+height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8583618, 0.15870307)
@@ -262,45 +261,16 @@ player = NodePath("../..")
 [node name="HUD" type="CanvasLayer" parent="." unique_id=259641274]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021919886]
-visible = false
 position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="HarvestArea" type="Area2D" parent="." unique_id=1634527890]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestArea" unique_id=1634527891]
 position = Vector2(-1, 8)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_bhunq")
-
-[node name="InventoryUI" type="CanvasLayer" parent="." unique_id=2138902978]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="InventoryUI" unique_id=2114955349]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050980393, 0.22352941, 0.3529412, 1)
-
-[node name="Label" type="Label" parent="InventoryUI/ColorRect" unique_id=926538272]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -37.5
-offset_top = 50.0
-offset_right = 37.5
-offset_bottom = 73.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
-text = "Inventory"
-
-[node name="InventoryUI" parent="InventoryUI/ColorRect" unique_id=1571437587 instance=ExtResource("3_qhqgy")]
-layout_mode = 1
 
 [node name="StateMachine" type="Node" parent="." unique_id=1759923455 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_c4h5g")
@@ -351,7 +321,6 @@ action_particles = NodePath("../../SpinPlantParticles")
 metadata/_custom_type_script = "uid://x1gmejvrbamt"
 
 [node name="ItemCollectionArea" type="Area2D" parent="." unique_id=330695041]
-visible = false
 collision_layer = 0
 collision_mask = 4
 
@@ -408,7 +377,6 @@ scale_amount_max = 2.0
 color = Color(0.741176, 0.560784, 0.290196, 1)
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=417658018]
-visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -425,6 +393,7 @@ stream = SubResource("AudioStreamRandomizer_uxo23")
 stream = SubResource("AudioStreamRandomizer_uxo23")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1872575651]
+color = Color(0.7058824, 0.40784314, 1, 1)
 energy = 0.8
 texture = SubResource("GradientTexture2D_xv227")
 
