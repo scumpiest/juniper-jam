@@ -458,7 +458,8 @@ theme_override_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="Tutorial2/MarginContainer" unique_id=606415422]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "W,A,S,D to move"
+text = "W,A,S,D to move
+Press LeftShift to Spin"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
