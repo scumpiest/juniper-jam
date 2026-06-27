@@ -132,5 +132,5 @@ func _on_item_collection_area_area_entered(area: Area2D) -> void:
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Boss"):
+	if body.is_in_group("Boss") and GlobalData.is_skill_node_unlocked(&"Final"):
 		body.adjust_health(1)
